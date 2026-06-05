@@ -1,1 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMKO Capital — AMKO Lease Advantage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --slate:#2C3E50;--slate-dark:#1A2530;--slate-mid:#34495E;
+    --maroon:#8B2635;--maroon-light:#A63040;
+    --tan:#C8A882;--tan-pale:#F5F0E8;
+    --cream:#FAF8F4;--off-white:#F2EEE8;
+    --gray-light:#E8E4DC;--gray-mid:#C8C4BC;--gray-text:#6B6760;
+    --text-dark:#1A1A1A;--green:#2D6A4F;--white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Source Sans 3',sans-serif;font-weight:400;color:var(--text-dark);background:var(--white);line-height:1.6;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--slate);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:84px;}
+  .nav-logo img{height:56px;display:block;}
+  .nav-links{display:flex;align-items:center;gap:6px;list-style:none;}
+  .nav-links a{color:rgba(255,255,255,0.78);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:0.3px;padding:8px 14px;border-radius:3px;transition:all 0.2s;}
+  .nav-links a:hover{color:var(--white);background:rgba(255,255,255,0.08);}
+  .nav-cta{background:var(--maroon)!important;color:var(--white)!important;padding:9px 20px!important;font-weight:600!important;}
+  .nav-cta:hover{background:var(--maroon-light)!important;}
+  .hero{margin-top:84px;background:var(--slate);min-height:600px;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;}
+  .hero-pattern{position:absolute;top:0;left:0;right:0;bottom:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 60px,rgba(139,38,53,0.05) 60px,rgba(139,38,53,0.05) 61px),repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(139,38,53,0.05) 60px,rgba(139,38,53,0.05) 61px);}
+  .hero-left{position:relative;z-index:2;padding:80px 60px 80px 80px;display:flex;flex-direction:column;justify-content:center;}
+  .hero-eyebrow{display:inline-block;background:var(--maroon);color:var(--white);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;margin-bottom:28px;border-radius:2px;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:var(--white);line-height:1.15;margin-bottom:24px;}
+  .hero h1 span{color:var(--tan);}
+  .hero-sub{font-size:18px;color:rgba(255,255,255,0.72);line-height:1.7;margin-bottom:40px;max-width:440px;}
+  .hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
+  .btn-primary{background:var(--maroon);color:var(--white);padding:15px 32px;font-size:15px;font-weight:600;text-decoration:none;border-radius:3px;border:2px solid var(--maroon);transition:all 0.2s;display:inline-flex;align-items:center;gap:10px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+  .btn-primary:hover{background:var(--maroon-light);border-color:var(--maroon-light);}
+  .btn-outline{background:transparent;color:var(--white);padding:15px 32px;font-size:15px;font-weight:600;text-decoration:none;border-radius:3px;border:2px solid rgba(255,255,255,0.35);transition:all 0.2s;display:inline-flex;align-items:center;gap:10px;}
+  .btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,0.06);}
+  .btn-tan{background:var(--tan);color:var(--white);padding:15px 28px;font-size:15px;font-weight:700;text-decoration:none;border-radius:3px;border:2px solid var(--tan);transition:all 0.2s;display:inline-flex;align-items:center;gap:10px;cursor:pointer;font-family:'Source Sans 3',sans-serif;box-shadow:0 4px 14px rgba(200,168,130,0.30);}
+  .btn-tan:hover{background:#D4B697;border-color:#D4B697;transform:translateY(-2px);box-shadow:0 8px 22px rgba(200,168,130,0.45);}
+  .btn-primary svg,.btn-outline svg,.btn-tan svg{flex-shrink:0;}
+  .hero-right{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;padding:60px;}
+  .hero-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.13);border-radius:8px;padding:36px;width:100%;max-width:380px;}
+  .hero-card-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--tan);margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid rgba(200,168,130,0.25);}
+  .hero-stat{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+  .hero-stat:last-child{border-bottom:none;}
+  .hero-stat-label{font-size:13px;color:rgba(255,255,255,0.55);}
+  .hero-stat-value{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--white);}
+  .hero-stat-value.tan{color:var(--tan);}
+  .trust-bar{background:var(--maroon);padding:16px 80px;display:flex;align-items:center;gap:40px;overflow-x:auto;}
+  .trust-item{display:flex;align-items:center;gap:8px;white-space:nowrap;color:rgba(255,255,255,0.92);font-size:13px;font-weight:600;}
+  .trust-dot{width:5px;height:5px;background:rgba(255,255,255,0.4);border-radius:50%;flex-shrink:0;}
+  section{padding:96px 80px;}
+  .section-eyebrow{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--maroon);margin-bottom:14px;text-align:center;}
+  .section-title{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:var(--slate);line-height:1.2;margin-bottom:20px;text-align:center;}
+  .section-body{font-size:17px;color:var(--gray-text);line-height:1.8;max-width:600px;text-align:center;margin:0 auto;}
+  #how-it-works{background:var(--tan-pale);}
+  .how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:56px;background:var(--gray-mid);border:1px solid var(--gray-mid);border-radius:6px;overflow:hidden;}
+  .how-step{background:var(--white);padding:40px 32px;}
+  .step-number{font-family:'Playfair Display',serif;font-size:64px;font-weight:700;color:#B8B0A4;line-height:1;margin-bottom:16px;}
+  .step-tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:2px;margin-bottom:16px;background:rgba(139,38,53,0.1);color:var(--maroon);}
+  .step-tag.bank{background:rgba(44,62,80,0.1);color:var(--slate);}
+  .step-tag.both{background:rgba(45,106,79,0.1);color:var(--green);}
+  .step-title{font-size:16px;font-weight:600;color:var(--slate);margin-bottom:12px;}
+  .step-body{font-size:14px;color:var(--gray-text);line-height:1.7;}
+  #services{background:var(--slate);}
+  #services .section-title{color:var(--white);text-align:center;}
+  #services .section-eyebrow{color:var(--tan);}
+  #services .section-body{color:rgba(255,255,255,0.6);}
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;}
+  .service-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:6px;padding:36px;transition:all 0.25s;}
+  .service-card:hover{background:rgba(255,255,255,0.09);border-color:var(--maroon);transform:translateY(-3px);}
+  .service-icon{width:48px;height:48px;background:var(--maroon);border-radius:4px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:22px;}
+  .service-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--white);margin-bottom:14px;}
+  .service-body{font-size:14px;color:rgba(255,255,255,0.58);line-height:1.75;}
+  #apply{background:var(--white);}
+  .apply-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:64px;align-items:start;margin-top:48px;}
+  .apply-benefit{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--gray-light);}
+  .apply-benefit:last-child{border-bottom:none;}
+  .benefit-check{width:24px;height:24px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--white);font-size:13px;margin-top:2px;}
+  .benefit-text{font-size:15px;color:var(--text-dark);line-height:1.6;}
+  .benefit-text strong{color:var(--slate);font-weight:600;}
+  .form-embed-wrapper{border:1px solid var(--gray-mid);border-radius:6px;overflow:hidden;box-shadow:0 4px 24px rgba(44,62,80,0.08);}
+  .form-embed-header{background:var(--slate);padding:16px 24px;display:flex;align-items:center;gap:12px;border-bottom:3px solid var(--maroon);}
+  .form-embed-header span{color:var(--white);font-size:14px;font-weight:600;}
+  .form-embed-dot{width:8px;height:8px;background:var(--tan);border-radius:50%;}
+  #bank-portal{background:var(--off-white);}
+  .portal-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:center;margin-top:48px;}
+  .portal-features{display:flex;flex-direction:column;gap:20px;}
+  .portal-feature{background:var(--white);border:1px solid var(--gray-mid);border-left:4px solid var(--maroon);border-radius:4px;padding:20px 24px;}
+  .portal-feature h4{font-size:15px;font-weight:600;color:var(--slate);margin-bottom:6px;}
+  .portal-feature p{font-size:13px;color:var(--gray-text);line-height:1.6;}
+  .portal-cta-card{background:var(--slate);border-radius:8px;padding:48px 40px;text-align:center;}
+  .portal-cta-card h3{font-family:'Playfair Display',serif;font-size:28px;color:var(--white);margin-bottom:16px;}
+  .portal-cta-card p{font-size:15px;color:rgba(255,255,255,0.62);line-height:1.7;margin-bottom:32px;}
+  #faq{background:var(--white);}
+  .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:56px;}
+  .faq-item{border:1px solid var(--gray-mid);border-radius:6px;overflow:hidden;}
+  .faq-question{padding:20px 24px;background:var(--white);font-size:15px;font-weight:600;color:var(--slate);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;user-select:none;transition:background 0.2s;}
+  .faq-question:hover{background:var(--tan-pale);}
+  .faq-toggle{width:24px;height:24px;background:var(--slate);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:16px;flex-shrink:0;transition:all 0.2s;}
+  .faq-answer{padding:0 24px;max-height:0;overflow:hidden;transition:all 0.3s ease;font-size:14px;color:var(--gray-text);line-height:1.75;}
+  .faq-item.open .faq-answer{max-height:300px;padding:16px 24px 20px;}
+  .faq-item.open .faq-toggle{background:var(--maroon);transform:rotate(45deg);}
+  #news{background:var(--tan-pale);}
+  .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;}
+  .news-card{background:var(--white);border:1px solid var(--gray-mid);border-radius:6px;overflow:hidden;transition:all 0.25s;}
+  .news-card:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(44,62,80,0.1);}
+  .news-card-header{background:var(--slate);padding:32px;display:flex;align-items:flex-end;min-height:140px;}
+  .news-tag{display:inline-block;background:var(--maroon);color:var(--white);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:2px;}
+  .news-card-body{padding:28px;}
+  .news-date{font-size:12px;color:var(--gray-text);margin-bottom:10px;}
+  .news-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--slate);line-height:1.4;margin-bottom:12px;}
+  .news-excerpt{font-size:13px;color:var(--gray-text);line-height:1.7;}
+  #contact{background:var(--slate);padding:80px;}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+  #contact .section-title{color:var(--white);text-align:center;}
+  #contact .section-eyebrow{color:var(--tan);}
+  #contact .section-body{color:rgba(255,255,255,0.62);margin-top:16px;}
+  .contact-items{margin-top:40px;display:flex;flex-direction:column;gap:24px;}
+  .contact-item{display:flex;gap:16px;align-items:flex-start;}
+  .contact-icon{width:40px;height:40px;background:rgba(139,38,53,0.25);border:1px solid var(--maroon);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+  .contact-detail-label{font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:4px;}
+  .contact-detail-value{font-size:15px;color:var(--white);font-weight:500;}
+  .contact-form-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.11);border-radius:8px;padding:40px;}
+  .contact-form-card h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--white);margin-bottom:28px;}
+  .form-group{margin-bottom:18px;}
+  .form-group label{display:block;font-size:12px;font-weight:600;letter-spacing:0.5px;color:rgba(255,255,255,0.5);text-transform:uppercase;margin-bottom:8px;}
+  .form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:4px;padding:12px 16px;color:var(--white);font-size:14px;font-family:'Source Sans 3',sans-serif;outline:none;transition:border-color 0.2s;}
+  .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.28);}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--maroon);}
+  .form-group select option{background:var(--slate);color:var(--white);}
+  .form-group textarea{resize:vertical;min-height:100px;}
+  footer{background:var(--slate-dark);padding:48px 80px;display:flex;align-items:center;justify-content:space-between;border-top:3px solid var(--maroon);}
+  .footer-left img{height:36px;margin-bottom:12px;display:block;}
+  .footer-left p{font-size:13px;color:rgba(255,255,255,0.38);}
+  .footer-links{display:flex;gap:32px;}
+  .footer-links a{font-size:13px;color:rgba(255,255,255,0.48);text-decoration:none;transition:color 0.2s;}
+  .footer-links a:hover{color:var(--white);}
 
+  /* ── Gate page ── */
+  .gate-page{display:none;min-height:100vh;background:var(--slate);align-items:center;justify-content:center;padding:40px 20px;}
+  .gate-page.active{display:flex;}
+  .gate-card{background:var(--white);border-radius:10px;padding:52px 48px;max-width:480px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.25);text-align:center;}
+  .gate-logo{margin-bottom:28px;}
+  .gate-logo img{height:40px;}
+  .gate-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--slate);margin-bottom:10px;}
+  .gate-sub{font-size:15px;color:var(--gray-text);line-height:1.6;margin-bottom:32px;}
+  .gate-input-wrap{position:relative;margin-bottom:16px;}
+  .gate-input{width:100%;padding:14px 18px;font-size:16px;font-family:'Source Sans 3',sans-serif;font-weight:600;letter-spacing:2px;text-transform:uppercase;border:2px solid var(--gray-mid);border-radius:5px;outline:none;text-align:center;transition:border-color 0.2s;color:var(--slate);}
+  .gate-input:focus{border-color:var(--maroon);}
+  .gate-input.err{border-color:#C0392B;background:#FFF8F8;}
+  .gate-err{font-size:13px;color:#C0392B;margin-bottom:16px;display:none;}
+  .gate-btn{width:100%;background:var(--maroon);color:var(--white);border:none;padding:15px;font-size:15px;font-weight:700;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:background 0.2s;margin-bottom:16px;}
+  .gate-btn:hover:not(:disabled){background:var(--maroon-light);}
+  .gate-btn:disabled{background:#999;cursor:not-allowed;}
+  .gate-back{background:none;border:none;font-size:13px;color:var(--gray-text);cursor:pointer;font-family:'Source Sans 3',sans-serif;text-decoration:underline;}
+  .gate-back:hover{color:var(--slate);}
+  .gate-hint{font-size:12px;color:var(--gray-text);margin-top:20px;padding-top:20px;border-top:1px solid var(--gray-light);}
+  /* Lock badge on pre-filled fields */
+  .field-locked{background:var(--tan-pale)!important;color:var(--slate)!important;cursor:default!important;}
+  .lock-badge{display:inline-block;font-size:11px;font-weight:600;color:var(--green);background:#E8F5E8;padding:3px 8px;border-radius:3px;margin-left:8px;vertical-align:middle;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+  .hero-left>*{animation:fadeUp 0.6s ease both;}
+  .hero-left>*:nth-child(1){animation-delay:0.1s;}
+  .hero-left>*:nth-child(2){animation-delay:0.2s;}
+  .hero-left>*:nth-child(3){animation-delay:0.3s;}
+  .hero-left>*:nth-child(4){animation-delay:0.4s;}
+  .hero-right{animation:fadeUp 0.8s ease 0.3s both;}
+
+  .app-page{display:none;}.app-page.active{display:block;}
+  .main-site.hidden{display:none;}
+  .phf{background:var(--slate);padding:48px 80px 40px;margin-top:84px;}
+  .phf .ey{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--tan);margin-bottom:12px;}
+  .phf h1{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:16px;}
+  .phf p{font-size:16px;color:rgba(255,255,255,0.68);line-height:1.7;max-width:640px;}
+  .atb{background:var(--maroon);padding:14px 80px;display:flex;align-items:center;gap:36px;}
+  .ati{display:flex;align-items:center;gap:8px;white-space:nowrap;color:rgba(255,255,255,0.92);font-size:13px;font-weight:600;}
+  .atd{width:4px;height:4px;background:rgba(255,255,255,0.4);border-radius:50%;}
+  .fwrap{max-width:860px;margin:48px auto;padding:0 24px 80px;}
+  .fpb{background:var(--white);border:1px solid var(--gray-mid);border-radius:6px;padding:20px 28px;margin-bottom:32px;display:flex;align-items:center;}
+  .fps{display:flex;align-items:center;flex:1;}.fps:last-child{flex:0;}
+  .fpi{display:flex;flex-direction:column;align-items:center;}
+  .fsc{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;transition:all 0.3s;}
+  .fsc.active{background:var(--maroon);color:var(--white);}
+  .fsc.done{background:var(--green);color:var(--white);}
+  .fsc.pending{background:var(--gray-light);color:var(--gray-text);}
+  .fsl{font-size:11px;font-weight:600;margin-top:6px;text-align:center;white-space:nowrap;}
+  .fsl.active{color:var(--maroon);}.fsl.done{color:var(--green);}.fsl.pending{color:var(--gray-text);}
+  .fco{flex:1;height:2px;background:var(--gray-light);margin:0 8px;margin-bottom:16px;}.fco.done{background:var(--green);}
+  .fsec{background:var(--white);border:1px solid var(--gray-mid);border-radius:8px;overflow:hidden;margin-bottom:24px;display:none;}
+  .fsec.active{display:block;}
+  .fsh{background:var(--slate);padding:18px 28px;display:flex;align-items:center;gap:16px;}
+  .fsn{width:32px;height:32px;background:var(--maroon);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--white);flex-shrink:0;}
+  .fst{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--white);}
+  .fss{font-size:13px;color:rgba(255,255,255,0.55);margin-top:2px;}
+  .fbody{padding:32px 28px;}
+  .fg{display:grid;gap:20px;}.fg.c2{grid-template-columns:1fr 1fr;}.fg.c3{grid-template-columns:1fr 1fr 1fr;}.fg.c1{grid-template-columns:1fr;}
+  .fgp{display:flex;flex-direction:column;gap:6px;}
+  .fgp label{font-size:13px;font-weight:600;color:var(--slate);}
+  .fgp label .req{color:var(--maroon);margin-left:2px;}
+  .fgp input,.fgp select,.fgp textarea{width:100%;padding:11px 14px;border:1.5px solid var(--gray-mid);border-radius:4px;font-size:15px;font-family:'Source Sans 3',sans-serif;color:var(--text-dark);background:var(--white);outline:none;transition:border-color 0.2s;}
+  .fgp input:focus,.fgp select:focus,.fgp textarea:focus{border-color:var(--maroon);box-shadow:0 0 0 3px rgba(139,38,53,0.08);}
+  .fgp textarea{resize:vertical;min-height:100px;}
+  .fhint{font-size:12px;color:var(--gray-text);line-height:1.5;}
+  .ferr{font-size:12px;color:#C0392B;display:none;}
+  .fgp.herr .ferr{display:block;}
+  .fgp.herr input,.fgp.herr select,.fgp.herr textarea{border-color:#C0392B;}
+  .rg{display:flex;gap:16px;flex-wrap:wrap;margin-top:4px;}
+  .ro{display:flex;align-items:center;gap:8px;cursor:pointer;}
+  .ro input{width:18px;height:18px;accent-color:var(--maroon);cursor:pointer;}
+  .ro span{font-size:15px;color:var(--text-dark);}
+  .eog{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:4px;}
+  .eoo{border:1.5px solid var(--gray-mid);border-radius:4px;padding:10px 12px;cursor:pointer;transition:all 0.2s;text-align:center;}
+  .eoo:hover{border-color:var(--maroon);background:rgba(139,38,53,0.04);}
+  .eoo.sel{border-color:var(--maroon);background:rgba(139,38,53,0.08);}
+  .eoo input{display:none;}
+  .eoo span{font-size:13px;font-weight:600;color:var(--slate);}
+  .eoo.sel span{color:var(--maroon);}
+  .urow{display:flex;align-items:center;gap:16px;padding:16px 20px;background:var(--tan-pale);border:1px solid var(--gray-mid);border-radius:6px;margin-bottom:12px;}
+  .ubadge{background:var(--slate);color:var(--white);font-size:12px;font-weight:700;padding:4px 12px;border-radius:3px;white-space:nowrap;flex-shrink:0;}
+  .ucont{flex:1;}.ulbl{font-size:13px;font-weight:600;color:var(--slate);margin-bottom:2px;}
+  .uhint{font-size:12px;color:var(--gray-text);}
+  .ust{font-size:12px;margin-top:4px;display:none;}.ust.rdy{color:var(--green);display:block;}
+  .ufile{position:relative;flex-shrink:0;}
+  .ubtn{background:var(--maroon);color:var(--white);font-size:13px;font-weight:600;padding:8px 16px;border-radius:3px;cursor:pointer;white-space:nowrap;font-family:'Source Sans 3',sans-serif;border:none;}
+  .ubtn:hover{background:var(--maroon-light);}
+  .ufile input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+  .fdrop{border:2px dashed var(--gray-mid);border-radius:6px;padding:24px;text-align:center;cursor:pointer;transition:all 0.2s;background:var(--tan-pale);position:relative;}
+  .fdrop:hover{border-color:var(--maroon);}
+  .fdrop.hf{border-color:var(--green);background:rgba(45,106,79,0.06);border-style:solid;}
+  .fdrop input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+  .fdi{font-size:28px;margin-bottom:8px;}.fdl{font-size:14px;font-weight:600;color:var(--slate);margin-bottom:4px;}
+  .fdh{font-size:12px;color:var(--gray-text);}
+  .fdn{font-size:13px;font-weight:600;color:var(--green);margin-top:8px;display:none;}
+  .fdrop.hf .fdn{display:block;}
+  .di{padding:18px 20px;border:1px solid var(--gray-mid);border-radius:6px;margin-bottom:12px;background:var(--white);}
+  .dq{font-size:15px;color:var(--text-dark);line-height:1.6;margin-bottom:12px;}
+  .cnd{display:none;margin-top:16px;padding:16px;background:var(--tan-pale);border-left:3px solid var(--maroon);border-radius:0 4px 4px 0;}
+  .cnd.sh{display:block;}
+  .fdiv{height:1px;background:var(--gray-light);margin:24px 0;}
+  .fnav{display:flex;justify-content:space-between;align-items:center;margin-top:32px;}
+  .fbk{background:transparent;color:var(--slate);border:1.5px solid var(--gray-mid);padding:13px 28px;font-size:15px;font-weight:600;border-radius:3px;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all 0.2s;}
+  .fbk:hover{border-color:var(--slate);background:var(--off-white);}
+  .fnx{background:var(--maroon);color:var(--white);border:none;padding:13px 32px;font-size:15px;font-weight:600;border-radius:3px;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all 0.2s;}
+  .fnx:hover{background:var(--maroon-light);}
+  .fsub{background:var(--green);color:var(--white);border:none;padding:15px 48px;font-size:16px;font-weight:700;border-radius:3px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+  .fsub:hover{background:#235a3f;}
+  .flb{background:var(--tan-pale);border:1px solid var(--gray-mid);border-radius:6px;padding:20px 24px;margin-bottom:24px;}
+  .flb p{font-size:13px;color:var(--gray-text);line-height:1.75;}
+  .sigb{background:var(--white);border:1.5px solid var(--maroon);border-radius:6px;padding:24px 28px;margin-bottom:24px;}
+  .succ{display:none;text-align:center;padding:64px 32px;background:var(--white);border:1px solid var(--gray-mid);border-radius:8px;}
+  .succ.sh{display:block;}
+  .succ-ic{width:72px;height:72px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:32px;color:var(--white);}
+  .succ h2{font-family:'Playfair Display',serif;font-size:32px;color:var(--slate);margin-bottom:16px;}
+  .succ p{font-size:16px;color:var(--gray-text);line-height:1.7;max-width:480px;margin:0 auto 12px;}
+
+  /* Apply section CTA box */
+  .apply-cta-box{background:var(--slate);border-radius:8px;padding:56px 48px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:500px;}
+  .apply-cta-box .ala-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--tan);margin-bottom:16px;}
+  .apply-cta-box h2{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:20px;}
+  .apply-cta-box p{font-size:16px;color:rgba(255,255,255,0.65);line-height:1.7;max-width:360px;margin-bottom:36px;}
+  .apply-cta-btn{background:var(--maroon);color:var(--white);border:none;padding:16px 40px;font-size:15px;font-weight:700;border-radius:3px;cursor:pointer;font-family:'Source Sans 3',sans-serif;line-height:1.3;text-align:center;}
+  .apply-cta-btn:hover{background:var(--maroon-light);}
+  .apply-cta-btn .btn-line1{display:block;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;opacity:0.85;margin-bottom:3px;}
+  .apply-cta-btn .btn-line2{display:block;font-size:16px;font-weight:700;}
+
+  /* ── Payment Calculator ─────────────────────────────────────────────── */
+  #calculator{background:var(--cream);}
+  .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:56px;align-items:stretch;}
+  .calc-card{background:var(--white);border:1px solid var(--gray-mid);border-radius:8px;padding:36px;box-shadow:0 2px 12px rgba(44,62,80,0.05);}
+  .calc-card h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--slate);margin-bottom:6px;}
+  .calc-card-sub{font-size:14px;color:var(--gray-text);margin-bottom:28px;line-height:1.6;}
+  .calc-fg{margin-bottom:18px;}
+  .calc-fg label{display:block;font-size:13px;font-weight:600;color:var(--slate);margin-bottom:6px;}
+  .calc-fg label .opt{color:var(--gray-text);font-weight:500;font-size:12px;}
+  .calc-fg input,.calc-fg select{width:100%;padding:11px 14px;border:1.5px solid var(--gray-mid);border-radius:4px;font-size:15px;font-family:'Source Sans 3',sans-serif;color:var(--text-dark);background:var(--white);outline:none;transition:border-color 0.2s;}
+  .calc-fg input:focus,.calc-fg select:focus{border-color:var(--maroon);box-shadow:0 0 0 3px rgba(139,38,53,0.08);}
+  .calc-hint{font-size:12px;color:var(--gray-text);margin-top:6px;line-height:1.5;}
+  .calc-rg{display:flex;gap:10px;flex-wrap:wrap;margin-top:2px;}
+  .calc-rg label{flex:1;min-width:140px;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;border:1.5px solid var(--gray-mid);border-radius:4px;padding:11px 14px;transition:all 0.2s;font-size:13px;font-weight:600;color:var(--slate);margin-bottom:0;text-align:center;}
+  .calc-rg label:hover{border-color:var(--maroon);background:rgba(139,38,53,0.04);}
+  .calc-rg label.sel{border-color:var(--maroon);background:rgba(139,38,53,0.08);color:var(--maroon);}
+  .calc-rg input{display:none;}
+  .calc-btn{width:100%;background:var(--maroon);color:var(--white);border:none;padding:14px;font-size:15px;font-weight:700;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:background 0.2s;margin-top:10px;}
+  .calc-btn:hover:not(:disabled){background:var(--maroon-light);}
+  .calc-btn:disabled{background:#999;cursor:not-allowed;}
+  .calc-results{background:var(--slate);border-radius:8px;padding:36px;color:var(--white);display:flex;flex-direction:column;}
+  .calc-results-empty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:rgba(255,255,255,0.55);min-height:380px;}
+  .calc-results-empty-icon{font-size:42px;margin-bottom:18px;opacity:0.35;}
+  .calc-empty-title{font-family:'Playfair Display',serif;font-size:20px;color:rgba(255,255,255,0.85);margin-bottom:10px;}
+  .calc-empty-sub{font-size:13px;line-height:1.6;max-width:280px;}
+  .calc-results-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--white);margin-bottom:6px;}
+  .calc-results-sub{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:24px;display:flex;align-items:center;flex-wrap:wrap;gap:8px;}
+  .calc-rate-chip{display:inline-block;background:rgba(200,168,130,0.18);color:var(--tan);font-size:10px;font-weight:700;padding:3px 9px;border-radius:3px;letter-spacing:1px;text-transform:uppercase;}
+  .calc-result-stat{display:flex;justify-content:space-between;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.08);gap:16px;}
+  .calc-result-stat:last-of-type{border-bottom:none;}
+  .calc-result-label{font-size:13px;color:rgba(255,255,255,0.6);flex:1;}
+  .calc-result-detail{display:block;font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px;font-weight:400;}
+  .calc-result-value{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--white);text-align:right;white-space:nowrap;}
+  .calc-result-value.tan{color:var(--tan);}
+  .calc-result-value.large{font-size:22px;}
+  .calc-cta-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px;}
+  .calc-cta-primary{background:var(--maroon);color:var(--white);border:none;padding:13px 14px;font-size:14px;font-weight:700;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:background 0.2s;}
+  .calc-cta-primary:hover{background:var(--maroon-light);}
+  .calc-cta-secondary{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,0.3);padding:12px 14px;font-size:14px;font-weight:600;border-radius:4px;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all 0.2s;}
+  .calc-cta-secondary:hover{border-color:var(--white);background:rgba(255,255,255,0.06);}
+  .calc-disclaimer{margin-top:18px;padding:14px 16px;background:rgba(255,255,255,0.04);border-left:2px solid var(--tan);border-radius:0 4px 4px 0;font-size:11px;color:rgba(255,255,255,0.6);line-height:1.65;}
+  .calc-disclaimer strong{color:rgba(255,255,255,0.9);font-weight:700;}
+  .calc-err{display:none;font-size:12px;color:#C0392B;margin-top:6px;}
+  .calc-fg.herr input,.calc-fg.herr select{border-color:#C0392B;}
+  .calc-fg.herr .calc-err{display:block;}
+
+  /* Email capture modal */
+  .calc-modal{display:none;position:fixed;inset:0;background:rgba(26,37,48,0.72);z-index:200;align-items:center;justify-content:center;padding:20px;}
+  .calc-modal.active{display:flex;}
+  .calc-modal-card{background:var(--white);border-radius:10px;padding:40px 36px;max-width:460px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.3);max-height:90vh;overflow-y:auto;}
+  .calc-modal-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--slate);margin-bottom:8px;}
+  .calc-modal-sub{font-size:14px;color:var(--gray-text);margin-bottom:24px;line-height:1.6;}
+  .calc-modal-success{text-align:center;padding:24px 0;}
+  .calc-modal-success-icon{width:60px;height:60px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:28px;color:var(--white);}
+  .calc-modal-close{background:none;border:none;font-size:13px;color:var(--gray-text);cursor:pointer;font-family:'Source Sans 3',sans-serif;text-decoration:underline;display:block;margin:14px auto 0;}
+  .calc-modal-close:hover{color:var(--slate);}
+
+  @media(max-width:860px){
+    .calc-grid{grid-template-columns:1fr;gap:20px;}
+    .calc-cta-row{grid-template-columns:1fr;}
+    .calc-result-value{font-size:15px;}
+    .calc-result-value.large{font-size:19px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="main-site" id="mainSite">
+<nav>
+  <div class="nav-logo"><img src="data:image/png;base64,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" alt="AMKO Capital" /></div>
+  <ul class="nav-links">
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#calculator">Calculator</a></li>
+    <li><a href="#bank-portal">For Banks</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#news">News</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#" onclick="fShowApp();return false;" class="nav-cta">Apply Now</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-left">
+    <span class="hero-eyebrow">AMKO Lease Advantage</span>
+    <h1>Tax-Exempt Lease<br>Financing for <span>Public Entities</span></h1>
+    <p class="hero-sub">AMKO Capital connects municipalities with competitive bank financing — faster, simpler, and more transparent than traditional procurement.</p>
+    <div class="hero-actions">
+      <a href="#" onclick="fShowApp();return false;" class="btn-primary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>Apply for Financing</a>
+      <a href="#" onclick="calcScrollToTop();return false;" class="btn-tan"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="8.01" y2="11"/><line x1="12" y1="11" x2="12.01" y2="11"/><line x1="16" y1="11" x2="16.01" y2="11"/><line x1="8" y1="15" x2="8.01" y2="15"/><line x1="12" y1="15" x2="12.01" y2="15"/><line x1="16" y1="15" x2="16.01" y2="15"/><line x1="8" y1="19" x2="8.01" y2="19"/><line x1="12" y1="19" x2="12.01" y2="19"/><line x1="16" y1="19" x2="16.01" y2="19"/></svg>Lease Payment Calculator</a>
+      <a href="#how-it-works" class="btn-outline"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>How It Works</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="hero-card-title">Program at a Glance</div>
+      <div class="hero-stat"><span class="hero-stat-label">Financing Available</span><span class="hero-stat-value tan">$50K – $5M+</span></div>
+      <div class="hero-stat"><span class="hero-stat-label">Average Response Time</span><span class="hero-stat-value">7 Days</span></div>
+      <div class="hero-stat"><span class="hero-stat-label">Qualification Type</span><span class="hero-stat-value" style="font-size:16px;">Bank &amp; Nonbank Qualified</span></div>
+      <div class="hero-stat"><span class="hero-stat-label">Eligible Entities</span><span class="hero-stat-value">Cities, Counties &amp; Districts</span></div>
+      <div class="hero-stat"><span class="hero-stat-label">Application Fee</span><span class="hero-stat-value tan">None</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="trust-bar">
+  <div class="trust-item">&#10003; No Application Fee</div><div class="trust-dot"></div>
+  <div class="trust-item">&#10003; Bank Qualified Tax-Exempt Financing</div><div class="trust-dot"></div>
+  <div class="trust-item">&#10003; Competitive Rate Bidding</div><div class="trust-dot"></div>
+  <div class="trust-item">&#10003; Response in 7 Days</div><div class="trust-dot"></div>
+  <div class="trust-item">&#10003; Cities, Counties &amp; Special Districts</div><div class="trust-dot"></div>
+  <div class="trust-item">&#10003; Equipment, Technology &amp; Infrastructure</div>
+</div>
+
+<section id="how-it-works">
+  <div class="section-eyebrow">The Process</div>
+  <div class="section-title">From Application to Award in Four Steps</div>
+  <div class="section-body">Our automated platform handles the heavy lifting — financial analysis, bank outreach, and rate comparison — so your entity gets the best available rate with minimal effort.</div>
+  <div class="how-grid">
+    <div class="how-step"><div class="step-number">01</div><div class="step-tag">Municipality</div><div class="step-title">Submit Your Application</div><div class="step-body">Complete the online application with your entity's information and lease requirements. Attach three years of financial statements. No fees, no commitment.</div></div>
+    <div class="how-step"><div class="step-number">02</div><div class="step-tag">AMKO Capital</div><div class="step-title">Financial Analysis &amp; Bank Outreach</div><div class="step-body">Our platform analyzes your financial ratios and packages your opportunity for our network of qualified banks — all within minutes of your submission.</div></div>
+    <div class="how-step"><div class="step-number">03</div><div class="step-tag bank">Banks</div><div class="step-title">Banks Submit Competitive Rates</div><div class="step-body">Participating banks review your financials and submit purchase rate offers through our secure portal. Rates are automatically ranked lowest to highest.</div></div>
+    <div class="how-step"><div class="step-number">04</div><div class="step-tag both">Municipality</div><div class="step-title">Review Award &amp; Accept</div><div class="step-body">Once the response period closes, you receive the winning rate by email with a simple one-click Accept or Reject. AMKO Capital handles the rest.</div></div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-eyebrow">What We Offer</div>
+  <div class="section-title">Financing Solutions for Public Entities</div>
+  <div class="section-body">From technology upgrades to infrastructure projects, AMKO Capital structures tax-exempt lease financing for a wide range of public entity needs.</div>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-icon">💻</div><div class="service-title">Technology Equipment</div><div class="service-body">Computers, servers, network infrastructure, public safety technology, and software systems. Keep your entity current without large capital outlays.</div></div>
+    <div class="service-card"><div class="service-icon">🚒</div><div class="service-title">Public Safety Vehicles</div><div class="service-body">Police, fire, and emergency response vehicles. Structured as tax-exempt leases to maximize your budget and preserve your capital reserves.</div></div>
+    <div class="service-card"><div class="service-icon">🏗️</div><div class="service-title">Infrastructure &amp; Equipment</div><div class="service-body">Heavy equipment, facilities improvements, utility infrastructure, and public works projects. Flexible terms matched to asset life.</div></div>
+    <div class="service-card"><div class="service-icon">🌱</div><div class="service-title">Green Energy Projects</div><div class="service-body">Solar installations, EV charging infrastructure, and energy efficiency upgrades. Combine tax-exempt financing with available grants and incentives.</div></div>
+    <div class="service-card"><div class="service-icon">📡</div><div class="service-title">Communications Systems</div><div class="service-body">Radio systems, dispatch technology, fiber infrastructure, and broadband projects for underserved communities and public facilities.</div></div>
+    <div class="service-card"><div class="service-icon">🏛️</div><div class="service-title">Facilities &amp; Renovations</div><div class="service-body">Municipal building improvements, HVAC systems, accessibility upgrades, and facility expansions structured as lease-purchase agreements.</div></div>
+  </div>
+</section>
+
+<section id="calculator">
+  <div class="section-eyebrow">Estimate Your Payment</div>
+  <div class="section-title">Lease Payment Calculator</div>
+  <div class="section-body">Enter your financing details to estimate your annual lease payment and mill rate impact. No commitment, no email required to use this tool.</div>
+  <div class="calc-grid">
+    <div class="calc-card">
+      <h3>Lease Details</h3>
+      <p class="calc-card-sub">Provide a few details to see your estimated payment range. Final pricing is determined through competitive bank bidding.</p>
+
+      <div class="calc-fg" id="cfg-amount">
+        <label>Amount to Finance <span style="color:var(--maroon);">*</span></label>
+        <input type="text" id="calcAmount" placeholder="$250,000" oninput="calcFmtAmt(this)" />
+        <div class="calc-hint">Total dollar amount of the equipment or project. Typical range: $50,000 – $5,000,000.</div>
+        <div class="calc-err">Please enter an amount between $50,000 and $5,000,000</div>
+      </div>
+
+      <div class="calc-fg" id="cfg-term">
+        <label>Lease Term <span style="color:var(--maroon);">*</span></label>
+        <select id="calcTerm">
+          <option value="">Select term</option>
+          <option value="3">3 Years</option>
+          <option value="4">4 Years</option>
+          <option value="5">5 Years</option>
+          <option value="6">6 Years</option>
+          <option value="7">7 Years</option>
+          <option value="8">8 Years</option>
+          <option value="9">9 Years</option>
+          <option value="10">10 Years</option>
+          <option value="12">12 Years</option>
+          <option value="15">15 Years</option>
+        </select>
+        <div class="calc-hint">Typically matched to the expected useful life of the asset</div>
+        <div class="calc-err">Please select a lease term</div>
+      </div>
+
+      <div class="calc-fg">
+        <label>Bank Qualification</label>
+        <div class="calc-rg" id="calcBqGroup">
+          <label class="sel" onclick="calcSelBq(this,'BQ')"><input type="radio" name="calcBq" value="BQ" checked /><span>Bank Qualified</span></label>
+          <label onclick="calcSelBq(this,'NBQ')"><input type="radio" name="calcBq" value="NBQ" /><span>Non-Bank Qualified</span></label>
+        </div>
+        <div class="calc-hint">Bank Qualified entities issue $10M or less in tax-exempt obligations annually. <strong>If unsure, leave as Bank Qualified</strong> — most cities, counties, and special districts qualify.</div>
+      </div>
+
+      <div class="calc-fg">
+        <label>Net Taxable Value <span class="opt">(optional — for mill rate impact)</span></label>
+        <input type="text" id="calcTaxable" placeholder="$45,000,000" oninput="calcFmtAmt(this)" />
+        <div class="calc-hint">Your entity's net taxable value as used in mill levy calculations. We'll show estimated mill rate impact alongside your payment.</div>
+      </div>
+
+      <button class="calc-btn" onclick="calcRun()">Calculate Estimate</button>
+    </div>
+
+    <div class="calc-results" id="calcResultsPanel">
+      <div class="calc-results-empty" id="calcEmpty">
+        <div class="calc-results-empty-icon">📊</div>
+        <div class="calc-empty-title">Your Estimate</div>
+        <div class="calc-empty-sub">Enter your lease details on the left to see estimated annual payment, total interest, and mill rate impact.</div>
+      </div>
+
+      <div id="calcResults" style="display:none;">
+        <div class="calc-results-title">Your Estimated Payment</div>
+        <div class="calc-results-sub">
+          <span>Based on current municipal lease market conditions</span>
+          <span class="calc-rate-chip" id="calcRateChip">Bank Qualified</span>
+        </div>
+
+        <div class="calc-result-stat">
+          <div class="calc-result-label">Annual Payment<span class="calc-result-detail">paid in arrears</span></div>
+          <div class="calc-result-value tan large" id="calcPayment">—</div>
+        </div>
+
+        <div class="calc-result-stat">
+          <div class="calc-result-label">Estimated Rate Range<span class="calc-result-detail" id="calcTermLabel">— year term</span></div>
+          <div class="calc-result-value" id="calcRate">—</div>
+        </div>
+
+        <div class="calc-result-stat">
+          <div class="calc-result-label">Total Interest Over Term</div>
+          <div class="calc-result-value" id="calcInterest">—</div>
+        </div>
+
+        <div class="calc-result-stat">
+          <div class="calc-result-label">Total Cost of Lease<span class="calc-result-detail">principal + interest</span></div>
+          <div class="calc-result-value" id="calcTotal">—</div>
+        </div>
+
+        <div class="calc-result-stat" id="calcMillRow" style="display:none;">
+          <div class="calc-result-label">Estimated Mill Rate Impact<span class="calc-result-detail" id="calcMillDetail">against net taxable value</span></div>
+          <div class="calc-result-value tan" id="calcMills">—</div>
+        </div>
+
+        <div class="calc-cta-row">
+          <button class="calc-cta-primary" onclick="fShowApp()">Apply Now &rarr;</button>
+          <button class="calc-cta-secondary" onclick="calcShowEmailModal()">Email Me This Estimate</button>
+        </div>
+
+        <div class="calc-disclaimer">
+          <strong>Important:</strong> This is an estimate only. Actual rates are determined through competitive bidding by AMKO Capital's bank network and depend on the entity's financial profile, current market conditions, lease structure, and other factors. Final terms may vary materially from this estimate.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="calc-modal" id="calcModal">
+  <div class="calc-modal-card" id="calcModalCard">
+    <div id="calcModalForm">
+      <div class="calc-modal-title">Email Me This Estimate</div>
+      <p class="calc-modal-sub">We'll send a copy of your estimate to your inbox so you have it for your records. We may follow up to see if we can help with your financing.</p>
+
+      <div class="calc-fg" id="cfg-email">
+        <label>Email Address <span style="color:var(--maroon);">*</span></label>
+        <input type="email" id="calcEmail" placeholder="you@entity.gov" />
+        <div class="calc-err">Please enter a valid email address</div>
+      </div>
+
+      <div class="calc-fg" id="cfg-entityName">
+        <label>Entity Name <span style="color:var(--maroon);">*</span></label>
+        <input type="text" id="calcEntityName" placeholder="e.g. City of Fargo" />
+        <div class="calc-err">Please enter your entity name</div>
+      </div>
+
+      <div class="calc-fg">
+        <label>Your Name <span class="opt">(optional)</span></label>
+        <input type="text" id="calcContactName" placeholder="First and last name" />
+      </div>
+
+      <button class="calc-btn" id="calcEmailBtn" onclick="calcSendEmail()">Send Estimate</button>
+      <button class="calc-modal-close" onclick="calcCloseModal()">Cancel</button>
+    </div>
+
+    <div id="calcModalSuccess" style="display:none;">
+      <div class="calc-modal-success">
+        <div class="calc-modal-success-icon">&#10003;</div>
+        <div class="calc-modal-title">Estimate Sent</div>
+        <p class="calc-modal-sub">We've sent your estimate. Check your inbox shortly. AMKO Capital may follow up to see if we can help with your financing needs.</p>
+        <button class="calc-btn" onclick="calcCloseModal()" style="margin-top:0;">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="apply-info">
+  <div style="text-align:center;margin-bottom:48px;">
+    <div class="section-eyebrow" style="text-align:center;">Get Started</div>
+    <div class="section-title" style="max-width:100%;text-align:center;">Apply for the AMKO Lease Advantage</div>
+    <div class="section-body" style="max-width:640px;margin:0 auto;">Complete the application below. Our team will analyze your financials and reach out to our bank network within one business day.</div>
+  </div>
+  <div class="apply-grid">
+    <div>
+      <div class="apply-benefit"><div class="benefit-check">&#10003;</div><div class="benefit-text"><strong>No application fee.</strong> Submitting an application is completely free with no obligation to accept any offer.</div></div>
+      <div class="apply-benefit"><div class="benefit-check">&#10003;</div><div class="benefit-text"><strong>Competitive rate bidding.</strong> Multiple banks compete for your business — you always get the lowest available rate.</div></div>
+      <div class="apply-benefit"><div class="benefit-check">&#10003;</div><div class="benefit-text"><strong>7-day response window.</strong> Banks submit their rates within 7 days. You'll receive the winning offer by email.</div></div>
+      <div class="apply-benefit"><div class="benefit-check">&#10003;</div><div class="benefit-text"><strong>Bank qualified tax-exempt.</strong> Your financing is structured to qualify for the most favorable bank tax treatment.</div></div>
+      <div class="apply-benefit"><div class="benefit-check">&#10003;</div><div class="benefit-text"><strong>Simple one-click acceptance.</strong> Review your award and accept or decline with a single click — no paperwork until you're ready.</div></div>
+      <div class="apply-benefit"><div class="benefit-check">&#10003;</div><div class="benefit-text"><strong>Dedicated support.</strong> AMKO Capital guides you through every step from application to closing.</div></div>
+    </div>
+    <div class="apply-cta-box">
+      <div class="ala-label">Ready to Get Started?</div>
+      <h2>Apply in Under<br>Five Minutes</h2>
+      <p>No fees. No commitment. Our secure online application connects your entity with our full bank network within one business day.</p>
+      <button onclick="fShowApp()" class="apply-cta-btn">
+        <span class="btn-line1">Click Here</span>
+        <span class="btn-line2">To Start Your Application &rarr;</span>
+      </button>
+      <div style="margin-top:8px;font-size:12px;color:rgba(255,255,255,0.4);">Secure &nbsp;&middot;&nbsp; Confidential &nbsp;&middot;&nbsp; No Obligation</div>
+      <div style="margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:24px;width:100%;max-width:300px;">
+        <div style="text-align:center;"><div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--tan);">7 Days</div><div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">Average Response</div></div>
+        <div style="text-align:center;"><div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--tan);">$0</div><div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">Application Fee</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="bank-portal">
+  <div class="section-eyebrow">For Financial Institutions</div>
+  <div class="section-title">Partner with AMKO Capital</div>
+  <div class="section-body">Join our growing network of bank partners and gain access to a steady pipeline of pre-screened, bank qualified municipal lease opportunities.</div>
+  <div class="portal-grid">
+    <div class="portal-features">
+      <div class="portal-feature"><h4>Pre-Screened Opportunities</h4><p>Every opportunity has been reviewed for financial strength. We provide three years of audited financials and key ratio analysis with every deal.</p></div>
+      <div class="portal-feature"><h4>Structured Response Process</h4><p>Submit your rate through our secure online portal. No phone calls, no back-and-forth. A clean, professional process that respects your team's time.</p></div>
+      <div class="portal-feature"><h4>Bank Qualified Tax Treatment</h4><p>All opportunities are structured as bank qualified tax-exempt obligations, maximizing the after-tax yield for your institution.</p></div>
+      <div class="portal-feature"><h4>Competitive but Fair</h4><p>Rates are submitted blind and ranked by our system. The lowest qualifying rate wins — straightforward and transparent for all participants.</p></div>
+      <div class="portal-feature"><h4>Automated Notifications</h4><p>Receive opportunity emails with full financial details the moment a qualifying deal enters our system. Never miss an opportunity that fits your portfolio.</p></div>
+    </div>
+    <div class="portal-cta-card">
+      <h3>Interested in Participating?</h3>
+      <p>Contact AMKO Capital to discuss joining our bank partner network. We'll walk you through our process, deal flow, and documentation requirements.</p>
+      <a href="#contact" class="btn-primary">Contact Us to Get Started</a>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="section-eyebrow">Common Questions</div>
+  <div class="section-title">Frequently Asked Questions</div>
+  <div class="faq-grid">
+    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What types of entities are eligible?<div class="faq-toggle">+</div></div><div class="faq-answer">Cities, counties, townships, school districts, special districts, and other governmental entities are eligible. The entity must be a tax-exempt governmental unit under IRC Section 103.</div></div>
+    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What is the minimum and maximum lease amount?<div class="faq-toggle">+</div></div><div class="faq-answer">We typically work with lease amounts from $50,000 to $5 million or more. Smaller amounts may be considered on a case-by-case basis depending on the entity's financial profile.</div></div>
+    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How long does the process take?<div class="faq-toggle">+</div></div><div class="faq-answer">From application submission to receiving a winning rate offer typically takes 7 to 10 business days. Once you accept, closing documentation is typically completed within 2 to 4 weeks.</div></div>
+    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What financial documents do I need?<div class="faq-toggle">+</div></div><div class="faq-answer">You will need three years of audited financial statements or annual financial reports. These are the primary documents banks use to evaluate your entity's creditworthiness.</div></div>
+    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is there a cost to apply?<div class="faq-toggle">+</div></div><div class="faq-answer">No. There is no application fee and no cost to receive rate offers. AMKO Capital is compensated by the winning bank at closing, so the process is completely free to the municipality.</div></div>
+    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What is bank qualified status?<div class="faq-toggle">+</div></div><div class="faq-answer">Under IRC §265(b)(3), a governmental entity that reasonably expects to issue no more than $10,000,000 in tax-exempt obligations during the calendar year may designate those obligations as <em>qualified tax-exempt obligations</em> — commonly called Bank Qualified. This designation allows participating banks to deduct a portion of their carrying cost on the obligation, generally resulting in more favorable interest rates for the entity.</div></div>
+    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I finance multiple items in one lease?<div class="faq-toggle">+</div></div><div class="faq-answer">Yes. Multiple items can often be combined into a single master lease agreement, simplifying administration and potentially improving your rate through a larger aggregate amount.</div></div>
+    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What happens if no banks respond?<div class="faq-toggle">+</div></div><div class="faq-answer">If we do not receive qualifying rate offers within the response window, AMKO Capital will contact you directly to discuss alternatives, including extending the window or adjusting the terms.</div></div>
+  </div>
+</section>
+
+<section id="news">
+  <div class="section-eyebrow">Latest Updates</div>
+  <div class="section-title">News &amp; Insights</div>
+  <div class="news-grid">
+    <div class="news-card"><div class="news-card-header"><span class="news-tag">Program Update</span></div><div class="news-card-body"><div class="news-date">April 2026</div><div class="news-title">AMKO Capital Launches the AMKO Lease Advantage Platform</div><div class="news-excerpt">Our new automated platform delivers bank rate offers to municipalities within 7 days of application — a significant improvement over traditional procurement timelines.</div></div></div>
+    <div class="news-card"><div class="news-card-header" style="background:var(--slate-mid);"><span class="news-tag">Market Update</span></div><div class="news-card-body"><div class="news-date">March 2026</div><div class="news-title">Municipal Lease Rates Remain Competitive in 2026</div><div class="news-excerpt">Bank qualified tax-exempt lease rates continue to offer favorable terms for eligible public entities compared to traditional bond financing for smaller capital needs.</div></div></div>
+    <div class="news-card"><div class="news-card-header" style="background:#2D3A2E;"><span class="news-tag">Education</span></div><div class="news-card-body"><div class="news-date">February 2026</div><div class="news-title">Understanding Bank Qualified Status: A Guide for Municipal Finance Officers</div><div class="news-excerpt">Bank qualified designation can significantly reduce your borrowing costs. Here's what finance officers need to know about eligibility and how to maximize the benefit.</div></div></div>
+  </div>
+</section>
+
+<section id="contact" style="padding:80px;">
+  <div class="contact-grid">
+    <div>
+      <div class="section-eyebrow">Get in Touch</div>
+      <div class="section-title">Contact AMKO Capital</div>
+      <div class="section-body">Whether you're a municipality exploring financing options or a bank interested in participating in our network, we'd love to hear from you.</div>
+      <div class="contact-items">
+        <div class="contact-item"><div class="contact-icon">📧</div><div><div class="contact-detail-label">Email</div><div class="contact-detail-value">info@amkocap.com</div></div></div>
+        <div class="contact-item"><div class="contact-icon">📞</div><div><div class="contact-detail-label">Phone</div><div class="contact-detail-value">(701) 540-6821</div></div></div>
+        <div class="contact-item"><div class="contact-icon">📍</div><div><div class="contact-detail-label">Location</div><div class="contact-detail-value">Fargo, North Dakota</div></div></div>
+        <div class="contact-item"><div class="contact-icon">⏱️</div><div><div class="contact-detail-label">Response Time</div><div class="contact-detail-value">Within one business day</div></div></div>
+      </div>
+    </div>
+    <div class="contact-form-card">
+      <h3>Send Us a Message</h3>
+      <div class="form-group"><label>Your Name <span style="color:var(--maroon);">*</span></label><input type="text" id="cName" placeholder="First and last name" /></div>
+      <div class="form-group"><label>Email Address <span style="color:var(--maroon);">*</span></label><input type="email" id="cEmail" placeholder="your@email.com" /></div>
+      <div class="form-group"><label>Phone Number <span style="color:var(--maroon);">*</span></label><input type="tel" id="cPhone" placeholder="(701) 555-0123" maxlength="14" oninput="cFmtPhone(this)" /></div>
+      <div class="form-group"><label>I am a <span style="color:var(--maroon);">*</span></label><select id="cSubmitterType" onchange="cUpdateRequestType()"><option value="">Select one</option><option value="Municipality / Government Entity">Municipality / Government Entity</option><option value="Bank / Financial Institution">Bank / Financial Institution</option><option value="Other">Other</option></select></div>
+      <div class="form-group"><label>What can we help with? <span style="color:var(--maroon);">*</span></label><select id="cRequestType"><option value="">Select your &quot;I am a&quot; first</option></select></div>
+      <div class="form-group"><label>Message</label><textarea id="cMessage" placeholder="How can we help you?"></textarea></div>
+      <div id="cErr" style="display:none;color:#C0392B;font-size:13px;margin-bottom:12px;"></div>
+      <button class="btn-primary" id="cSendBtn" style="width:100%;border:none;" onclick="cSendMessage()">Send Message</button>
+      <div id="cSuccess" style="display:none;margin-top:16px;padding:16px;background:rgba(45,106,79,0.18);border:1px solid var(--green);border-radius:4px;color:var(--white);font-size:14px;">&#10003; Thank you &mdash; your message has been sent. We'll respond within one business day.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-left">
+    <p>&copy; 2026 AMKO Capital, LLC. All rights reserved. &nbsp;&middot;&nbsp; amkocap.com</p>
+  </div>
+  <div class="footer-links">
+    <a href="#how-it-works">How It Works</a>
+    <a href="#services">Services</a>
+    <a href="#bank-portal">For Banks</a>
+    <a href="#" onclick="fShowApp();return false;">Apply</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+  // ── Contact form (Send Us a Message) ──────────────────────────────────────
+  function cFmtPhone(el){
+    var v=el.value.replace(/\D/g,'').slice(0,10);
+    if(v.length>6) el.value='('+v.slice(0,3)+') '+v.slice(3,6)+'-'+v.slice(6);
+    else if(v.length>3) el.value='('+v.slice(0,3)+') '+v.slice(3);
+    else if(v.length>0) el.value='('+v;
+    else el.value='';
+  }
+  function cUpdateRequestType(){
+    var t=document.getElementById('cSubmitterType').value;
+    var sel=document.getElementById('cRequestType');
+    var opts=[];
+    if(t==='Municipality / Government Entity'){opts=['Requesting an access code','More information','Other'];}
+    else if(t==='Bank / Financial Institution'){opts=['Information about bank participation','More information','Other'];}
+    else if(t==='Other'){opts=['More information','Other'];}
+    sel.innerHTML='';
+    if(opts.length===0){sel.innerHTML='<option value="">Select your &quot;I am a&quot; first</option>';return;}
+    var ph=document.createElement('option');ph.value='';ph.textContent='Select one';sel.appendChild(ph);
+    opts.forEach(function(o){var op=document.createElement('option');op.value=o;op.textContent=o;sel.appendChild(op);});
+  }
+  function cSendMessage(){
+    var name=document.getElementById('cName').value.trim();
+    var email=document.getElementById('cEmail').value.trim();
+    var phone=document.getElementById('cPhone').value.trim();
+    var submitterType=document.getElementById('cSubmitterType').value;
+    var requestType=document.getElementById('cRequestType').value;
+    var message=document.getElementById('cMessage').value.trim();
+    var err=document.getElementById('cErr');
+    var missing=[];
+    if(!name)missing.push('your name');
+    if(!email||email.indexOf('@')<1)missing.push('a valid email');
+    if(!phone)missing.push('your phone number');
+    if(!submitterType)missing.push('what you are (I am a)');
+    if(!requestType)missing.push('what we can help with');
+    if(missing.length){err.textContent='Please enter '+missing.join(', ')+'.';err.style.display='block';return;}
+    err.style.display='none';
+    var btn=document.getElementById('cSendBtn');
+    btn.textContent='Sending...';btn.disabled=true;
+    var payload={name:name,email:email,phone:phone,submitterType:submitterType,requestType:requestType,message:message};
+    fetch('https://default4b7f706d9033497ab32a4d92301020.93.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/bae61686dc2847f8b903c95de9f6ba8d/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Pi_Gn-_IawZ1qdlRpfIQEIDoiTNp9q1hbeaxMqOqWig',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(){document.getElementById('cSuccess').style.display='block';btn.style.display='none';})
+    .catch(function(){btn.textContent='Send Message';btn.disabled=false;err.textContent='There was an error sending your message. Please email us directly at info@amkocap.com.';err.style.display='block';});
+  }
+
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id'); });
+    navLinks.forEach(link => {
+      link.style.color = '';
+      if (link.getAttribute('href') === '#' + current) link.style.color = 'var(--tan)';
+    });
+  });
+
+  let fCurSec=1,fEntType='';
+
+  // ── Input formatters ──────────────────────────────────────────────────────
+  function fFmtTaxId(el){
+    let v=el.value.replace(/\D/g,'').slice(0,9);
+    if(v.length>2) v=v.slice(0,2)+'-'+v.slice(2);
+    el.value=v;
+  }
+  function fFmtPhone(el){
+    let v=el.value.replace(/\D/g,'').slice(0,10);
+    if(v.length>=7) v='('+v.slice(0,3)+') '+v.slice(3,6)+'-'+v.slice(6);
+    else if(v.length>=4) v='('+v.slice(0,3)+') '+v.slice(3);
+    else if(v.length>=1) v='('+v;
+    el.value=v;
+  }
+  function fFmtTaxable(el){
+    let v=el.value.replace(/[^\d]/g,'');
+    el.value=v?'$'+Number(v).toLocaleString('en-US'):'';
+  }
+  function fFmtLeaseAmount(el){
+    let raw=el.value.replace(/[^\d.]/g,'');
+    const parts=raw.split('.');
+    if(parts.length>2) raw=parts[0]+'.'+parts.slice(1).join('');
+    const [intPart,decPart]=raw.split('.');
+    let out=intPart?Number(intPart).toLocaleString('en-US'):'';
+    if(raw.indexOf('.')!==-1) out+='.'+(decPart||'').slice(0,2);
+    el.value=out?'$'+out:'';
+  }
+  function fBlurLeaseAmount(el){
+    const raw=el.value.replace(/[^\d.]/g,'');
+    if(!raw) return;
+    const n=parseFloat(raw);
+    if(isNaN(n)) return;
+    el.value='$'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+  }
+  // Strip formatting for submit. Zero cents strip to integer for flow backward compatibility.
+  function fRawNumber(s){
+    const c=(s||'').replace(/[^\d.]/g,'');
+    if(!c) return '';
+    const n=parseFloat(c);
+    return isNaN(n)?'':n.toString();
+  }
+  function fRawInt(s){return (s||'').replace(/[^\d]/g,'');}
+
+  function fShowApp(){document.getElementById('mainSite').classList.add('hidden');document.getElementById('gatePage').classList.add('active');window.scrollTo({top:0,behavior:'smooth'});setTimeout(()=>document.getElementById('gateCodeInput').focus(),300);}
+  function fBackToSite(){document.getElementById('appPage').classList.remove('active');document.getElementById('gatePage').classList.remove('active');document.getElementById('mainSite').classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}
+  function fGo(num){if(num>fCurSec&&!fValidate(fCurSec))return;document.getElementById('fsec'+fCurSec).classList.remove('active');document.getElementById('fsec'+num).classList.add('active');fUpdProg(num);fCurSec=num;window.scrollTo({top:0,behavior:'smooth'});}
+  function fUpdProg(num){for(let i=1;i<=5;i++){const c=document.getElementById('fsc'+i),l=document.getElementById('fsl'+i);if(i<num){c.className='fsc done';c.innerHTML='&#10003;';l.className='fsl done';if(i<=4)document.getElementById('fco'+i).className='fco done';}else if(i===num){c.className='fsc active';c.innerHTML=i;l.className='fsl active';}else{c.className='fsc pending';c.innerHTML=i;l.className='fsl pending';}}}
+  function fChk(elId,fgId){const el=document.getElementById(elId),fg=document.getElementById(fgId);if(!el||!fg)return true;if(!el.value.trim()){fg.classList.add('herr');return false;}fg.classList.remove('herr');return true;}
+  function fValidate(n){let ok=true;
+    if(n===1){[['fEntityName','ffg-entityName'],['fAddress','ffg-address'],['fCity','ffg-city'],['fZip','ffg-zip'],['fCounty','ffg-county'],['fTaxId','ffg-taxId'],['fTaxableValue','ffg-taxableValue']].forEach(([e,f])=>{if(!fChk(e,f))ok=false;});const st=document.getElementById('fState'),sfg=document.getElementById('ffg-state');if(!st.value){sfg.classList.add('herr');ok=false;}else sfg.classList.remove('herr');if(!fEntType){document.getElementById('fEntTypeErr').style.display='block';ok=false;}}
+    if(n===2){[['fContactName','ffg-contactName'],['fContactTitle','ffg-contactTitle'],['fContactPhone','ffg-contactPhone'],['fContactEmail','ffg-contactEmail']].forEach(([e,f])=>{if(!fChk(e,f))ok=false;});}
+    if(n===3){[['fLeaseAmount','ffg-leaseAmount'],['fLeasePurpose','ffg-leasePurpose'],['fVendorName','ffg-vendorName']].forEach(([e,f])=>{if(!fChk(e,f))ok=false;});const lt=document.getElementById('fLeaseTerm'),lfg=document.getElementById('ffg-leaseTerm');if(!lt.value){lfg.classList.add('herr');ok=false;}else lfg.classList.remove('herr');const pf=document.getElementById('fPaymentFrequency'),pfg=document.getElementById('ffg-paymentFrequency');if(!pf.value){pfg.classList.add('herr');ok=false;}else pfg.classList.remove('herr');if(!document.querySelector('input[name="fHasQuote"]:checked')){document.getElementById('fQuoteErr').style.display='block';ok=false;}else document.getElementById('fQuoteErr').style.display='none';}
+    if(n===4){[['fBq','fBqErr'],['fPriorDef','fPriorDefErr'],['fSelfIns','fSelfInsErr']].forEach(([name,errId])=>{if(!document.querySelector('input[name="'+name+'"]:checked')){document.getElementById(errId).style.display='block';ok=false;}else document.getElementById(errId).style.display='none';});}
+    return ok;}
+  function fSelEnt(el,val){document.querySelectorAll('.eoo').forEach(o=>o.classList.remove('sel'));el.classList.add('sel');el.querySelector('input').checked=true;fEntType=val;document.getElementById('fEntTypeErr').style.display='none';const ob=document.getElementById('fOtherEntBox');if(val==='Other'){ob.classList.add('sh');ob.style.display='block';}else{ob.classList.remove('sh');ob.style.display='none';}}
+  function fTogOtherTerm(){const v=document.getElementById('fLeaseTerm').value,b=document.getElementById('fOtherTermBox');if(v==='other'){b.classList.add('sh');b.style.display='block';}else{b.classList.remove('sh');b.style.display='none';}}
+  function fTogQuote(show){document.getElementById('fQuoteErr').style.display='none';const up=document.getElementById('fQuoteUpBox'),no=document.getElementById('fQuoteNoBox');if(show){up.classList.add('sh');up.style.display='block';no.classList.remove('sh');no.style.display='none';}else{up.classList.remove('sh');up.style.display='none';no.classList.add('sh');no.style.display='block';}}
+  function fShowCond(id,show){const el=document.getElementById(id);if(show){el.classList.add('sh');el.style.display='block';}else{el.classList.remove('sh');el.style.display='none';}}
+  function fHandleFile(input,areaId,nameId){if(input.files&&input.files[0]){document.getElementById(areaId).classList.add('hf');document.getElementById(nameId).innerHTML='&#10003; '+input.files[0].name;}}
+  function fHandleFS(input,num){const s=document.getElementById('ffs'+num+'st'),b=document.getElementById('ffs'+num+'btn');if(input.files&&input.files[0]){s.innerHTML='&#10003; '+input.files[0].name;s.className='ust rdy';b.textContent='Change File';b.style.background='var(--green)';}}
+  function fSubmit(){if(!fValidate(5))return;if(!document.getElementById('ffs1').files[0]||!document.getElementById('ffs2').files[0]||!document.getElementById('ffs3').files[0]){document.getElementById('fFsErr').style.display='block';return;}document.getElementById('fFsErr').style.display='none';let sok=true;if(!fChk('fSigName','ffg-sigName'))sok=false;if(!fChk('fSigTitle','ffg-sigTitle'))sok=false;if(!sok)return;
+    const btn=document.querySelector('.fsub');btn.textContent='Uploading files...';btn.disabled=true;
+    function toBase64(file){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result.split(',')[1]);r.onerror=rej;r.readAsDataURL(file);});}
+    const quoteFile=document.getElementById('fQuoteFile').files[0];
+    const filesToConvert=[toBase64(document.getElementById('ffs1').files[0]),toBase64(document.getElementById('ffs2').files[0]),toBase64(document.getElementById('ffs3').files[0]),quoteFile?toBase64(quoteFile):Promise.resolve('')];
+    Promise.all(filesToConvert).then(([fs1b64,fs2b64,fs3b64,quoteb64])=>{
+      btn.textContent='Submitting application...';
+      const payload={entityName:document.getElementById('fEntityName').value,address:document.getElementById('fAddress').value,city:document.getElementById('fCity').value,state:document.getElementById('fState').value,zip:document.getElementById('fZip').value,county:document.getElementById('fCounty').value,taxId:document.getElementById('fTaxId').value,taxableValue:fRawInt(document.getElementById('fTaxableValue').value),entityType:fEntType,contactName:document.getElementById('fContactName').value,contactTitle:document.getElementById('fContactTitle').value,contactPhone:document.getElementById('fContactPhone').value,contactEmail:document.getElementById('fContactEmail').value,leaseAmount:fRawNumber(document.getElementById('fLeaseAmount').value),leaseTerm:document.getElementById('fLeaseTerm').value,paymentFrequency:document.getElementById('fPaymentFrequency').value,leasePurpose:document.getElementById('fLeasePurpose').value,vendorName:document.getElementById('fVendorName').value,hasQuote:document.querySelector('input[name="fHasQuote"]:checked')?document.querySelector('input[name="fHasQuote"]:checked').value:'',bankQualified:document.querySelector('input[name="fBq"]:checked')?document.querySelector('input[name="fBq"]:checked').value:'',priorDefault:document.querySelector('input[name="fPriorDef"]:checked')?document.querySelector('input[name="fPriorDef"]:checked').value:'',selfInsure:document.querySelector('input[name="fSelfIns"]:checked')?document.querySelector('input[name="fSelfIns"]:checked').value:'',sigName:document.getElementById('fSigName').value,sigTitle:document.getElementById('fSigTitle').value,sigDate:document.getElementById('fSigDate').textContent,accessCode:fAccessCode,isTestEntity:fIsTestEntity,fs1Name:document.getElementById('ffs1').files[0].name,fs2Name:document.getElementById('ffs2').files[0].name,fs3Name:document.getElementById('ffs3').files[0].name,fs1Data:fs1b64,fs2Data:fs2b64,fs3Data:fs3b64,quoteName:quoteFile?quoteFile.name:'',quoteData:quoteb64};
+      fetch('https://default4b7f706d9033497ab32a4d92301020.93.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/7e43ea0bc89643b6a70c08c211beb696/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xZfVfbnBB79tCbhjrjjD84bUJyyz7oBdA2njbNmPiD8',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(()=>{document.getElementById('fsec5').classList.remove('active');document.getElementById('fSuccess').classList.add('sh');fUpdProg(6);window.scrollTo({top:0,behavior:'smooth'});})
+      .catch(()=>{btn.textContent='Submit Application ✓';btn.disabled=false;alert('There was an error submitting your application. Please try again or contact AMKO Capital at info@amkocap.com');});
+    }).catch(()=>{btn.textContent='Submit Application ✓';btn.disabled=false;alert('There was an error reading your files. Please try again.');});}
+
+  // ── Access code gate ──────────────────────────────────────────────────────
+  var fAccessCode = '';
+  var fIsTestEntity = false;
+
+  // Auto-insert hyphens: AMKO-XXXX-XXXX. Strips non-alphanumerics, regroups,
+  // dash appears only when the next group has a character (keeps backspace natural).
+  function fFmtAccessCode(el){
+    var raw = el.value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,12);
+    var out = raw.slice(0,4);
+    if(raw.length > 4) out += '-' + raw.slice(4,8);
+    if(raw.length > 8) out += '-' + raw.slice(8,12);
+    el.value = out;
+    document.getElementById('gateErr').style.display = 'none';
+    el.classList.remove('err');
+  }
+
+  function fGateBack(){
+    document.getElementById('gatePage').classList.remove('active');
+    document.getElementById('mainSite').classList.remove('hidden');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  async function fValidateCode(){
+    const code = document.getElementById('gateCodeInput').value.trim().toUpperCase();
+    const btn = document.getElementById('gateBtn');
+    const errEl = document.getElementById('gateErr');
+    const input = document.getElementById('gateCodeInput');
+    if(!code){input.classList.add('err');return;}
+    btn.textContent='Verifying...';btn.disabled=true;input.disabled=true;
+    try{
+      const resp = await fetch('https://default4b7f706d9033497ab32a4d92301020.93.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/558f240d56de47f386552fcb9aabc6ef/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=jm8yyotC1YdRtymw62jfVpXxFVjUYNj09aE7fHmZPBE',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({accessCode:code})
+      });
+      const data = await resp.json();
+      if(data.valid){
+        fAccessCode = code;
+        fIsTestEntity = data.isTestEntity === true || data.isTestEntity === 'true';
+        fProceedToForm(data);
+      }else{
+        input.classList.add('err');
+        errEl.style.display='block';
+        btn.textContent='Continue to Application →';
+        btn.disabled=false;input.disabled=false;
+        input.focus();
+      }
+    }catch(e){
+      input.classList.add('err');
+      errEl.textContent='Connection error. Please try again.';
+      errEl.style.display='block';
+      btn.textContent='Continue to Application →';
+      btn.disabled=false;input.disabled=false;
+    }
+  }
+
+  function fProceedToForm(data){
+    // Pre-populate entity fields
+    const nameField = document.getElementById('fEntityName');
+    nameField.value = data.entityName || '';
+    nameField.classList.add('field-locked');
+    nameField.readOnly = true;
+    const nameLabel = nameField.closest('.fgp').querySelector('label');
+    if(nameLabel && !nameLabel.querySelector('.lock-badge')){
+      nameLabel.innerHTML += '<span class="lock-badge">&#10003; Verified</span>';
+    }
+
+    // State dropdown
+    const stateField = document.getElementById('fState');
+    const stateVal = data.state || '';
+    for(let i=0;i<stateField.options.length;i++){
+      if(stateField.options[i].text===stateVal||stateField.options[i].value===stateVal){
+        stateField.selectedIndex=i;break;
+      }
+    }
+    stateField.classList.add('field-locked');
+    stateField.disabled=true;
+
+    // Entity type selection
+    const entType = data.entityType || '';
+    if(entType){
+      document.querySelectorAll('.eoo').forEach(o=>{
+        const inp=o.querySelector('input');
+        if(inp&&inp.value===entType){
+          fSelEnt(o,entType);
+          o.style.pointerEvents='none';
+          o.style.opacity='1';
+          o.style.background='rgba(45,106,79,0.08)';
+          o.style.borderColor='var(--green)';
+        }else{
+          o.style.pointerEvents='none';
+          o.style.opacity='0.4';
+        }
+      });
+    }
+
+    // Show the form
+    document.getElementById('gatePage').classList.remove('active');
+    document.getElementById('appPage').classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+    const d=new Date();
+    const el=document.getElementById('fSigDate');
+    if(el)el.textContent=d.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+  }
+
+  // ── Payment Calculator ────────────────────────────────────────────────────
+  // Rate matrix — UPDATE THESE VALUES as market conditions change.
+  // Rates expressed as decimals (0.0450 = 4.50%). These are placeholder
+  // estimates representative of typical municipal lease pricing. Banks set
+  // actual rates through competitive bidding.
+  const CALC_RATES = {
+    short: { range:[3,5],   bq:[0.0425,0.0475], nbq:[0.0475,0.0550] },
+    mid:   { range:[6,10],  bq:[0.0450,0.0500], nbq:[0.0500,0.0575] },
+    long:  { range:[11,15], bq:[0.0475,0.0525], nbq:[0.0525,0.0600] }
+  };
+
+  // Power Automate flow URL for "Email Me This Estimate" capture.
+  // TODO: Replace this placeholder with the actual flow URL once built.
+  // When the URL is the placeholder below, the calculator will simulate a
+  // successful send (logs the payload to the browser console) so you can
+  // demo the flow before the back end is wired up.
+  const CALC_EMAIL_ENDPOINT = 'REPLACE_WITH_POWER_AUTOMATE_FLOW_URL';
+
+  let calcLastResult = null;
+
+  function calcFmtAmt(el){
+    let v=el.value.replace(/[^\d]/g,'');
+    el.value=v?'$'+Number(v).toLocaleString('en-US'):'';
+  }
+  function calcRawAmt(s){return parseFloat((s||'').replace(/[^\d.]/g,''))||0;}
+  function calcFmtCur(n){return '$'+Number(Math.round(n)).toLocaleString('en-US');}
+
+  function calcSelBq(el,val){
+    document.querySelectorAll('#calcBqGroup label').forEach(l=>l.classList.remove('sel'));
+    el.classList.add('sel');
+    el.querySelector('input').checked=true;
+  }
+
+  function calcGetRates(termYears,bq){
+    let bracket;
+    if(termYears<=5) bracket=CALC_RATES.short;
+    else if(termYears<=10) bracket=CALC_RATES.mid;
+    else bracket=CALC_RATES.long;
+    return bq==='BQ'?bracket.bq:bracket.nbq;
+  }
+
+  // Annual lease payment in arrears: PMT = PV * r / (1 - (1+r)^-n)
+  function calcPMT(pv,annualRate,years){
+    if(annualRate===0) return pv/years;
+    return pv*annualRate/(1-Math.pow(1+annualRate,-years));
+  }
+
+  // Smooth scroll from hero button to the calculator's first input
+  function calcScrollToTop(){
+    const card=document.querySelector('#calculator .calc-card');
+    const input=document.getElementById('calcAmount');
+    if(!card||!input) return;
+    const navHeight=84;
+    const cardTop=card.getBoundingClientRect().top+window.scrollY;
+    window.scrollTo({top:cardTop-navHeight-20,behavior:'smooth'});
+    setTimeout(()=>input.focus({preventScroll:true}),650);
+  }
+
+  function calcRun(){
+    const amt=calcRawAmt(document.getElementById('calcAmount').value);
+    const term=parseInt(document.getElementById('calcTerm').value);
+    const bqEl=document.querySelector('input[name="calcBq"]:checked');
+    const bq=bqEl?bqEl.value:'BQ';
+    const taxable=calcRawAmt(document.getElementById('calcTaxable').value);
+
+    const amtFg=document.getElementById('cfg-amount');
+    const termFg=document.getElementById('cfg-term');
+    amtFg.classList.remove('herr');termFg.classList.remove('herr');
+
+    let ok=true;
+    if(!amt||amt<50000||amt>5000000){amtFg.classList.add('herr');ok=false;}
+    if(!term){termFg.classList.add('herr');ok=false;}
+    if(!ok) return;
+
+    const [rLo,rHi]=calcGetRates(term,bq);
+    const pmtLo=calcPMT(amt,rLo,term);
+    const pmtHi=calcPMT(amt,rHi,term);
+    const intLo=pmtLo*term-amt;
+    const intHi=pmtHi*term-amt;
+    const totLo=pmtLo*term;
+    const totHi=pmtHi*term;
+
+    document.getElementById('calcEmpty').style.display='none';
+    document.getElementById('calcResults').style.display='block';
+    document.getElementById('calcRateChip').textContent=bq==='BQ'?'Bank Qualified':'Non-Bank Qualified';
+    document.getElementById('calcPayment').textContent=calcFmtCur(pmtLo)+' – '+calcFmtCur(pmtHi);
+    document.getElementById('calcTermLabel').textContent=term+'-year term';
+    document.getElementById('calcRate').textContent=(rLo*100).toFixed(2)+'% – '+(rHi*100).toFixed(2)+'%';
+    document.getElementById('calcInterest').textContent=calcFmtCur(intLo)+' – '+calcFmtCur(intHi);
+    document.getElementById('calcTotal').textContent=calcFmtCur(totLo)+' – '+calcFmtCur(totHi);
+
+    if(taxable>0){
+      const millLo=(pmtLo/taxable)*1000;
+      const millHi=(pmtHi/taxable)*1000;
+      document.getElementById('calcMillRow').style.display='flex';
+      document.getElementById('calcMillDetail').textContent='against '+calcFmtCur(taxable)+' net taxable value';
+      document.getElementById('calcMills').textContent=millLo.toFixed(3)+' – '+millHi.toFixed(3)+' mills';
+    }else{
+      document.getElementById('calcMillRow').style.display='none';
+    }
+
+    calcLastResult={
+      amount:amt,term:term,bq:bq,taxable:taxable,
+      rateLow:rLo,rateHigh:rHi,
+      paymentLow:Math.round(pmtLo),paymentHigh:Math.round(pmtHi),
+      interestLow:Math.round(intLo),interestHigh:Math.round(intHi),
+      totalLow:Math.round(totLo),totalHigh:Math.round(totHi),
+      millsLow:taxable>0?+(pmtLo/taxable*1000).toFixed(3):null,
+      millsHigh:taxable>0?+(pmtHi/taxable*1000).toFixed(3):null
+    };
+
+    if(window.innerWidth<860){
+      document.getElementById('calcResultsPanel').scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  }
+
+  function calcShowEmailModal(){
+    document.getElementById('calcModalForm').style.display='block';
+    document.getElementById('calcModalSuccess').style.display='none';
+    document.getElementById('cfg-email').classList.remove('herr');
+    document.getElementById('cfg-entityName').classList.remove('herr');
+    document.getElementById('calcEmail').value='';
+    document.getElementById('calcEntityName').value='';
+    document.getElementById('calcContactName').value='';
+    const btn=document.getElementById('calcEmailBtn');
+    btn.textContent='Send Estimate';btn.disabled=false;
+    document.getElementById('calcModal').classList.add('active');
+    setTimeout(()=>document.getElementById('calcEmail').focus(),200);
+  }
+  function calcCloseModal(){document.getElementById('calcModal').classList.remove('active');}
+
+  function calcSendEmail(){
+    const email=document.getElementById('calcEmail').value.trim();
+    const entityName=document.getElementById('calcEntityName').value.trim();
+    const contactName=document.getElementById('calcContactName').value.trim();
+    const emFg=document.getElementById('cfg-email');
+    const enFg=document.getElementById('cfg-entityName');
+    emFg.classList.remove('herr');enFg.classList.remove('herr');
+
+    let ok=true;
+    if(!email||!/.+@.+\..+/.test(email)){emFg.classList.add('herr');ok=false;}
+    if(!entityName){enFg.classList.add('herr');ok=false;}
+    if(!ok) return;
+
+    const btn=document.getElementById('calcEmailBtn');
+    btn.textContent='Sending...';btn.disabled=true;
+
+    const payload={
+      email:email,entityName:entityName,contactName:contactName,
+      estimate:calcLastResult,timestamp:new Date().toISOString(),
+      source:'amko-payment-calculator'
+    };
+
+    function showSuccess(){
+      document.getElementById('calcModalForm').style.display='none';
+      document.getElementById('calcModalSuccess').style.display='block';
+    }
+    function showFail(){
+      btn.textContent='Send Estimate';btn.disabled=false;
+      alert('There was an error sending your estimate. Please try again or email us directly at info@amkocap.com');
+    }
+
+    // If endpoint hasn't been configured yet, simulate success for demo purposes
+    if(CALC_EMAIL_ENDPOINT==='REPLACE_WITH_POWER_AUTOMATE_FLOW_URL'){
+      console.log('[Calculator] Email capture payload (endpoint not yet configured):',payload);
+      setTimeout(showSuccess,600);
+      return;
+    }
+
+    fetch(CALC_EMAIL_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(r=>{if(r.ok)showSuccess();else showFail();})
+      .catch(showFail);
+  }
+</script>
+</div>
+
+
+<div class="gate-page" id="gatePage">
+  <div class="gate-card">
+    <div class="gate-logo"><img src="https://i.imgur.com/placeholder.png" onerror="this.style.display='none'" alt="AMKO Capital" /></div>
+    <div class="gate-title">AMKO Lease Advantage</div>
+    <p class="gate-sub">Enter your access code to begin your application. If you don't have an access code, contact AMKO Capital to get started.</p>
+    <input type="text" class="gate-input" id="gateCodeInput" placeholder="AMKO-XXXX-0000" maxlength="20"
+      onkeydown="if(event.key==='Enter')fValidateCode()"
+      oninput="fFmtAccessCode(this)" />
+    <div class="gate-err" id="gateErr">Invalid or inactive access code. Please check your code and try again, or contact AMKO Capital at info@amkocap.com</div>
+    <button class="gate-btn" id="gateBtn" onclick="fValidateCode()">Continue to Application &rarr;</button>
+    <button class="gate-back" onclick="fGateBack()">&#8592; Return to website</button>
+    <p class="gate-hint">Don't have an access code? <a href="#contact" onclick="fGateBack();setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),400);return false;" style="color:var(--maroon);font-weight:600;">Contact us to request access</a></p>
+  </div>
+</div>
+
+<div class="app-page" id="appPage">
+<div class="phf"><div class="ey">AMKO Lease Advantage</div><h1>Apply for the AMKO Lease Advantage</h1><p>Complete this five-minute application to get your lease opportunity in front of our bank network. There is no application fee and no obligation to accept any offer.</p></div>
+<div class="atb"><div class="ati">&#10003; No Application Fee</div><div class="atd"></div><div class="ati">&#10003; Bank Responses in 7 Days</div><div class="atd"></div><div class="ati">&#10003; No Obligation to Accept</div><div class="atd"></div><div class="ati">&#10003; Secure &amp; Confidential</div></div>
+<div class="fwrap">
+<div class="fpb"><div class="fps"><div class="fpi"><div class="fsc active" id="fsc1">1</div><div class="fsl active" id="fsl1">Entity</div></div><div class="fco" id="fco1"></div></div><div class="fps"><div class="fpi"><div class="fsc pending" id="fsc2">2</div><div class="fsl pending" id="fsl2">Contact</div></div><div class="fco" id="fco2"></div></div><div class="fps"><div class="fpi"><div class="fsc pending" id="fsc3">3</div><div class="fsl pending" id="fsl3">Lease Request</div></div><div class="fco" id="fco3"></div></div><div class="fps"><div class="fpi"><div class="fsc pending" id="fsc4">4</div><div class="fsl pending" id="fsl4">Disclosures</div></div><div class="fco" id="fco4"></div></div><div class="fps"><div class="fpi"><div class="fsc pending" id="fsc5">5</div><div class="fsl pending" id="fsl5">Financials</div></div></div></div>
+<div class="fsec active" id="fsec1"><div class="fsh"><div class="fsn">1</div><div><div class="fst">Entity Information</div><div class="fss">Tell us about your municipality or government entity</div></div></div><div class="fbody"><div class="fg c1" style="margin-bottom:20px;"><div class="fgp" id="ffg-entityName"><label>Legal Name of Entity / Obligor <span class="req">*</span></label><input type="text" id="fEntityName" placeholder="e.g. City of Fargo" /><div class="ferr">Please enter the legal name of your entity</div></div></div><div class="fg c1" style="margin-bottom:20px;"><div class="fgp" id="ffg-address"><label>Street Address <span class="req">*</span></label><input type="text" id="fAddress" placeholder="123 Main Street" /><div class="ferr">Please enter your address</div></div></div><div class="fg c3" style="margin-bottom:20px;"><div class="fgp" id="ffg-city"><label>City <span class="req">*</span></label><input type="text" id="fCity" placeholder="City" /><div class="ferr">Required</div></div><div class="fgp" id="ffg-state"><label>State <span class="req">*</span></label><select id="fState"><option value="">Select state</option><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option></select><div class="ferr">Required</div></div><div class="fgp" id="ffg-zip"><label>Zip Code <span class="req">*</span></label><input type="text" id="fZip" placeholder="58103" maxlength="10" /><div class="ferr">Required</div></div></div><div class="fg c2" style="margin-bottom:20px;"><div class="fgp" id="ffg-county"><label>County <span class="req">*</span></label><input type="text" id="fCounty" placeholder="e.g. Cass County" /><div class="ferr">Required</div></div><div class="fgp" id="ffg-taxId"><label>Federal Tax ID # <span class="req">*</span></label><input type="text" id="fTaxId" placeholder="XX-XXXXXXX" maxlength="10" oninput="fFmtTaxId(this)" /><div class="fhint">Format: XX-XXXXXXX</div><div class="ferr">Please enter your Federal Tax ID</div></div></div><div class="fg c1" style="margin-bottom:20px;"><div class="fgp" id="ffg-taxableValue"><label>Taxable Value of Entity <span class="req">*</span></label><input type="text" id="fTaxableValue" placeholder="e.g. $45,000,000" oninput="fFmtTaxable(this)" /><div class="fhint">&#9432; If you are unsure of this value, please contact the County Auditor in which your entity resides.</div><div class="ferr">Please enter the taxable value</div></div></div><div class="fdiv"></div><div style="margin-bottom:12px;"><label style="font-size:13px;font-weight:600;color:var(--slate);">Type of Entity <span style="color:var(--maroon);">*</span></label><div style="font-size:12px;color:var(--gray-text);margin:4px 0 10px;">Select the option that best describes your entity</div></div><div class="eog"><div class="eoo" onclick="fSelEnt(this,'City')"><input type="radio" name="fEntType" value="City"><span>City</span></div><div class="eoo" onclick="fSelEnt(this,'County')"><input type="radio" name="fEntType" value="County"><span>County</span></div><div class="eoo" onclick="fSelEnt(this,'Township')"><input type="radio" name="fEntType" value="Township"><span>Township</span></div><div class="eoo" onclick="fSelEnt(this,'School District')"><input type="radio" name="fEntType" value="School District"><span>School District</span></div><div class="eoo" onclick="fSelEnt(this,'Special District')"><input type="radio" name="fEntType" value="Special District"><span>Special District</span></div><div class="eoo" onclick="fSelEnt(this,'Town')"><input type="radio" name="fEntType" value="Town"><span>Town</span></div><div class="eoo" onclick="fSelEnt(this,'State Agency')"><input type="radio" name="fEntType" value="State Agency"><span>State Agency</span></div><div class="eoo" onclick="fSelEnt(this,'Other')"><input type="radio" name="fEntType" value="Other"><span>Other</span></div></div><div id="fEntTypeErr" style="font-size:12px;color:#C0392B;display:none;margin-top:8px;">Please select your entity type</div><div class="cnd" id="fOtherEntBox" style="margin-top:16px;"><div class="fgp"><label>Please describe your entity type <span class="req">*</span></label><input type="text" id="fOtherEnt" placeholder="e.g. Solid Waste District, Housing Authority" /></div></div><div class="fnav"><div></div><button class="fnx" onclick="fGo(2)">Continue to Contact Information &rarr;</button></div></div></div>
+<div class="fsec" id="fsec2"><div class="fsh"><div class="fsn">2</div><div><div class="fst">Contact Information</div><div class="fss">Who should AMKO Capital contact regarding this application?</div></div></div><div class="fbody"><div class="fg c2" style="margin-bottom:20px;"><div class="fgp" id="ffg-contactName"><label>Contact Name <span class="req">*</span></label><input type="text" id="fContactName" placeholder="First and last name" /><div class="ferr">Please enter the contact name</div></div><div class="fgp" id="ffg-contactTitle"><label>Title <span class="req">*</span></label><input type="text" id="fContactTitle" placeholder="e.g. Finance Director" /><div class="ferr">Please enter your title</div></div></div><div class="fg c2" style="margin-bottom:20px;"><div class="fgp" id="ffg-contactPhone"><label>Phone Number <span class="req">*</span></label><input type="tel" id="fContactPhone" placeholder="(701) 555-0123" maxlength="14" oninput="fFmtPhone(this)" /><div class="ferr">Please enter a phone number</div></div><div class="fgp" id="ffg-contactEmail"><label>Email Address <span class="req">*</span></label><input type="email" id="fContactEmail" placeholder="you@entity.gov" /><div class="ferr">Please enter a valid email address</div></div></div><div class="fnav"><button class="fbk" onclick="fGo(1)">&larr; Back</button><button class="fnx" onclick="fGo(3)">Continue to Lease Request &rarr;</button></div></div></div>
+<div class="fsec" id="fsec3"><div class="fsh"><div class="fsn">3</div><div><div class="fst">Lease Request</div><div class="fss">Tell us about the equipment or project you need to finance</div></div></div><div class="fbody"><div class="fg c3" style="margin-bottom:20px;"><div class="fgp" id="ffg-leaseAmount"><label>Total Amount to Finance <span class="req">*</span></label><input type="text" id="fLeaseAmount" placeholder="$250,000.00" oninput="fFmtLeaseAmount(this)" onblur="fBlurLeaseAmount(this)" /><div class="fhint">Enter the total dollar amount you need to finance</div><div class="ferr">Please enter the lease amount</div></div><div class="fgp" id="ffg-leaseTerm"><label>Requested Lease Term <span class="req">*</span></label><select id="fLeaseTerm" onchange="fTogOtherTerm()"><option value="">Select term</option><option value="1">1 Year</option><option value="2">2 Years</option><option value="3">3 Years</option><option value="4">4 Years</option><option value="5">5 Years</option><option value="6">6 Years</option><option value="7">7 Years</option><option value="8">8 Years</option><option value="9">9 Years</option><option value="10">10 Years</option><option value="other">Other (specify below)</option></select><div class="ferr">Please select a lease term</div></div><div class="fgp" id="ffg-paymentFrequency"><label>Payment Frequency <span class="req">*</span></label><select id="fPaymentFrequency"><option value="Annual" selected>Annual</option><option value="Semi-Annual">Semi-Annual</option><option value="Quarterly">Quarterly</option><option value="Monthly">Monthly</option></select><div class="fhint">How often the entity will pay</div><div class="ferr">Please select a payment frequency</div></div></div><div class="cnd" id="fOtherTermBox"><div class="fgp"><label>Specify Lease Term (years)</label><input type="number" id="fOtherTerm" placeholder="e.g. 12" min="1" max="30" style="max-width:160px;" /></div></div><div class="fg c1" style="margin-bottom:20px;"><div class="fgp" id="ffg-leasePurpose"><label>Equipment / Project Description <span class="req">*</span></label><textarea id="fLeasePurpose" rows="4" placeholder="Describe the equipment or project you are financing. Include type, intended use, and which department will be the primary user."></textarea><div class="ferr">Please describe the equipment or project</div></div></div><div class="fg c1" style="margin-bottom:20px;"><div class="fgp" id="ffg-vendorName"><label>Vendor / Supplier Name <span class="req">*</span></label><input type="text" id="fVendorName" placeholder="e.g. Dell Technologies, Caterpillar" /><div class="ferr">Please enter the vendor name</div></div></div><div class="fdiv"></div><div style="margin-bottom:16px;"><div style="font-size:13px;font-weight:600;color:var(--slate);margin-bottom:6px;">Vendor Quote or Invoice <span style="color:var(--maroon);">*</span></div><div style="font-size:13px;color:var(--gray-text);line-height:1.6;margin-bottom:14px;">Do you have a vendor quote or invoice for this equipment or project?</div><div class="rg"><label class="ro"><input type="radio" name="fHasQuote" value="yes" onchange="fTogQuote(true)" /><span>Yes — I have a quote or invoice to attach</span></label><label class="ro"><input type="radio" name="fHasQuote" value="no" onchange="fTogQuote(false)" /><span>No — I will provide one separately</span></label></div><div id="fQuoteErr" style="font-size:12px;color:#C0392B;display:none;margin-top:6px;">Please indicate whether you have a quote or invoice</div></div><div class="cnd" id="fQuoteUpBox"><div style="font-size:13px;font-weight:600;color:var(--slate);margin-bottom:10px;">Attach Quote or Invoice</div><div class="fdrop" id="fQuoteArea"><input type="file" id="fQuoteFile" accept=".pdf,.doc,.docx,.jpg,.png" onchange="fHandleFile(this,'fQuoteArea','fQuoteName')" /><div class="fdi">📄</div><div class="fdl">Click to upload or drag and drop</div><div class="fdh">PDF, Word, or image — max 10MB</div><div class="fdn" id="fQuoteName"></div></div></div><div class="cnd" id="fQuoteNoBox"><div style="font-size:13px;color:var(--slate);line-height:1.6;">ℹ No problem — you can submit now. AMKO Capital will follow up to collect the quote before sending to our bank network.</div></div><div class="fnav"><button class="fbk" onclick="fGo(2)">&larr; Back</button><button class="fnx" onclick="fGo(4)">Continue to Disclosures &rarr;</button></div></div></div>
+<div class="fsec" id="fsec4"><div class="fsh"><div class="fsn">4</div><div><div class="fst">Financial Disclosures</div><div class="fss">Three required questions — answers take less than one minute</div></div></div><div class="fbody"><div class="di"><div class="dq"><strong>Bank Qualification Status</strong><br>Under IRC §265(b)(3), a governmental entity may designate its tax-exempt obligations as <em>qualified tax-exempt obligations</em> (commonly called <em>Bank Qualified</em>) when the entity reasonably expects to issue no more than $10,000,000 in tax-exempt obligations — including bonds, loans, and leases — during the current calendar year. Bank Qualified status allows participating banks to deduct a portion of their carrying cost, generally resulting in more favorable interest rates for the entity. If your entity expects to exceed the $10,000,000 threshold, the lease will be structured as <em>Nonbank Qualified</em>.</div><div class="rg"><label class="ro"><input type="radio" name="fBq" value="Bank Qualified" /><span>Bank Qualified — Our entity does not expect to issue more than $10,000,000 in tax-exempt obligations during the current calendar year</span></label><label class="ro"><input type="radio" name="fBq" value="Nonbank Qualified" /><span>Nonbank Qualified — Our entity expects to issue more than $10,000,000 in tax-exempt obligations during the current calendar year</span></label></div><div id="fBqErr" style="font-size:12px;color:#C0392B;display:none;margin-top:8px;">Please answer this question</div></div><div class="di"><div class="dq"><strong>Prior Default or Non-Appropriation</strong><br>Has your entity ever defaulted or non-appropriated on a prior lease, bond, or legal financial obligation?</div><div class="rg"><label class="ro"><input type="radio" name="fPriorDef" value="Yes" onchange="fShowCond('fDefExplain',true)" /><span>Yes</span></label><label class="ro"><input type="radio" name="fPriorDef" value="No" onchange="fShowCond('fDefExplain',false)" /><span>No</span></label></div><div id="fPriorDefErr" style="font-size:12px;color:#C0392B;display:none;margin-top:8px;">Please answer this question</div><div class="cnd" id="fDefExplain"><div class="fgp"><label>Please explain the circumstances</label><textarea id="fDefText" rows="3" placeholder="Briefly describe what happened and any corrective actions taken"></textarea></div></div></div><div class="di"><div class="dq"><strong>Self-Insurance</strong><br>Does your entity self-insure for property and liability insurance?</div><div class="rg"><label class="ro"><input type="radio" name="fSelfIns" value="Yes" /><span>Yes</span></label><label class="ro"><input type="radio" name="fSelfIns" value="No" /><span>No</span></label></div><div id="fSelfInsErr" style="font-size:12px;color:#C0392B;display:none;margin-top:8px;">Please answer this question</div></div><div class="fnav"><button class="fbk" onclick="fGo(3)">&larr; Back</button><button class="fnx" onclick="fGo(5)">Continue to Financial Statements &rarr;</button></div></div></div>
+<div class="fsec" id="fsec5"><div class="fsh"><div class="fsn">5</div><div><div class="fst">Financial Statements</div><div class="fss">Upload three years of audited financial statements in chronological order</div></div></div><div class="fbody"><div style="background:var(--tan-pale);border:1px solid var(--gray-mid);border-left:4px solid var(--maroon);border-radius:4px;padding:16px 20px;margin-bottom:24px;"><div style="font-size:14px;font-weight:600;color:var(--slate);margin-bottom:6px;">Upload Instructions</div><div style="font-size:13px;color:var(--gray-text);line-height:1.7;">Please upload your three most recently completed audited financial statements in chronological order — <strong>oldest first, most recent last</strong>. Accepted format: PDF. Maximum file size: 25MB per file.</div></div><div class="urow"><div class="ubadge">Year 1 — Oldest</div><div class="ucont"><div class="ulbl">Earliest Financial Statement <span style="color:var(--maroon);">*</span></div><div class="uhint">Upload your oldest of the three financial statements first</div><div class="ust" id="ffs1st"></div></div><div class="ufile"><button class="ubtn" id="ffs1btn">Choose File</button><input type="file" id="ffs1" accept=".pdf" onchange="fHandleFS(this,1)" /></div></div><div class="urow"><div class="ubadge">Year 2 — Middle</div><div class="ucont"><div class="ulbl">Middle Year Financial Statement <span style="color:var(--maroon);">*</span></div><div class="uhint">Upload your middle year financial statement</div><div class="ust" id="ffs2st"></div></div><div class="ufile"><button class="ubtn" id="ffs2btn">Choose File</button><input type="file" id="ffs2" accept=".pdf" onchange="fHandleFS(this,2)" /></div></div><div class="urow"><div class="ubadge" style="background:var(--maroon);">Year 3 — Most Recent</div><div class="ucont"><div class="ulbl">Most Recent Financial Statement <span style="color:var(--maroon);">*</span></div><div class="uhint">Upload your most recent financial statement last</div><div class="ust" id="ffs3st"></div></div><div class="ufile"><button class="ubtn" id="ffs3btn">Choose File</button><input type="file" id="ffs3" accept=".pdf" onchange="fHandleFS(this,3)" /></div></div><div id="fFsErr" style="font-size:13px;color:#C0392B;display:none;margin-top:12px;padding:12px 16px;background:#FFF0F0;border-radius:4px;">Please upload all three financial statements before submitting.</div><div class="fdiv"></div><div class="flb"><p>By submitting this application, I certify that everything stated is correct to the best of my knowledge. I authorize AMKO Capital to verify any information on this application with appropriate third parties as necessary to complete the credit review process. I understand that AMKO Capital will retain this application whether or not it is approved, and that submission of this application does not constitute a commitment to lease.</p></div><div class="sigb"><div style="font-size:14px;font-weight:700;color:var(--slate);margin-bottom:6px;">Electronic Signature <span style="color:var(--maroon);">*</span></div><div style="font-size:13px;color:var(--gray-text);line-height:1.6;margin-bottom:16px;">By typing your full name below, you are signing this application electronically. This carries the same legal weight as a handwritten signature.</div><div class="fg c2"><div class="fgp" id="ffg-sigName"><label>Full Name <span class="req">*</span></label><input type="text" id="fSigName" placeholder="Type your full legal name" style="font-style:italic;font-size:16px;" /><div class="ferr">Please type your full name</div></div><div class="fgp" id="ffg-sigTitle"><label>Title <span class="req">*</span></label><input type="text" id="fSigTitle" placeholder="Your official title" /><div class="ferr">Please enter your title</div></div></div><div style="margin-top:12px;font-size:12px;color:var(--gray-text);">Date: <strong id="fSigDate"></strong></div></div><div class="fnav"><button class="fbk" onclick="fGo(4)">&larr; Back</button><button class="fsub" onclick="fSubmit()">Submit Application &#10003;</button></div></div></div>
+<div class="succ" id="fSuccess"><div class="succ-ic">&#10003;</div><h2>Application Submitted</h2><p>Thank you. Your application has been received by AMKO Capital and is being processed.</p><p>You will receive a confirmation email shortly. Our team will analyze your financials and reach out to our bank network within one business day. Expect rate offers within 7 days.</p><p style="margin-top:24px;font-size:14px;">Questions? Contact us at <strong>info@amkocap.com</strong></p><button class="fnx" style="margin-top:32px;" onclick="fBackToSite()">&#8592; Return to Website</button></div>
+</div>
+</div>
+
+</body>
+</html>
