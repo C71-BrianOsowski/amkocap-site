@@ -332,6 +332,39 @@
     .calc-result-value{font-size:15px;}
     .calc-result-value.large{font-size:19px;}
   }
+  #compare{background:var(--white);}
+  .cmp-grid{display:grid;grid-template-columns:1fr 64px 1fr;align-items:stretch;max-width:1060px;margin:48px auto 0;}
+  .cmp-card{border:1px solid var(--gray-mid);border-radius:8px;overflow:hidden;background:#F7F8FA;display:flex;flex-direction:column;}
+  .cmp-card.lease{background:#F6FAF7;border-color:var(--green);}
+  .cmp-head{padding:18px;text-align:center;font-size:17px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--white);background:var(--slate-mid);}
+  .cmp-card.lease .cmp-head{background:var(--maroon);}
+  .cmp-body{padding:28px 24px;display:flex;flex-direction:column;align-items:center;gap:18px;flex:1;}
+  .cmp-line{font-size:15px;color:var(--slate);text-align:center;line-height:1.6;}
+  .cmp-years{display:flex;gap:14px;}
+  .cmp-year{padding:10px 22px;border-radius:4px;font-size:14px;font-weight:600;color:var(--slate);background:rgba(200,168,130,0.45);}
+  .cmp-year.y2{background:var(--tan);color:var(--white);}
+  .cmp-chip{background:var(--green);color:var(--white);font-size:14px;font-weight:700;padding:10px 20px;border-radius:4px;letter-spacing:0.3px;}
+  .cmp-loaders{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+  .cmp-loader{border:2px solid var(--slate);border-radius:6px;background:var(--white);padding:14px 14px 10px;text-align:center;}
+  .cmp-card.lease .cmp-loader{border-color:var(--green);}
+  .cmp-loader svg{display:block;margin:0 auto 6px;}
+  .cmp-price{font-size:15px;font-weight:700;color:var(--slate);}
+  .cmp-card.lease .cmp-price{color:var(--green);}
+  .cmp-verdict{font-size:15px;font-weight:700;color:var(--maroon);text-align:center;margin-top:auto;}
+  .cmp-card.lease .cmp-verdict{color:var(--green);}
+  .cmp-sub{font-size:14px;color:var(--gray-text);text-align:center;}
+  .cmp-power{width:100%;background:var(--white);border:1px solid var(--gray-mid);border-radius:6px;padding:14px;text-align:center;}
+  .cmp-power span{display:block;font-size:13px;color:var(--gray-text);margin-bottom:4px;}
+  .cmp-power strong{font-size:17px;color:var(--slate);}
+  .cmp-card.lease .cmp-power{border-color:var(--green);}
+  .cmp-card.lease .cmp-power strong{color:var(--green);}
+  .cmp-vs{align-self:center;justify-self:center;width:56px;height:56px;border-radius:50%;background:var(--tan);color:var(--white);font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(200,168,130,0.4);}
+  .cmp-note{max-width:880px;margin:28px auto 0;font-size:13px;color:var(--gray-text);line-height:1.7;text-align:center;}
+  .cmp-cta{text-align:center;margin-top:32px;}
+  @media(max-width:860px){
+    .cmp-grid{grid-template-columns:1fr;gap:18px;}
+    .cmp-vs{margin:0 auto;}
+  }
 </style>
 </head>
 <body>
@@ -342,6 +375,7 @@
   <ul class="nav-links">
     <li><a href="#how-it-works">How It Works</a></li>
     <li><a href="#services">Services</a></li>
+    <li><a href="#compare">Why Lease</a></li>
     <li><a href="#calculator">Calculator</a></li>
     <li><a href="#bank-portal">For Banks</a></li>
     <li><a href="#faq">FAQ</a></li>
@@ -408,6 +442,41 @@
     <div class="service-card"><div class="service-icon">📡</div><div class="service-title">Communications Systems</div><div class="service-body">Radio systems, dispatch technology, fiber infrastructure, and broadband projects for underserved communities and public facilities.</div></div>
     <div class="service-card"><div class="service-icon">🏛️</div><div class="service-title">Facilities &amp; Renovations</div><div class="service-body">Municipal building improvements, HVAC systems, accessibility upgrades, and facility expansions structured as lease-purchase agreements.</div></div>
   </div>
+</section>
+
+<section id="compare">
+  <div class="section-eyebrow">Why Lease</div>
+  <div class="section-title">The Same Tax Dollars. More Equipment, Sooner.</div>
+  <div class="section-body">What a $175,000 annual capital levy delivers: saving for a cash purchase versus a tax-exempt lease.</div>
+  <div class="cmp-grid">
+    <div class="cmp-card">
+      <div class="cmp-head">Save &amp; Pay Cash</div>
+      <div class="cmp-body">
+        <div class="cmp-line">Levy $175,000 a year and wait&hellip;</div>
+        <div class="cmp-years"><span class="cmp-year">Year 1</span><span class="cmp-year y2">Year 2</span></div>
+        <div class="cmp-line">&hellip;two years later, buy one loader:</div>
+        <div class="cmp-loaders"><div class="cmp-loader"><svg width="96" height="64" viewBox="0 0 120 80" aria-hidden="true"><rect x="14" y="36" width="50" height="20" rx="4" fill="#C8A882"/><rect x="24" y="16" width="26" height="24" rx="3" fill="#2C3E50"/><rect x="30" y="21" width="14" height="9" rx="1.5" fill="#fff"/><circle cx="28" cy="62" r="11" fill="#2C3E50"/><circle cx="28" cy="62" r="4.5" fill="#C8C4BC"/><circle cx="56" cy="62" r="11" fill="#2C3E50"/><circle cx="56" cy="62" r="4.5" fill="#C8C4BC"/><rect x="62" y="36" width="30" height="7" rx="3.5" fill="#6B6760" transform="rotate(-8 62 36)"/><path d="M90 28 L110 21 L110 48 L90 42 Z" fill="#5D6D7E"/></svg><div class="cmp-price">$350,000 loader</div></div></div>
+        <div class="cmp-verdict">Fleet ages while the levy accumulates</div>
+        <div class="cmp-sub">Equipment in service: Year 3</div>
+        <div class="cmp-power"><span>Buying power</span><strong>One loader every 2 years</strong></div>
+      </div>
+    </div>
+    <div class="cmp-vs">VS</div>
+    <div class="cmp-card lease">
+      <div class="cmp-head">Tax-Exempt Lease</div>
+      <div class="cmp-body">
+        <div class="cmp-line">The same $175,000 levy makes the annual lease payment&hellip;</div>
+        <div class="cmp-chip">&asymp;$174,900/yr &bull; 7 years &bull; 4.00%</div>
+        <div class="cmp-line">&hellip;and three loaders go to work now:</div>
+        <div class="cmp-loaders"><div class="cmp-loader"><svg width="72" height="48" viewBox="0 0 120 80" aria-hidden="true"><rect x="14" y="36" width="50" height="20" rx="4" fill="#C8A882"/><rect x="24" y="16" width="26" height="24" rx="3" fill="#2C3E50"/><rect x="30" y="21" width="14" height="9" rx="1.5" fill="#fff"/><circle cx="28" cy="62" r="11" fill="#2C3E50"/><circle cx="28" cy="62" r="4.5" fill="#C8C4BC"/><circle cx="56" cy="62" r="11" fill="#2C3E50"/><circle cx="56" cy="62" r="4.5" fill="#C8C4BC"/><rect x="62" y="36" width="30" height="7" rx="3.5" fill="#6B6760" transform="rotate(-8 62 36)"/><path d="M90 28 L110 21 L110 48 L90 42 Z" fill="#5D6D7E"/></svg><div class="cmp-price">$350,000</div></div><div class="cmp-loader"><svg width="72" height="48" viewBox="0 0 120 80" aria-hidden="true"><rect x="14" y="36" width="50" height="20" rx="4" fill="#C8A882"/><rect x="24" y="16" width="26" height="24" rx="3" fill="#2C3E50"/><rect x="30" y="21" width="14" height="9" rx="1.5" fill="#fff"/><circle cx="28" cy="62" r="11" fill="#2C3E50"/><circle cx="28" cy="62" r="4.5" fill="#C8C4BC"/><circle cx="56" cy="62" r="11" fill="#2C3E50"/><circle cx="56" cy="62" r="4.5" fill="#C8C4BC"/><rect x="62" y="36" width="30" height="7" rx="3.5" fill="#6B6760" transform="rotate(-8 62 36)"/><path d="M90 28 L110 21 L110 48 L90 42 Z" fill="#5D6D7E"/></svg><div class="cmp-price">$350,000</div></div><div class="cmp-loader"><svg width="72" height="48" viewBox="0 0 120 80" aria-hidden="true"><rect x="14" y="36" width="50" height="20" rx="4" fill="#C8A882"/><rect x="24" y="16" width="26" height="24" rx="3" fill="#2C3E50"/><rect x="30" y="21" width="14" height="9" rx="1.5" fill="#fff"/><circle cx="28" cy="62" r="11" fill="#2C3E50"/><circle cx="28" cy="62" r="4.5" fill="#C8C4BC"/><circle cx="56" cy="62" r="11" fill="#2C3E50"/><circle cx="56" cy="62" r="4.5" fill="#C8C4BC"/><rect x="62" y="36" width="30" height="7" rx="3.5" fill="#6B6760" transform="rotate(-8 62 36)"/><path d="M90 28 L110 21 L110 48 L90 42 Z" fill="#5D6D7E"/></svg><div class="cmp-price">$350,000</div></div></div>
+        <div class="cmp-verdict">Costs matched to the equipment&rsquo;s useful life</div>
+        <div class="cmp-sub">Equipment in service: Year 1</div>
+        <div class="cmp-power"><span>Buying power</span><strong>Three loaders in service today</strong></div>
+      </div>
+    </div>
+  </div>
+  <div class="cmp-note"><strong>Illustrative:</strong> three $350,000 loaders ($1,050,000) financed over 7 years at a 4.00% tax-exempt rate require payments of about $174,900 per year &mdash; the same annual levy a cash program accumulates for one $350,000 purchase every second year. Actual rates and terms are set by competitive bids through AMKO Lease Advantage. For illustration only; not an offer of financing.</div>
+  <div class="cmp-cta"><button class="btn-primary" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">Run Your Own Numbers &rarr;</button></div>
 </section>
 
 <section id="calculator">
