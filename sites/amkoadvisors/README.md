@@ -6,10 +6,15 @@ read as one family:
 
 | Shared element | Where it comes from |
 | --- | --- |
-| Color token roles (`--navy`/`--brand`/`--accent` here mirror `--slate`/`--maroon`/`--tan` on amkocap.com) | Same roles and component CSS; values come from the AMKO Advisors logo: PANTONE 2728 C blue `#1B51A4`, navy `#12264F` derived from it, light-blue accent `#9FBDEB`, black type |
+| Color token roles (`--navy`/`--brand`/`--accent` here mirror `--slate`/`--maroon`/`--tan` on amkocap.com) | Same roles and component CSS; values come from the AMKO Advisors master logo file: PANTONE 2728 C blue `#0047BB`, navy `#12264F` derived from it, light-blue accent `#9FBDEB`, black type |
 | Fonts | Playfair Display (headings) + Source Sans 3 (body), Google Fonts |
 | Nav, hero grid, trust bar, section eyebrow/title/body, service cards, step grid, contact block, footer | Same class names and CSS as amkocap.com |
-| Logo | Inline SVG of the AMKO Advisors mark (blue bars, serif wordmark, divider, ADVISORS, "Your Vision. *Our Solutions.*"); master files are `AMKO_Advisors-Tagline.ai/.eps` |
+| Logo | The real AMKO Advisors wordmark, traced from `AMKO_Advisors-Tagline.ai` into an inline SVG `<symbol>` (nav on white, footer reversed to white ink). Header is white so the mark shows in its own colors |
+
+Family colors used on the AMKO Companies cards: Advisors blue `#0047BB`,
+Capital maroon `#8B2635`, Bond Services green `#00A651` (from the bond
+platform letterhead), RateWorks teal `#0E4A5C` (from `amko-rateworks/brand`).
+Family links: amkocap.com, amkobondservices.com (coming soon), amkorateworks.com.
 
 Everything is one static page: `index.html`, two data files in `data/`, and
 PDFs in `os/`. No build step.
