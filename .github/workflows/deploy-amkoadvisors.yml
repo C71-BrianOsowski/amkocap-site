@@ -1,0 +1,61 @@
+# Publishes sites/amkoadvisors/ to its own GitHub Pages site.
+#
+# Why a second repository: GitHub Pages serves exactly one site (and one
+# custom domain) per repository. amkocap.com is served from the root of this
+# repo, so amkoadvisors.com is published to a sibling repo that exists only as
+# a Pages target. All source lives here; never edit the target repo by hand.
+#
+# One-time setup (see sites/amkoadvisors/README.md for the full checklist):
+#   1. Create an empty repo  C71-BrianOsowski/amkoadvisors-site  (public or
+#      private, Pages works with either on this plan).
+#   2. In that repo: Settings → Pages → Source: "Deploy from a branch",
+#      Branch: gh-pages / (root). Add custom domain amkoadvisors.com and
+#      tick "Enforce HTTPS" once DNS has propagated.
+#   3. Create a fine-grained personal access token with "Contents: Read and
+#      write" on amkoadvisors-site only, and save it in THIS repo as the
+#      Actions secret  AMKOADVISORS_DEPLOY_TOKEN.
+#
+# After that, every push to main that touches sites/amkoadvisors/** deploys.
+name: Deploy amkoadvisors.com
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "sites/amkoadvisors/**"
+      - ".github/workflows/deploy-amkoadvisors.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-amkoadvisors
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sanity-check the site before publishing
+        run: |
+          test -f sites/amkoadvisors/index.html
+          test -f sites/amkoadvisors/CNAME
+          grep -q "amkoadvisors.com" sites/amkoadvisors/CNAME
+          # The outdated address and phone must never ship.
+          ! grep -rIn "4201 38th\|364-9884\|364.9884" sites/amkoadvisors/ --include=*.html --include=*.js
+
+      - name: Publish to the amkoadvisors-site Pages repo
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.AMKOADVISORS_DEPLOY_TOKEN }}
+          external_repository: C71-BrianOsowski/amkoadvisors-site
+          publish_branch: gh-pages
+          publish_dir: ./sites/amkoadvisors
+          # CNAME is already inside publish_dir, so it is carried over as-is.
+          force_orphan: true
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+          commit_message: "Deploy amkoadvisors.com from ${{ github.sha }}"

@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMKO Advisors — Independent Municipal Advisor, Fargo ND</title>
+<meta name="description" content="AMKO Advisors, LLC is an independent Registered Municipal Advisor (MSRB #K0852, SEC #867-00428) serving local and state governments, school districts, water resource districts and state agencies.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%232C3E50'/%3E%3Crect x='4' y='5' width='24' height='3' fill='%238B2635'/%3E%3Crect x='4' y='24' width='24' height='3' fill='%238B2635'/%3E%3Ctext x='16' y='20' text-anchor='middle' font-family='Georgia,serif' font-size='12' fill='%23fff'%3EA%3C/text%3E%3C/svg%3E">
+<style>
+  /* ── Shared AMKO family tokens (kept identical to amkocap.com) ── */
+  :root {
+    --slate:#2C3E50;--slate-dark:#1A2530;--slate-mid:#34495E;
+    --maroon:#8B2635;--maroon-light:#A63040;
+    --tan:#C8A882;--tan-pale:#F5F0E8;
+    --cream:#FAF8F4;--off-white:#F2EEE8;
+    --gray-light:#E8E4DC;--gray-mid:#C8C4BC;--gray-text:#6B6760;
+    --text-dark:#1A1A1A;--green:#2D6A4F;--white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Source Sans 3',sans-serif;font-weight:400;color:var(--text-dark);background:var(--white);line-height:1.6;}
+
+  /* ── Nav (shared) ── */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--slate);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:84px;}
+  .nav-logo{display:flex;align-items:center;text-decoration:none;}
+  .nav-logo svg{height:56px;width:auto;display:block;}
+  .nav-links{display:flex;align-items:center;gap:6px;list-style:none;}
+  .nav-links a{color:rgba(255,255,255,0.78);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:0.3px;padding:8px 14px;border-radius:3px;transition:all 0.2s;white-space:nowrap;}
+  .nav-links a:hover{color:var(--white);background:rgba(255,255,255,0.08);}
+  .nav-cta{background:var(--maroon)!important;color:var(--white)!important;padding:9px 20px!important;font-weight:600!important;}
+  .nav-cta:hover{background:var(--maroon-light)!important;}
+  .nav-toggle{display:none;background:none;border:1px solid rgba(255,255,255,0.3);color:var(--white);border-radius:3px;padding:8px 12px;font-family:'Source Sans 3',sans-serif;font-size:13px;font-weight:600;cursor:pointer;}
+
+  /* ── Family strip (sister-company switcher) ── */
+  .family-strip{background:var(--slate-dark);border-bottom:1px solid rgba(255,255,255,0.06);padding:0 48px;height:32px;display:flex;align-items:center;justify-content:flex-end;gap:22px;position:fixed;top:84px;left:0;right:0;z-index:99;}
+  .family-strip span{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-right:auto;}
+  .family-strip a{font-size:12px;color:rgba(255,255,255,0.55);text-decoration:none;letter-spacing:0.3px;}
+  .family-strip a:hover{color:var(--tan);}
+  .family-strip a.here{color:var(--tan);font-weight:600;cursor:default;}
+  .family-strip a.soon{opacity:0.6;}
+  .family-strip a.soon small{font-size:10px;color:var(--tan);margin-left:4px;}
+
+  /* ── Hero ── */
+  .hero{margin-top:116px;background:var(--slate);min-height:620px;display:grid;grid-template-columns:1.15fr 1fr;position:relative;overflow:hidden;}
+  .hero-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(180deg,transparent,transparent 34px,rgba(200,168,130,0.07) 34px,rgba(200,168,130,0.07) 35px);}
+  .hero-horizon{position:absolute;left:0;right:0;bottom:0;height:160px;pointer-events:none;}
+  .hero-left{position:relative;z-index:2;padding:88px 48px 96px 80px;display:flex;flex-direction:column;justify-content:center;}
+  .hero-eyebrow{display:inline-block;align-self:flex-start;background:var(--maroon);color:var(--white);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;margin-bottom:28px;border-radius:2px;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:54px;font-weight:700;color:var(--white);line-height:1.12;margin-bottom:24px;}
+  .hero h1 span{color:var(--tan);}
+  .hero h1 em{font-style:italic;font-weight:400;}
+  .hero-sub{font-size:18px;color:rgba(255,255,255,0.72);line-height:1.7;margin-bottom:40px;max-width:520px;}
+  .hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
+  .btn-primary{background:var(--maroon);color:var(--white);padding:15px 32px;font-size:15px;font-weight:600;text-decoration:none;border-radius:3px;border:2px solid var(--maroon);transition:all 0.2s;display:inline-flex;align-items:center;gap:10px;cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+  .btn-primary:hover{background:var(--maroon-light);border-color:var(--maroon-light);}
+  .btn-outline{background:transparent;color:var(--white);padding:15px 32px;font-size:15px;font-weight:600;text-decoration:none;border-radius:3px;border:2px solid rgba(255,255,255,0.35);transition:all 0.2s;display:inline-flex;align-items:center;gap:10px;}
+  .btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,0.06);}
+  .btn-tan{background:var(--tan);color:var(--white);padding:15px 28px;font-size:15px;font-weight:700;text-decoration:none;border-radius:3px;border:2px solid var(--tan);transition:all 0.2s;display:inline-flex;align-items:center;gap:10px;cursor:pointer;font-family:'Source Sans 3',sans-serif;box-shadow:0 4px 14px rgba(200,168,130,0.30);}
+  .btn-tan:hover{background:#D4B697;border-color:#D4B697;transform:translateY(-2px);box-shadow:0 8px 22px rgba(200,168,130,0.45);}
+  .btn-primary svg,.btn-outline svg,.btn-tan svg{flex-shrink:0;}
+  .hero-right{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;padding:60px;}
+  .hero-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.13);border-radius:8px;padding:36px;width:100%;max-width:400px;}
+  .hero-card-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--tan);margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid rgba(200,168,130,0.25);}
+  .hero-stat{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+  .hero-stat:last-child{border-bottom:none;}
+  .hero-stat-label{font-size:13px;color:rgba(255,255,255,0.55);}
+  .hero-stat-value{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--white);text-align:right;}
+  .hero-stat-value.tan{color:var(--tan);}
+  .hero-stat-value.small{font-size:15px;}
+  .hero-seal{margin-top:22px;padding-top:18px;border-top:1px solid rgba(200,168,130,0.25);font-family:'Playfair Display',serif;font-style:italic;font-size:15px;color:rgba(255,255,255,0.7);text-align:center;}
+
+  /* ── Trust bar (shared) ── */
+  .trust-bar{background:var(--maroon);padding:16px 80px;display:flex;align-items:center;gap:40px;overflow-x:auto;}
+  .trust-item{display:flex;align-items:center;gap:8px;white-space:nowrap;color:rgba(255,255,255,0.92);font-size:13px;font-weight:600;}
+  .trust-dot{width:5px;height:5px;background:rgba(255,255,255,0.4);border-radius:50%;flex-shrink:0;}
+
+  /* ── Sections (shared) ── */
+  section{padding:96px 80px;}
+  section[id],#top{scroll-margin-top:116px;}
+  .section-eyebrow{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--maroon);margin-bottom:14px;text-align:center;}
+  .section-title{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:var(--slate);line-height:1.2;margin-bottom:20px;text-align:center;}
+  .section-body{font-size:17px;color:var(--gray-text);line-height:1.8;max-width:680px;text-align:center;margin:0 auto;}
+  .left .section-eyebrow,.left .section-title,.left .section-body{text-align:left;margin-left:0;}
+
+  /* ── About ── */
+  #about{background:var(--tan-pale);}
+  .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:72px;align-items:center;}
+  .about-lede{font-family:'Playfair Display',serif;font-size:24px;line-height:1.5;color:var(--slate);margin:0 0 22px;}
+  .about-body p{font-size:16px;color:var(--gray-text);line-height:1.8;margin-bottom:16px;}
+  .about-rules{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--gray-mid);border:1px solid var(--gray-mid);border-radius:6px;overflow:hidden;}
+  .rule{background:var(--white);padding:28px 24px;}
+  .rule-num{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--maroon);line-height:1;margin-bottom:10px;}
+  .rule-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-text);margin-bottom:8px;}
+  .rule-text{font-size:14px;color:var(--slate);line-height:1.6;}
+
+  /* ── Services ── */
+  #services{background:var(--slate);}
+  #services .section-title{color:var(--white);}
+  #services .section-eyebrow{color:var(--tan);}
+  #services .section-body{color:rgba(255,255,255,0.6);}
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;}
+  .service-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:6px;padding:36px;transition:all 0.25s;position:relative;}
+  .service-card:hover{background:rgba(255,255,255,0.09);border-color:var(--maroon);transform:translateY(-3px);}
+  .service-index{font-family:'Playfair Display',serif;font-size:13px;letter-spacing:2px;color:var(--tan);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+  .service-index::after{content:"";flex:1;height:1px;background:rgba(200,168,130,0.3);}
+  .service-title{font-family:'Playfair Display',serif;font-size:21px;font-weight:600;color:var(--white);margin-bottom:14px;}
+  .service-body{font-size:14px;color:rgba(255,255,255,0.62);line-height:1.75;}
+  .service-tag{display:inline-block;margin-top:16px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:2px;background:rgba(200,168,130,0.14);color:var(--tan);}
+  .service-tag a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(200,168,130,0.5);}
+
+  /* ── Process ── */
+  #process{background:var(--white);}
+  .process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:56px;background:var(--gray-mid);border:1px solid var(--gray-mid);border-radius:6px;overflow:hidden;}
+  .how-step{background:var(--white);padding:36px 26px;}
+  .step-number{font-family:'Playfair Display',serif;font-size:56px;font-weight:700;color:#B8B0A4;line-height:1;margin-bottom:14px;}
+  .step-tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:2px;margin-bottom:14px;background:rgba(139,38,53,0.1);color:var(--maroon);}
+  .step-tag.client{background:rgba(44,62,80,0.1);color:var(--slate);}
+  .step-tag.both{background:rgba(45,106,79,0.1);color:var(--green);}
+  .step-title{font-size:16px;font-weight:600;color:var(--slate);margin-bottom:10px;}
+  .step-body{font-size:14px;color:var(--gray-text);line-height:1.7;}
+  .process-note{max-width:820px;margin:28px auto 0;font-size:13px;color:var(--gray-text);line-height:1.7;text-align:center;}
+
+  /* ── Recent deals (ledger) ── */
+  #deals{background:var(--cream);}
+  .ledger-wrap{max-width:1120px;margin:48px auto 0;background:var(--white);border:1px solid var(--gray-mid);border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(44,62,80,0.05);}
+  .ledger-head{background:var(--slate);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:3px solid var(--maroon);flex-wrap:wrap;}
+  .ledger-head span{color:var(--white);font-size:14px;font-weight:600;display:flex;align-items:center;gap:10px;}
+  .ledger-dot{width:8px;height:8px;background:var(--tan);border-radius:50%;}
+  .ledger-src{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);}
+  table.ledger{width:100%;border-collapse:collapse;}
+  table.ledger th{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-text);text-align:left;padding:14px 24px;background:var(--off-white);border-bottom:1px solid var(--gray-mid);}
+  table.ledger td{padding:18px 24px;border-bottom:1px solid var(--gray-light);font-size:15px;color:var(--slate);vertical-align:top;}
+  table.ledger tr:last-child td{border-bottom:none;}
+  table.ledger tr:hover td{background:var(--tan-pale);}
+  td.par,th.par{text-align:right;white-space:nowrap;}
+  td.par{font-family:'Playfair Display',serif;font-weight:700;color:var(--maroon);font-size:17px;}
+  .deal-issue{font-weight:600;color:var(--slate);}
+  .deal-issuer{font-size:13px;color:var(--gray-text);margin-top:3px;}
+  .deal-chip{display:inline-block;font-size:11px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;padding:3px 9px;border-radius:2px;background:rgba(44,62,80,0.08);color:var(--slate);white-space:nowrap;}
+  .deal-chip.go{background:rgba(139,38,53,0.1);color:var(--maroon);}
+  .deal-chip.rev{background:rgba(45,106,79,0.1);color:var(--green);}
+  .deal-chip.ref{background:rgba(200,168,130,0.3);color:#7A5A2E;}
+  .deal-date{white-space:nowrap;color:var(--gray-text);font-size:14px;}
+  .deal-os a{font-size:13px;color:var(--maroon);text-decoration:none;font-weight:600;white-space:nowrap;}
+  .deal-os a:hover{text-decoration:underline;}
+  .ledger-foot{padding:14px 24px;background:var(--off-white);border-top:1px solid var(--gray-mid);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--gray-text);}
+  .ledger-total{font-family:'Playfair Display',serif;font-size:15px;color:var(--slate);}
+  .ledger-total b{color:var(--maroon);}
+  .ledger-empty{padding:40px 24px;text-align:center;color:var(--gray-text);font-size:14px;}
+
+  /* ── Official statements ── */
+  #official-statements{background:var(--white);}
+  .os-tools{max-width:1120px;margin:40px auto 0;display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+  .os-tools input{flex:1;min-width:220px;padding:12px 16px;border:1.5px solid var(--gray-mid);border-radius:4px;font-size:15px;font-family:'Source Sans 3',sans-serif;outline:none;transition:border-color 0.2s;}
+  .os-tools input:focus{border-color:var(--maroon);box-shadow:0 0 0 3px rgba(139,38,53,0.08);}
+  .os-tools select{padding:12px 14px;border:1.5px solid var(--gray-mid);border-radius:4px;font-size:14px;font-family:'Source Sans 3',sans-serif;background:var(--white);color:var(--slate);}
+  .os-count{font-size:13px;color:var(--gray-text);white-space:nowrap;}
+  .os-grid{max-width:1120px;margin:20px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .os-card{border:1px solid var(--gray-mid);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;transition:all 0.25s;background:var(--white);}
+  .os-card:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(44,62,80,0.1);}
+  .os-card-head{background:var(--slate);padding:22px 24px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
+  .os-status{display:inline-block;background:var(--maroon);color:var(--white);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:2px;}
+  .os-status.prelim{background:var(--slate-mid);}
+  .os-par{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--tan);white-space:nowrap;}
+  .os-card-body{padding:24px;flex:1;display:flex;flex-direction:column;}
+  .os-date{font-size:12px;color:var(--gray-text);margin-bottom:8px;}
+  .os-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--slate);line-height:1.4;margin-bottom:6px;}
+  .os-issuer{font-size:13px;color:var(--gray-text);line-height:1.6;margin-bottom:20px;}
+  .os-actions{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap;}
+  .os-dl{background:var(--maroon);color:var(--white);font-size:13px;font-weight:600;padding:9px 16px;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;}
+  .os-dl:hover{background:var(--maroon-light);}
+  .os-dl.disabled{background:var(--gray-light);color:var(--gray-text);cursor:default;}
+  .os-emma{font-size:13px;font-weight:600;color:var(--slate);text-decoration:none;padding:9px 14px;border:1.5px solid var(--gray-mid);border-radius:3px;}
+  .os-emma:hover{border-color:var(--slate);}
+  .os-note{max-width:820px;margin:32px auto 0;padding:16px 20px;background:var(--tan-pale);border-left:3px solid var(--tan);border-radius:0 4px 4px 0;font-size:13px;color:var(--slate);line-height:1.7;}
+  .os-note a{color:var(--maroon);}
+
+  /* ── Team ── */
+  #team{background:var(--off-white);}
+  .team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:960px;margin:56px auto 0;}
+  .team-card{background:var(--white);border:1px solid var(--gray-mid);border-left:4px solid var(--maroon);border-radius:4px;padding:32px;display:flex;gap:24px;align-items:flex-start;}
+  .team-mono{width:72px;height:72px;flex-shrink:0;border-radius:50%;background:var(--slate);color:var(--tan);font-family:'Playfair Display',serif;font-size:26px;font-weight:700;display:flex;align-items:center;justify-content:center;letter-spacing:1px;}
+  .team-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--slate);}
+  .team-title{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--maroon);margin:6px 0 14px;}
+  .team-body{font-size:14px;color:var(--gray-text);line-height:1.7;}
+  .team-contact{margin-top:14px;font-size:14px;}
+  .team-contact a{color:var(--slate);text-decoration:none;font-weight:600;}
+  .team-contact a:hover{color:var(--maroon);}
+
+  /* ── Family ── */
+  #family{background:var(--white);}
+  .family-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;}
+  .family-card{border:1px solid var(--gray-mid);border-radius:6px;padding:36px;display:flex;flex-direction:column;transition:all 0.25s;background:var(--white);}
+  .family-card:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(44,62,80,0.1);}
+  .family-card.here{background:var(--slate);border-color:var(--slate);}
+  .family-bars{height:30px;display:flex;flex-direction:column;justify-content:space-between;width:64px;margin-bottom:22px;}
+  .family-bars i{display:block;height:6px;background:var(--maroon);}
+  .family-bars span{font-family:'Playfair Display',serif;font-size:14px;letter-spacing:3px;color:var(--slate);text-align:center;line-height:1;}
+  .family-card.here .family-bars span{color:var(--white);}
+  .family-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--slate);margin-bottom:6px;}
+  .family-card.here .family-name{color:var(--white);}
+  .family-domain{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--maroon);font-weight:700;margin-bottom:16px;}
+  .family-card.here .family-domain{color:var(--tan);}
+  .family-body{font-size:14px;color:var(--gray-text);line-height:1.7;flex:1;}
+  .family-card.here .family-body{color:rgba(255,255,255,0.65);}
+  .family-link{margin-top:22px;font-size:14px;font-weight:600;color:var(--maroon);text-decoration:none;}
+  .family-link:hover{text-decoration:underline;}
+  .family-card.here .family-link{color:var(--tan);}
+  .family-soon{display:inline-block;margin-left:8px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;background:rgba(200,168,130,0.3);color:#7A5A2E;padding:3px 8px;border-radius:2px;vertical-align:middle;}
+  .endow{max-width:880px;margin:48px auto 0;padding:28px 32px;background:var(--tan-pale);border:1px solid var(--gray-light);border-radius:6px;display:flex;gap:22px;align-items:flex-start;}
+  .endow-icon{width:44px;height:44px;flex-shrink:0;background:var(--maroon);border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--white);font-family:'Playfair Display',serif;font-size:22px;}
+  .endow h4{font-family:'Playfair Display',serif;font-size:18px;color:var(--slate);margin-bottom:6px;}
+  .endow p{font-size:14px;color:var(--gray-text);line-height:1.7;}
+
+  /* ── Contact (shared) ── */
+  #contact{background:var(--slate);padding:80px;}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+  #contact .section-title{color:var(--white);}
+  #contact .section-eyebrow{color:var(--tan);}
+  #contact .section-body{color:rgba(255,255,255,0.62);margin-top:16px;}
+  .contact-items{margin-top:40px;display:flex;flex-direction:column;gap:24px;}
+  .contact-item{display:flex;gap:16px;align-items:flex-start;}
+  .contact-icon{width:40px;height:40px;background:rgba(139,38,53,0.25);border:1px solid var(--maroon);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;color:var(--tan);}
+  .contact-detail-label{font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:4px;}
+  .contact-detail-value{font-size:15px;color:var(--white);font-weight:500;line-height:1.5;}
+  .contact-detail-value a{color:var(--white);text-decoration:none;}
+  .contact-detail-value a:hover{color:var(--tan);}
+  .contact-form-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.11);border-radius:8px;padding:40px;}
+  .contact-form-card h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--white);margin-bottom:28px;}
+  .form-group{margin-bottom:18px;}
+  .form-group label{display:block;font-size:12px;font-weight:600;letter-spacing:0.5px;color:rgba(255,255,255,0.5);text-transform:uppercase;margin-bottom:8px;}
+  .form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:4px;padding:12px 16px;color:var(--white);font-size:14px;font-family:'Source Sans 3',sans-serif;outline:none;transition:border-color 0.2s;}
+  .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.28);}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--maroon);}
+  .form-group select option{background:var(--slate);color:var(--white);}
+  .form-group textarea{resize:vertical;min-height:100px;}
+
+  /* ── Footer (shared) ── */
+  footer{background:var(--slate-dark);padding:48px 80px;border-top:3px solid var(--maroon);}
+  .footer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+  .footer-left svg{height:40px;width:auto;margin-bottom:14px;display:block;}
+  .footer-left p{font-size:13px;color:rgba(255,255,255,0.38);line-height:1.7;max-width:420px;}
+  .footer-links{display:flex;gap:32px;flex-wrap:wrap;}
+  .footer-links a{font-size:13px;color:rgba(255,255,255,0.48);text-decoration:none;transition:color 0.2s;}
+  .footer-links a:hover{color:var(--white);}
+  .footer-cols{display:flex;gap:56px;flex-wrap:wrap;}
+  .footer-col h5{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--tan);margin-bottom:12px;}
+  .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.48);text-decoration:none;margin-bottom:8px;}
+  .footer-col a:hover{color:var(--white);}
+  .footer-bottom{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.07);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:rgba(255,255,255,0.32);}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+  .hero-left>*{animation:fadeUp 0.6s ease both;}
+  .hero-left>*:nth-child(1){animation-delay:0.1s;}
+  .hero-left>*:nth-child(2){animation-delay:0.2s;}
+  .hero-left>*:nth-child(3){animation-delay:0.3s;}
+  .hero-left>*:nth-child(4){animation-delay:0.4s;}
+  .hero-right{animation:fadeUp 0.8s ease 0.3s both;}
+
+  /* ── Responsive ── */
+  @media(max-width:1180px){
+    .services-grid,.family-grid,.os-grid{grid-template-columns:repeat(2,1fr);}
+    .process-grid{grid-template-columns:repeat(3,1fr);}
+    .hero h1{font-size:46px;}
+  }
+  @media(max-width:960px){
+    nav{padding:0 20px;}
+    .nav-toggle{display:block;}
+    .nav-links{display:none;position:absolute;top:84px;left:0;right:0;background:var(--slate);flex-direction:column;align-items:stretch;padding:12px 16px 20px;gap:4px;border-bottom:1px solid rgba(255,255,255,0.08);}
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:12px 14px;}
+    .family-strip{padding:0 20px;gap:14px;}
+    .family-strip span{display:none;}
+    .hero{grid-template-columns:1fr;min-height:0;}
+    .hero-left{padding:64px 24px 40px;}
+    .hero-right{padding:0 24px 56px;}
+    .hero h1{font-size:38px;}
+    .trust-bar{padding:14px 24px;gap:24px;}
+    section{padding:72px 24px;}
+    #contact{padding:72px 24px;}
+    .section-title{font-size:32px;}
+    .about-grid,.contact-grid,.team-grid{grid-template-columns:1fr;gap:40px;}
+    .services-grid,.family-grid,.os-grid{grid-template-columns:1fr;}
+    .process-grid{grid-template-columns:1fr;}
+    footer{padding:40px 24px;}
+    table.ledger th.hide-m,table.ledger td.hide-m{display:none;}
+    table.ledger td,table.ledger th{padding:14px 16px;}
+  }
+  @media(max-width:560px){
+    .about-rules{grid-template-columns:1fr;}
+    .team-card{flex-direction:column;}
+    .hero-actions .btn-primary,.hero-actions .btn-outline{width:100%;justify-content:center;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#top" aria-label="AMKO Advisors home">
+    <!-- Logo drawn to match the AMKO Capital mark: maroon bars, serif wordmark, divider, entity name, tagline -->
+    <svg viewBox="0 0 430 132" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AMKO Advisors">
+      <rect x="14" y="14" width="178" height="12" fill="#8B2635"/>
+      <rect x="14" y="106" width="178" height="12" fill="#8B2635"/>
+      <text x="103" y="84" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="52" font-weight="400" letter-spacing="6" fill="#FFFFFF">AMKO</text>
+      <rect x="214" y="28" width="1.5" height="76" fill="rgba(255,255,255,0.35)"/>
+      <text x="238" y="68" font-family="'Playfair Display',Georgia,serif" font-size="31" font-weight="400" letter-spacing="3" fill="#C8A882">ADVISORS</text>
+      <text x="238" y="92" font-family="'Source Sans 3',Arial,sans-serif" font-size="13.5" font-style="italic" fill="rgba(255,255,255,0.72)">Your Vision. Our Solutions.</text>
+    </svg>
+  </a>
+  <button class="nav-toggle" onclick="toggleNav()" aria-expanded="false" aria-controls="navLinks">Menu</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#deals">Recent Deals</a></li>
+    <li><a href="#official-statements">Official Statements</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+<div class="family-strip">
+  <span>The AMKO Companies</span>
+  <a class="here" href="#top">AMKO Advisors</a>
+  <a href="https://www.amkocap.com" target="_blank" rel="noopener">AMKO Capital</a>
+  <a class="soon" href="https://www.amkobondservices.com" target="_blank" rel="noopener">AMKO Bond Services <small>Coming soon</small></a>
+</div>
+
+<div class="hero" id="top">
+  <div class="hero-pattern"></div>
+  <svg class="hero-horizon" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,120 C240,96 420,132 640,112 C860,92 1040,124 1240,104 C1340,94 1400,100 1440,98 L1440,160 L0,160 Z" fill="rgba(139,38,53,0.18)"/>
+    <path d="M0,138 C300,118 520,150 760,132 C980,116 1180,146 1440,126 L1440,160 L0,160 Z" fill="rgba(26,37,48,0.55)"/>
+  </svg>
+  <div class="hero-left">
+    <span class="hero-eyebrow">Independent Municipal Advisor</span>
+    <h1>Public Financial Solutions<br>for <span>Your Community</span></h1>
+    <p class="hero-sub">AMKO specializes in providing public financial solutions to a broad range of clients including local and state governments, as well as school districts, water resource districts, state agencies and qualifying private companies (through private activity bonds) throughout the country.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>Start a Conversation</a>
+      <a href="#official-statements" class="btn-outline"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="12" x2="12" y2="18"/><polyline points="9 15 12 18 15 15"/></svg>Official Statements</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="hero-card-title">Registered Municipal Advisor</div>
+      <div class="hero-stat"><span class="hero-stat-label">MSRB Registration</span><span class="hero-stat-value tan">#K0852</span></div>
+      <div class="hero-stat"><span class="hero-stat-label">SEC Registration</span><span class="hero-stat-value tan">#867-00428</span></div>
+      <div class="hero-stat"><span class="hero-stat-label">Standing</span><span class="hero-stat-value small">Independent &amp; Fiduciary</span></div>
+      <div class="hero-stat"><span class="hero-stat-label">Clients Served</span><span class="hero-stat-value small">Cities, Schools <span class="hero-stat-value small">Cities, Counties, Schools &amp; Districts</span>amp; Districts</span></div>
+      <div class="hero-stat"><span class="hero-stat-label">Headquarters</span><span class="hero-stat-value small">Fargo, North Dakota</span></div>
+      <div class="hero-seal">Your Vision. Our Solutions.</div>
+    </div>
+  </div>
+</div>
+
+<div class="trust-bar">
+  <div class="trust-item">&#10003; Independent Registered Municipal Advisor</div><div class="trust-dot"></div>
+  <div class="trust-item">&#10003; Debt Issuance &amp; Management</div><div class="trust-dot"></div>
+  <div class="trust-item">&#10003; Continuing Disclosure</div><div class="trust-dot"></div>
+  <div class="trust-item">&#10003; Deposit &amp; Investment Management</div><div class="trust-dot"></div>
+  <div class="trust-item">&#10003; Leasing &amp; Payment Processing</div><div class="trust-dot"></div>
+  <div class="trust-item">&#10003; Economic Development</div>
+</div>
+
+<section id="about" class="left">
+  <div class="about-grid">
+    <div>
+      <div class="section-eyebrow">Who We Are</div>
+      <div class="section-title">An Independent Advisor on Your Side of the Table</div>
+      <div class="about-body">
+        <p class="about-lede">As an independent municipal advisor, AMKO puts together the best possible financing structure and pricing for your project.</p>
+        <p>AMKO Advisors, LLC is a Registered Municipal Advisor with the Municipal Securities Rulemaking Board (MSRB) #K0852 and the United States Securities and Exchange Commission (SEC) #867-00428. We do not underwrite or purchase the obligations we advise on, so our only interest in a transaction is yours.</p>
+        <p>From our office in Fargo, North Dakota we serve communities across the Upper Midwest and beyond, working alongside city councils, school boards, county commissions, water resource districts and state agencies through every stage of a financing and the years of administration that follow.</p>
+      </div>
+    </div>
+    <div class="about-rules">
+      <div class="rule"><div class="rule-num">01</div><div class="rule-label">Independent</div><div class="rule-text">No underwriting desk, no bank affiliation. Our advice is not tied to who buys the bonds.</div></div>
+      <div class="rule"><div class="rule-num">02</div><div class="rule-label">Fiduciary</div><div class="rule-text">As a registered municipal advisor we owe our clients a federal fiduciary duty of care and loyalty.</div></div>
+      <div class="rule"><div class="rule-num">03</div><div class="rule-label">Registered</div><div class="rule-text">MSRB #K0852 and SEC #867-00428, with principals qualified through the MSRB Series 50 and 54 examinations.</div></div>
+      <div class="rule"><div class="rule-num">04</div><div class="rule-label">Local</div><div class="rule-text">Headquartered in Fargo. We know the statutes, the lenders and the auditors who work in our clients' states.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-eyebrow">What We Do</div>
+  <div class="section-title">Services</div>
+  <div class="section-body">AMKO offers a step-by-step process toward identifying your financing needs, then stays with you through issuance, ongoing compliance and the management of the debt and deposits that result.</div>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-index">01</div><div class="service-title">Debt Issuance</div><div class="service-body">Structuring, sizing and bringing bonds, notes and certificates to market. We prepare the plan of finance, coordinate bond counsel, rating agencies and paying agents, run the competitive sale or negotiation, and manage closing.</div></div>
+    <div class="service-card"><div class="service-index">02</div><div class="service-title">Debt Management</div><div class="service-body">Ongoing review of outstanding obligations for refunding and restructuring opportunities, debt capacity analysis, and the records, schedules and reports a governing body needs to manage its debt portfolio with confidence.</div></div>
+    <div class="service-card"><div class="service-index">03</div><div class="service-title">Deposit &amp; Investment Management</div><div class="service-body">Advice on the deposit, collateralization and investment of bond proceeds, reserve funds and operating balances so that public funds are safe, liquid and earning what they should.</div></div>
+    <div class="service-card"><div class="service-index">04</div><div class="service-title">Continuing Disclosure</div><div class="service-body">We will work with you and your community to ensure your existing bonds' disclosure requirements are completed timely and accurately, including annual filings and event notices on the MSRB's EMMA system.<div class="service-tag">Filing assistance via <a href="https://www.amkobondservices.com" target="_blank" rel="noopener">AMKO Bond Services</a></div></div></div>
+    <div class="service-card"><div class="service-index">05</div><div class="service-title">Leasing &amp; Payment Processing</div><div class="service-body">Tax-exempt lease financing for equipment, technology and infrastructure through the AMKO Lease Advantage, and credit card and ACH payment processing for municipal entities, online, by phone and on site.<div class="service-tag">Delivered through <a href="https://www.amkocap.com" target="_blank" rel="noopener">AMKO Capital</a></div></div></div>
+    <div class="service-card"><div class="service-index">06</div><div class="service-title">Economic Development</div><div class="service-body">Financing tools for growth: tax increment and special assessment districts, revenue bonds, private activity bonds for qualifying private projects, utility rate analyses and the fiscal impact studies that let a board decide with the numbers in front of it.</div></div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="section-eyebrow">How a Financing Comes Together</div>
+  <div class="section-title">A Step-by-Step Process</div>
+  <div class="section-body">Every issue is different, but the path from an identified need to a closed financing follows the same disciplined sequence. We lead each step and keep your staff and governing body informed throughout.</div>
+  <div class="process-grid">
+    <div class="how-step"><div class="step-number">01</div><div class="step-tag client">Together</div><div class="step-title">Identify the Need</div><div class="step-body">We meet with staff and the governing body to define the project, timing, revenue sources and legal authority available to fund it.</div></div>
+    <div class="how-step"><div class="step-number">02</div><div class="step-tag">AMKO</div><div class="step-title">Structure &amp; Plan of Finance</div><div class="step-body">Sizing, term, security, call features and rating strategy are modeled and compared so the structure fits your budget and your policy.</div></div>
+    <div class="how-step"><div class="step-number">03</div><div class="step-tag">AMKO</div><div class="step-title">Documents &amp; Disclosure</div><div class="step-body">We coordinate bond counsel, prepare the Official Statement and terms of offering, and assemble the financial and demographic disclosure investors expect.</div></div>
+    <div class="how-step"><div class="step-number">04</div><div class="step-tag both">Market</div><div class="step-title">Sale &amp; Award</div><div class="step-body">Bonds are sold competitively or negotiated with a purchaser. We evaluate bids, verify the true interest cost and recommend the award to the governing body.</div></div>
+    <div class="how-step"><div class="step-number">05</div><div class="step-tag both">Ongoing</div><div class="step-title">Closing &amp; Administration</div><div class="step-body">Proceeds are delivered and invested, the final Official Statement is posted, and continuing disclosure and debt service are tracked for the life of the issue.</div></div>
+  </div>
+  <div class="process-note">AMKO Advisors acts solely as municipal advisor to its clients. We do not underwrite, purchase or place securities, and the fiduciary duty we owe runs to the issuer alone.</div>
+</section>
+
+<section id="deals">
+  <div class="section-eyebrow">Recent Activity</div>
+  <div class="section-title">Recent Deals Closed</div>
+  <div class="section-body">A selection of financings AMKO Advisors has recently brought to market and closed on behalf of its clients.</div>
+  <div class="ledger-wrap">
+    <div class="ledger-head"><span><i class="ledger-dot"></i>Closed Transactions</span><span class="ledger-src" id="dealsSource">Source: AMKO Core</span></div>
+    <table class="ledger" aria-describedby="dealsSource">
+      <thead><tr><th>Closed</th><th>Issue</th><th class="hide-m">Type</th><th class="hide-m">Method</th><th class="par">Par Amount</th><th class="hide-m">OS</th></tr></thead>
+      <tbody id="dealsBody"><tr><td colspan="6" class="ledger-empty">Loading recent deals…</td></tr></tbody>
+    </table>
+    <div class="ledger-foot"><span id="dealsFootNote">Showing the most recent closings.</span><span class="ledger-total" id="dealsTotal"></span></div>
+  </div>
+</section>
+
+<section id="official-statements">
+  <div class="section-eyebrow">Investor &amp; Public Documents</div>
+  <div class="section-title">Official Statements</div>
+  <div class="section-body">Download final Official Statements for issues on which AMKO Advisors served as municipal advisor. Investors should also consult the MSRB's EMMA system for continuing disclosure filings.</div>
+  <div class="os-tools">
+    <input type="search" id="osSearch" placeholder="Search by issuer or series…" oninput="renderOS()" aria-label="Search official statements">
+    <select id="osYear" onchange="renderOS()" aria-label="Filter by year"><option value="">All years</option></select>
+    <span class="os-count" id="osCount"></span>
+  </div>
+  <div class="os-grid" id="osGrid"></div>
+  <div class="os-note">The Official Statements posted here are provided for informational purposes and speak only as of their dated date. They are not an offer to sell or a solicitation of an offer to buy any securities. For current disclosure, visit <a href="https://emma.msrb.org" target="_blank" rel="noopener">emma.msrb.org</a>. To request a document not listed here, <a href="#contact">contact us</a>.</div>
+</section>
+
+<section id="team">
+  <div class="section-eyebrow">Our People</div>
+  <div class="section-title">Meet the Advisors</div>
+  <div class="section-body">Two principals, both qualified municipal advisor representatives, and a single point of accountability on every engagement.</div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-mono">BO</div>
+      <div>
+        <div class="team-name">Brian D. Osowski</div>
+        <div class="team-title">President &amp; Senior Municipal Advisor</div>
+        <div class="team-body">Brian leads AMKO's advisory practice and serves as the firm's compliance principal. He works directly with cities, school districts and special districts on the structure, sale and administration of their debt, and oversees the AMKO Companies.</div>
+        <div class="team-contact"><a href="mailto:brian.osowski@amkoadvisors.com">brian.osowski@amkoadvisors.com</a></div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-mono">MD</div>
+      <div>
+        <div class="team-name">Mark Deraney</div>
+        <div class="team-title">Vice President &amp; Municipal Advisor</div>
+        <div class="team-body">Mark advises municipal clients on debt issuance, continuing disclosure and deposit and investment matters, and leads the firm's payment processing and bond services relationships.</div>
+        <div class="team-contact"><a href="mailto:mark.deraney@amkoadvisors.com">mark.deraney@amkoadvisors.com</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="family">
+  <div class="section-eyebrow">One Family of Companies</div>
+  <div class="section-title">The AMKO Companies</div>
+  <div class="section-body">Three affiliated entities, one standard of service. Advisory, financing and administration under a single roof in Fargo.</div>
+  <div class="family-grid">
+    <div class="family-card here">
+      <div class="family-bars"><i></i><span>AMKO</span><i></i></div>
+      <div class="family-name">AMKO Advisors, LLC</div>
+      <div class="family-domain">amkoadvisors.com · You are here</div>
+      <div class="family-body">Independent registered municipal advisory services: debt issuance and management, continuing disclosure, deposit and investment management, and economic development.</div>
+      <a class="family-link" href="#services">Explore our services &rarr;</a>
+    </div>
+    <div class="family-card">
+      <div class="family-bars"><i></i><span>AMKO</span><i></i></div>
+      <div class="family-name">AMKO Capital, LLC</div>
+      <div class="family-domain">amkocap.com</div>
+      <div class="family-body">Tax-exempt lease financing for public entities through the AMKO Lease Advantage: competitive bank rate bidding, no application fee, and a response within days.</div>
+      <a class="family-link" href="https://www.amkocap.com" target="_blank" rel="noopener">Visit amkocap.com &rarr;</a>
+    </div>
+    <div class="family-card">
+      <div class="family-bars"><i></i><span>AMKO</span><i></i></div>
+      <div class="family-name">AMKO Bond Services, LLC <span class="family-soon">Coming soon</span></div>
+      <div class="family-domain">amkobondservices.com</div>
+      <div class="family-body">Paying agent and registrar services, debt service notices, and filing assistance for continuing disclosure undertakings on outstanding issues.</div>
+      <a class="family-link" href="https://www.amkobondservices.com" target="_blank" rel="noopener">amkobondservices.com &rarr;</a>
+    </div>
+  </div>
+  <div class="endow">
+    <div class="endow-icon">&#9830;</div>
+    <div>
+      <h4>The AMKO Charitable Endowment Fund</h4>
+      <p>AMKO Companies established and continues to support the AMKO Charitable Endowment Fund, a permanent endowment administered by the North Dakota Community Foundation to assist municipalities and community initiatives.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-grid">
+    <div class="left">
+      <div class="section-eyebrow">Get in Touch</div>
+      <div class="section-title">Contact AMKO Advisors</div>
+      <div class="section-body">Whether you are planning a project, reviewing outstanding debt, or simply want a second opinion, we would like to hear from you.</div>
+      <div class="contact-items">
+        <div class="contact-item"><div class="contact-icon">&#9993;</div><div><div class="contact-detail-label">Email</div><div class="contact-detail-value"><a href="mailto:info@amkoadvisors.com">info@amkoadvisors.com</a></div></div></div>
+        <div class="contact-item"><div class="contact-icon">&#9742;</div><div><div class="contact-detail-label">Phone</div><div class="contact-detail-value"><a href="tel:+17015406821">701.540.6821</a></div></div></div>
+        <div class="contact-item"><div class="contact-icon">&#9873;</div><div><div class="contact-detail-label">Office</div><div class="contact-detail-value">5256 50th Avenue South, Suite A<br>Fargo, ND 58104</div></div></div>
+        <div class="contact-item"><div class="contact-icon">&#9878;</div><div><div class="contact-detail-label">Registration</div><div class="contact-detail-value">MSRB #K0852 &nbsp;·&nbsp; SEC #867-00428</div></div></div>
+      </div>
+    </div>
+    <div class="contact-form-card">
+      <h3>Send Us a Message</h3>
+      <div class="form-group"><label>Your Name <span style="color:var(--maroon);">*</span></label><input type="text" id="cName" placeholder="First and last name" /></div>
+      <div class="form-group"><label>Organization</label><input type="text" id="cOrg" placeholder="City, district, county or company" /></div>
+      <div class="form-group"><label>Email Address <span style="color:var(--maroon);">*</span></label><input type="email" id="cEmail" placeholder="your@email.com" /></div>
+      <div class="form-group"><label>Phone Number</label><input type="tel" id="cPhone" placeholder="(701) 555-0123" maxlength="14" oninput="cFmtPhone(this)" /></div>
+      <div class="form-group"><label>What can we help with? <span style="color:var(--maroon);">*</span></label><select id="cRequestType"><option value="">Select one</option><option>New financing or bond issue</option><option>Refunding or debt review</option><option>Continuing disclosure</option><option>Deposit &amp; investment management</option><option>Leasing or payment processing</option><option>Economic development</option><option>Request an Official Statement</option><option>Other</option></select></div>
+      <div class="form-group"><label>Message</label><textarea id="cMessage" placeholder="Tell us about your project or question."></textarea></div>
+      <div id="cErr" style="display:none;color:#E8A0A8;font-size:13px;margin-bottom:12px;"></div>
+      <button class="btn-primary" id="cSendBtn" style="width:100%;border:none;justify-content:center;" onclick="cSendMessage()">Send Message</button>
+      <div id="cSuccess" style="display:none;margin-top:16px;padding:16px;background:rgba(45,106,79,0.18);border:1px solid var(--green);border-radius:4px;color:var(--white);font-size:14px;">&#10003; Thank you &mdash; your message has been sent. We'll respond within one business day.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-left">
+      <svg viewBox="0 0 430 132" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AMKO Advisors">
+        <rect x="14" y="14" width="178" height="12" fill="#8B2635"/>
+        <rect x="14" y="106" width="178" height="12" fill="#8B2635"/>
+        <text x="103" y="84" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="52" letter-spacing="6" fill="#FFFFFF">AMKO</text>
+        <rect x="214" y="28" width="1.5" height="76" fill="rgba(255,255,255,0.35)"/>
+        <text x="238" y="68" font-family="'Playfair Display',Georgia,serif" font-size="31" letter-spacing="3" fill="#C8A882">ADVISORS</text>
+        <text x="238" y="92" font-family="'Source Sans 3',Arial,sans-serif" font-size="13.5" font-style="italic" fill="rgba(255,255,255,0.72)">Your Vision. Our Solutions.</text>
+      </svg>
+      <p>5256 50th Avenue South, Suite A · Fargo, ND 58104 · 701.540.6821<br>AMKO Advisors, LLC is a Registered Municipal Advisor with the Municipal Securities Rulemaking Board (MSRB) #K0852 and the United States Securities and Exchange Commission (SEC) #867-00428.</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>Site</h5>
+        <a href="#about">About</a><a href="#services">Services</a><a href="#process">Process</a><a href="#deals">Recent Deals</a><a href="#official-statements">Official Statements</a><a href="#team">Team</a><a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>AMKO Companies</h5>
+        <a href="https://www.amkocap.com" target="_blank" rel="noopener">AMKO Capital</a>
+        <a href="https://www.amkobondservices.com" target="_blank" rel="noopener">AMKO Bond Services</a>
+        <a href="https://emma.msrb.org" target="_blank" rel="noopener">MSRB EMMA</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; <span id="year">2026</span> AMKO Advisors, LLC. All rights reserved. &nbsp;&middot;&nbsp; amkoadvisors.com</span>
+    <span>Municipal advisory services only. Nothing on this site is an offer to sell or a solicitation to buy securities.</span>
+  </div>
+</footer>
+
+<script src="data/deals.js"></script>
+<script src="data/official-statements.js"></script>
+<script>
+  // ── Configuration ─────────────────────────────────────────────────────────
+  // Optional live feed from AMKO Core. When set, the page fetches this URL
+  // (expects the same JSON array shape documented in data/deals.js) and falls
+  // back to the static file if the request fails.
+  var AMKO_DEALS_ENDPOINT = '';
+  var DEALS_LIMIT = 8;
+  // Power Automate (or any POST endpoint) for the contact form. Leave blank
+  // to open the visitor's email client with the message pre-filled.
+  var CONTACT_ENDPOINT = '';
+  var CONTACT_FALLBACK_EMAIL = 'info@amkoadvisors.com';
+
+  // ── Helpers ───────────────────────────────────────────────────────────────
+  function fmtUSD(n){ return '$' + Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+  function fmtDate(iso){
+    if(!iso) return '';
+    var p = iso.split('-'); if(p.length<3) return iso;
+    var m = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][parseInt(p[1],10)-1];
+    return m + ' ' + parseInt(p[2],10) + ', ' + p[0];
+  }
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function chipClass(type){
+    var t=(type||'').toLowerCase();
+    if(t.indexOf('general')>=0) return 'go';
+    if(t.indexOf('refund')>=0) return 'ref';
+    if(t.indexOf('revenue')>=0) return 'rev';
+    return '';
+  }
+
+  // ── Recent deals ──────────────────────────────────────────────────────────
+  function osById(id){
+    var list = window.AMKO_OFFICIAL_STATEMENTS || [];
+    for(var i=0;i<list.length;i++){ if(list[i].id===id) return list[i]; }
+    return null;
+  }
+  function renderDeals(deals, sourceLabel){
+    var body=document.getElementById('dealsBody');
+    var list=(deals||[]).slice().sort(function(a,b){ return (b.closed||'').localeCompare(a.closed||''); });
+    if(!list.length){ body.innerHTML='<tr><td colspan="6" class="ledger-empty">No closed transactions to display yet.</td></tr>'; document.getElementById('dealsTotal').textContent=''; return; }
+    var shown=list.slice(0,DEALS_LIMIT), total=0, html='';
+    shown.forEach(function(d){
+      total += Number(d.par)||0;
+      var os = d.osId ? osById(d.osId) : null;
+      var osCell = os && os.file ? '<a href="'+esc(os.file)+'" target="_blank" rel="noopener">Download</a>' : (os ? '<a href="#official-statements">Request</a>' : '<span style="color:var(--gray-mid)">&mdash;</span>');
+      html += '<tr>'
+        + '<td class="deal-date">'+esc(fmtDate(d.closed))+'</td>'
+        + '<td><div class="deal-issue">'+esc(d.issue)+'</div><div class="deal-issuer">'+esc(d.issuer)+(d.state?' &middot; '+esc(d.state):'')+'</div></td>'
+        + '<td class="hide-m"><span class="deal-chip '+chipClass(d.type)+'">'+esc(d.type||'')+'</span></td>'
+        + '<td class="hide-m" style="font-size:14px;color:var(--gray-text)">'+esc(d.method||'')+'</td>'
+        + '<td class="par">'+fmtUSD(d.par||0)+'</td>'
+        + '<td class="hide-m deal-os">'+osCell+'</td>'
+        + '</tr>';
+    });
+    body.innerHTML=html;
+    document.getElementById('dealsTotal').innerHTML='Par shown: <b>'+fmtUSD(total)+'</b>';
+    document.getElementById('dealsFootNote').textContent='Showing '+shown.length+' of '+list.length+' closed transactions. Role: Municipal Advisor.';
+    if(sourceLabel) document.getElementById('dealsSource').textContent=sourceLabel;
+  }
+  function loadDeals(){
+    if(AMKO_DEALS_ENDPOINT){
+      fetch(AMKO_DEALS_ENDPOINT,{headers:{'Accept':'application/json'}})
+        .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function(j){ renderDeals(Array.isArray(j)?j:(j.deals||[]), 'Source: AMKO Core (live)'); })
+        .catch(function(){ renderDeals(window.AMKO_DEALS, 'Source: AMKO Core'); });
+    } else {
+      renderDeals(window.AMKO_DEALS, 'Source: AMKO Core');
+    }
+  }
+
+  // ── Official statements ───────────────────────────────────────────────────
+  function initOS(){
+    var list=window.AMKO_OFFICIAL_STATEMENTS||[], years={}, sel=document.getElementById('osYear');
+    list.forEach(function(o){ var y=(o.dated||'').slice(0,4); if(y) years[y]=1; });
+    Object.keys(years).sort().reverse().forEach(function(y){ var op=document.createElement('option'); op.value=y; op.textContent=y; sel.appendChild(op); });
+    renderOS();
+  }
+  function renderOS(){
+    var q=(document.getElementById('osSearch').value||'').toLowerCase().trim();
+    var y=document.getElementById('osYear').value;
+    var list=(window.AMKO_OFFICIAL_STATEMENTS||[]).slice().sort(function(a,b){ return (b.dated||'').localeCompare(a.dated||''); });
+    var out=list.filter(function(o){
+      if(y && (o.dated||'').slice(0,4)!==y) return false;
+      if(q && ((o.issuer||'')+' '+(o.issue||'')).toLowerCase().indexOf(q)<0) return false;
+      return true;
+    });
+    var grid=document.getElementById('osGrid'), html='';
+    out.forEach(function(o){
+      var prelim=(o.status||'').toLowerCase().indexOf('prelim')===0;
+      html += '<div class="os-card">'
+        + '<div class="os-card-head"><span class="os-status'+(prelim?' prelim':'')+'">'+esc(o.status||'Final')+' Official Statement</span><span class="os-par">'+fmtUSD(o.par||0)+'</span></div>'
+        + '<div class="os-card-body">'
+        + '<div class="os-date">Dated '+esc(fmtDate(o.dated))+(o.state?' &middot; '+esc(o.state):'')+'</div>'
+        + '<div class="os-title">'+esc(o.issue)+'</div>'
+        + '<div class="os-issuer">'+esc(o.issuer)+'</div>'
+        + '<div class="os-actions">'
+        + (o.file ? '<a class="os-dl" href="'+esc(o.file)+'" target="_blank" rel="noopener" download>&#8615; Download PDF</a>' : '<a class="os-dl" href="#contact" onclick="prefillOSRequest(\''+esc(o.issue).replace(/'/g,"\\'")+'\')">Request a copy</a>')
+        + (o.emma ? '<a class="os-emma" href="'+esc(o.emma)+'" target="_blank" rel="noopener">View on EMMA</a>' : '')
+        + '</div></div></div>';
+    });
+    grid.innerHTML = html || '<div class="ledger-empty" style="grid-column:1/-1">No Official Statements match your search.</div>';
+    document.getElementById('osCount').textContent = out.length+' of '+list.length+' document'+(list.length===1?'':'s');
+  }
+  function prefillOSRequest(issue){
+    var sel=document.getElementById('cRequestType');
+    for(var i=0;i<sel.options.length;i++){ if(sel.options[i].text.indexOf('Official Statement')>=0){ sel.selectedIndex=i; break; } }
+    var msg=document.getElementById('cMessage'); if(!msg.value) msg.value='Please send me the Official Statement for: '+issue;
+  }
+
+  // ── Contact form ──────────────────────────────────────────────────────────
+  function cFmtPhone(el){
+    var v=el.value.replace(/\D/g,'').slice(0,10);
+    if(v.length>6) el.value='('+v.slice(0,3)+') '+v.slice(3,6)+'-'+v.slice(6);
+    else if(v.length>3) el.value='('+v.slice(0,3)+') '+v.slice(3);
+    else if(v.length>0) el.value='('+v;
+    else el.value='';
+  }
+  function cSendMessage(){
+    var name=document.getElementById('cName').value.trim();
+    var org=document.getElementById('cOrg').value.trim();
+    var email=document.getElementById('cEmail').value.trim();
+    var phone=document.getElementById('cPhone').value.trim();
+    var requestType=document.getElementById('cRequestType').value;
+    var message=document.getElementById('cMessage').value.trim();
+    var err=document.getElementById('cErr');
+    var missing=[];
+    if(!name)missing.push('your name');
+    if(!email||email.indexOf('@')<1)missing.push('a valid email');
+    if(!requestType)missing.push('what we can help with');
+    if(missing.length){err.textContent='Please enter '+missing.join(', ')+'.';err.style.display='block';return;}
+    err.style.display='none';
+    var btn=document.getElementById('cSendBtn');
+    var payload={site:'amkoadvisors.com',name:name,organization:org,email:email,phone:phone,requestType:requestType,message:message};
+    if(!CONTACT_ENDPOINT){
+      var body='Name: '+name+'\nOrganization: '+org+'\nEmail: '+email+'\nPhone: '+phone+'\nTopic: '+requestType+'\n\n'+message;
+      window.location.href='mailto:'+CONTACT_FALLBACK_EMAIL+'?subject='+encodeURIComponent('Website inquiry: '+requestType)+'&body='+encodeURIComponent(body);
+      return;
+    }
+    btn.textContent='Sending...';btn.disabled=true;
+    fetch(CONTACT_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){ if(!r.ok) throw new Error(r.status); document.getElementById('cSuccess').style.display='block';btn.style.display='none';})
+      .catch(function(){btn.textContent='Send Message';btn.disabled=false;err.textContent='There was an error sending your message. Please email us directly at '+CONTACT_FALLBACK_EMAIL+'.';err.style.display='block';});
+  }
+
+  // ── Nav ───────────────────────────────────────────────────────────────────
+  function toggleNav(){
+    var ul=document.getElementById('navLinks'), btn=document.querySelector('.nav-toggle');
+    var open=ul.classList.toggle('open'); btn.setAttribute('aria-expanded', open?'true':'false');
+  }
+  document.querySelectorAll('.nav-links a').forEach(function(a){ a.addEventListener('click', function(){ document.getElementById('navLinks').classList.remove('open'); }); });
+  var sections=document.querySelectorAll('section[id]');
+  var navLinks=document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', function(){
+    var current='';
+    sections.forEach(function(s){ if(window.scrollY >= s.offsetTop - 140) current=s.getAttribute('id'); });
+    navLinks.forEach(function(link){
+      link.style.color='';
+      if(link.getAttribute('href')==='#'+current && !link.classList.contains('nav-cta')) link.style.color='#fff';
+    });
+  });
+
+  document.getElementById('year').textContent=new Date().getFullYear();
+  loadDeals();
+  initOS();
+</script>
+</body>
+</html>
