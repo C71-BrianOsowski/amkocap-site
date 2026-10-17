@@ -39,8 +39,9 @@ plain scripts so `file://` works.
   block in `index.html` to a Power Automate HTTP trigger URL (same pattern as
   amkocap.com). While it is blank the form opens the visitor's mail client
   addressed to info@amkoadvisors.com with the message pre-filled.
-* **Nothing in this folder may contain the old address or phone.** The deploy
-  workflow fails if `4201 38th` or `364-9884` appears in any `.html`/`.js`.
+* **Nothing in this folder may contain the old address or phone numbers.**
+  The deploy workflow fails if `4201 38th`, `364-9884` or `844-733` /
+  `733-AMKO` appears in any `.html`/`.js`.
 
 ## AMKO Core integration (recent deals)
 
@@ -131,5 +132,10 @@ replaced with the original wording where it differs.
 | "Your Vision. Our Solutions." | **verbatim** (firm tagline, flyers and Capital logo) |
 | AMKO Bond Services description | drafted from the MN Small Cities directory profile |
 
-Also not carried over, pending your call: the toll-free number
-1.844.733.AMKO that appears on the current contact page.
+**Retired toll-free number.** 1.844.733.AMKO (844-733-2656) was AMKO's but
+was released and has since been reserved by another party (Somos lookup,
+October 2026, held by Interactive RespOrg Management, LLC). It must not
+appear anywhere on this site; the deploy workflow fails if it does. It still
+appears on the old aoTek site, on several marketing flyers in SharePoint, and
+in the Zions Bank paying-agent "AMKO Debt Service Notice" template, which
+Zions needs to update.

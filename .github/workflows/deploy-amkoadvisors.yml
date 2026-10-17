@@ -44,8 +44,9 @@ jobs:
           test -f sites/amkoadvisors/index.html
           test -f sites/amkoadvisors/CNAME
           grep -q "amkoadvisors.com" sites/amkoadvisors/CNAME
-          # The outdated address and phone must never ship.
-          ! grep -rIn "4201 38th\|364-9884\|364.9884" sites/amkoadvisors/ --include=*.html --include=*.js
+          # The outdated address, old office line and the released toll-free
+          # number (844-733-AMKO, now held by another party) must never ship.
+          ! grep -rIin "4201 38th\|364-9884\|364.9884\|844-733\|844.733\|733-AMKO\|733.AMKO\|7332656" sites/amkoadvisors/ --include=*.html --include=*.js
 
       - name: Publish to the amkoadvisors-site Pages repo
         uses: peaceiris/actions-gh-pages@v4
