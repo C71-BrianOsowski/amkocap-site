@@ -129,7 +129,7 @@ replaced with the original wording where it differs.
 | About lede ("As an independent municipal advisor, AMKO puts together the best possible financing structure and pricing …") | close paraphrase of contact page |
 | Services intro ("AMKO offers a step-by-step process toward identifying your financing needs") | **verbatim** (services page) |
 | Continuing Disclosure ("We will work with you and your community to ensure your existing bonds' disclosure requirements are completed timely and accurately") | **verbatim** (services page) |
-| Service names (Debt Issuance, Debt Management, Deposit & Investment Management, Continuing Disclosure, Leasing & Payment Processing, Economic Development) | **verbatim** (services page); Utility Rate Modeling is a new seventh service added for AMKO RateWorks |
+| Service names (Debt Issuance, Debt Management, Deposit & Investment Management, Continuing Disclosure, Leasing & Payment Processing, Economic Development) | **verbatim** (services page); Utility Rate Modeling (AMKO RateWorks) and Policy & Procedure Development are new seventh and eighth services |
 | Service descriptions, "Independent / Fiduciary / Registered / Local" tiles, process steps | drafted — replace with live copy |
 | Team names and titles (Brian D. Osowski, President & Senior Municipal Advisor; Mark Deraney, Vice President & Municipal Advisor) | **verbatim** (about-us page) |
 | Team bios | drafted — replace with live copy |
