@@ -11,3 +11,8 @@ to be recorded for each as they are confirmed. Images are resized to a maximum o
 | `fire-truck.jpg` | Firefighter washing a red fire engine outside a fire station | Services photo band | TBD (supplied by AMKO) |
 | `plow-loader.jpg` | Volvo wheel loader with a snow plow blade in a snowy lot | Services photo band | TBD (supplied by AMKO) |
 | `playground.jpg` | Colorful playground structure with slides at a school | Services photo band | TBD (supplied by AMKO) |
+| `police-suv.jpg` | White police SUV on a city street (top of frame cropped to remove third-party signage) | Services photo band | TBD (supplied by AMKO) |
+| `computer-lab.jpg` | Row of desktop computers in a classroom lab | Services photo band | TBD (supplied by AMKO) |
+| `golf-carts.jpg` | Line of golf carts parked at a golf course | Services photo band | TBD (supplied by AMKO) |
+
+Not used: a black-and-white NYPD patrol vehicle photo, held back because it is monochrome and carries a specific department's markings.
