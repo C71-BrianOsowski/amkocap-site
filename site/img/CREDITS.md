@@ -16,3 +16,4 @@ to be recorded for each as they are confirmed. Images are resized to a maximum o
 | `golf-carts.jpg` | Line of golf carts parked at a golf course | Services photo band | TBD (supplied by AMKO) |
 
 Not used: a black-and-white NYPD patrol vehicle photo, held back because it is monochrome and carries a specific department's markings.
+| `loader-snow.jpg` | Yellow wheel loader pushing snow in a park (cropped to the machine) | Why Lease comparison tiles | TBD (supplied by AMKO) |
