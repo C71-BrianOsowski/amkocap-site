@@ -25,7 +25,7 @@
   .nav-links a:hover{color:var(--white);background:rgba(255,255,255,0.08);}
   .nav-cta{background:var(--maroon)!important;color:var(--white)!important;padding:9px 20px!important;font-weight:600!important;}
   .nav-cta:hover{background:var(--maroon-light)!important;}
-  .hero{margin-top:84px;background:var(--slate);min-height:600px;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;}
+  .hero{margin-top:84px;background:linear-gradient(100deg,rgba(44,62,80,0.97) 0%,rgba(44,62,80,0.90) 42%,rgba(44,62,80,0.62) 100%),url('site/img/hero-loader.jpg') center 60%/cover no-repeat var(--slate);min-height:600px;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;}
   .hero-pattern{position:absolute;top:0;left:0;right:0;bottom:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 60px,rgba(139,38,53,0.05) 60px,rgba(139,38,53,0.05) 61px),repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(139,38,53,0.05) 60px,rgba(139,38,53,0.05) 61px);}
   .hero-left{position:relative;z-index:2;padding:80px 60px 80px 80px;display:flex;flex-direction:column;justify-content:center;}
   .hero-eyebrow{display:inline-block;background:var(--maroon);color:var(--white);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;margin-bottom:28px;border-radius:2px;}
@@ -41,7 +41,7 @@
   .btn-tan:hover{background:#D4B697;border-color:#D4B697;transform:translateY(-2px);box-shadow:0 8px 22px rgba(200,168,130,0.45);}
   .btn-primary svg,.btn-outline svg,.btn-tan svg{flex-shrink:0;}
   .hero-right{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;padding:60px;}
-  .hero-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.13);border-radius:8px;padding:36px;width:100%;max-width:380px;}
+  .hero-card{background:rgba(44,62,80,0.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.13);border-radius:8px;padding:36px;width:100%;max-width:380px;}
   .hero-card-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--tan);margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid rgba(200,168,130,0.25);}
   .hero-stat{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.07);}
   .hero-stat:last-child{border-bottom:none;}
@@ -68,6 +68,11 @@
   #services .section-title{color:var(--white);text-align:center;}
   #services .section-eyebrow{color:var(--tan);}
   #services .section-body{color:rgba(255,255,255,0.6);}
+  .photoband{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:40px;}
+  .photoband figure{margin:0;flex:0 0 calc(25% - 12px);}
+  .photoband img{width:100%;height:190px;object-fit:cover;border-radius:6px;border:1px solid rgba(255,255,255,0.12);display:block;box-shadow:0 6px 20px rgba(0,0,0,0.25);}
+  .photoband figcaption{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--tan);margin-top:10px;text-align:center;}
+  @media(max-width:860px){.photoband figure{flex-basis:calc(50% - 8px);}.photoband img{height:150px;}}
   .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;}
   .service-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:6px;padding:36px;transition:all 0.25s;}
   .service-card:hover{background:rgba(255,255,255,0.09);border-color:var(--maroon);transform:translateY(-3px);}
@@ -441,6 +446,12 @@
     <div class="service-card"><div class="service-icon">🌱</div><div class="service-title">Green Energy Projects</div><div class="service-body">Solar installations, EV charging infrastructure, and energy efficiency upgrades. Combine tax-exempt financing with available grants and incentives.</div></div>
     <div class="service-card"><div class="service-icon">📡</div><div class="service-title">Communications Systems</div><div class="service-body">Radio systems, dispatch technology, fiber infrastructure, and broadband projects for underserved communities and public facilities.</div></div>
     <div class="service-card"><div class="service-icon">🏛️</div><div class="service-title">Facilities &amp; Renovations</div><div class="service-body">Municipal building improvements, HVAC systems, accessibility upgrades, and facility expansions structured as lease-purchase agreements.</div></div>
+  </div>
+  <div class="photoband">
+    <figure><img src="site/img/school-bus.jpg" alt="Yellow school bus parked beside a lake" loading="lazy"><figcaption>School &amp; Transit Buses</figcaption></figure>
+    <figure><img src="site/img/fire-truck.jpg" alt="Firefighter washing a red fire engine outside a fire station" loading="lazy"><figcaption>Fire Apparatus</figcaption></figure>
+    <figure><img src="site/img/plow-loader.jpg" alt="Wheel loader with a snow plow blade in a snowy municipal lot" loading="lazy"><figcaption>Public Works Equipment</figcaption></figure>
+    <figure><img src="site/img/playground.jpg" alt="Colorful playground structure with slides at a school" loading="lazy"><figcaption>Parks &amp; Recreation</figcaption></figure>
   </div>
 </section>
 
