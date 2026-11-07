@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMKO Lease Advantage — Guided Walkthrough</title>
+<meta name="description" content="A guided walkthrough of the AMKO Lease Advantage: how a public entity applies, what it needs to have ready, how banks receive and bid on the opportunity, and how the award is delivered.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="site/img/amko-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --slate:#2C3E50;--slate-dark:#1A2530;--slate-mid:#34495E;
+    --maroon:#8B2635;--maroon-light:#A63040;
+    --tan:#C8A882;--tan-pale:#F5F0E8;
+    --cream:#FAF8F4;--off-white:#F2EEE8;
+    --gray-light:#E8E4DC;--gray-mid:#C8C4BC;--gray-text:#6B6760;
+    --text-dark:#1A1A1A;--green:#2D6A4F;--white:#ffffff;
+    --bank:#1F5F8B;--amber:#B7791F;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;}
+  body{font-family:'Source Sans 3',sans-serif;color:var(--text-dark);background:var(--slate-dark);line-height:1.5;display:flex;flex-direction:column;min-height:100vh;}
+  button{font-family:inherit;}
+
+  /* ── Top bar ─────────────────────────────────────────────────────────── */
+  .topbar{background:var(--slate);height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;border-bottom:3px solid var(--maroon);flex-shrink:0;gap:16px;}
+  .topbar .brand{display:flex;align-items:center;gap:16px;min-width:0;}
+  .topbar .brand img{height:44px;display:block;}
+  .topbar .brand .tt{color:var(--white);font-size:15px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .topbar .brand .tt small{display:block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--tan);}
+  .controls{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+  .ctl{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:var(--white);height:38px;min-width:38px;padding:0 12px;border-radius:4px;cursor:pointer;font-size:13px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:background .15s;}
+  .ctl:hover{background:rgba(255,255,255,0.16);}
+  .ctl.play{background:var(--maroon);border-color:var(--maroon);padding:0 16px;}
+  .ctl.play:hover{background:var(--maroon-light);}
+  .ctl svg{width:14px;height:14px;fill:currentColor;}
+  .counter{color:rgba(255,255,255,0.7);font-size:13px;font-variant-numeric:tabular-nums;padding:0 6px;white-space:nowrap;}
+  .topbar a.site{color:rgba(255,255,255,0.7);font-size:13px;text-decoration:none;margin-left:8px;white-space:nowrap;}
+  .topbar a.site:hover{color:var(--white);}
+
+  .progress{height:4px;background:rgba(255,255,255,0.08);flex-shrink:0;position:relative;}
+  .progress .bar{height:100%;background:var(--tan);width:0;transition:width .35s ease;}
+  .progress .tick{position:absolute;top:0;bottom:0;width:1px;background:rgba(255,255,255,0.18);}
+
+  /* ── Layout ─────────────────────────────────────────────────────────── */
+  .layout{flex:1;display:grid;grid-template-columns:minmax(0,1fr) 340px;min-height:0;}
+  .stagewrap{position:relative;padding:28px 32px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;overflow:auto;background:radial-gradient(ellipse at 50% 0%,rgba(200,168,130,0.10),transparent 60%),var(--slate-dark);}
+  .stage{width:100%;max-width:980px;}
+  .scene{animation:fadeUp .45s ease both;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+
+  .side{background:var(--cream);border-left:1px solid rgba(0,0,0,0.08);display:flex;flex-direction:column;min-height:0;}
+  .narr{padding:24px 24px 20px;border-bottom:1px solid var(--gray-light);}
+  .role{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 10px;border-radius:2px;margin-bottom:12px;}
+  .role::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor;}
+  .role.muni{background:rgba(139,38,53,0.10);color:var(--maroon);}
+  .role.amko{background:rgba(44,62,80,0.10);color:var(--slate);}
+  .role.bank{background:rgba(31,95,139,0.10);color:var(--bank);}
+  .role.all{background:rgba(45,106,79,0.10);color:var(--green);}
+  .narr h2{font-family:'Playfair Display',serif;font-size:22px;color:var(--slate);line-height:1.25;margin-bottom:10px;}
+  .narr p{font-size:14.5px;color:var(--gray-text);line-height:1.65;}
+  .narr p strong{color:var(--text-dark);font-weight:600;}
+  .narr .keyfacts{margin-top:14px;display:flex;flex-direction:column;gap:8px;}
+  .narr .kf{display:flex;gap:10px;font-size:13px;color:var(--text-dark);line-height:1.45;}
+  .narr .kf .n{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--maroon);color:var(--white);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+
+  .steps{flex:1;overflow:auto;padding:14px 12px 20px;}
+  .steps .grp{font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray-text);padding:12px 12px 6px;}
+  .steps button{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:none;border:none;padding:8px 12px;border-radius:4px;cursor:pointer;font-size:13.5px;color:var(--text-dark);}
+  .steps button:hover{background:var(--tan-pale);}
+  .steps button.cur{background:var(--white);box-shadow:0 1px 3px rgba(0,0,0,0.08);font-weight:600;color:var(--slate);}
+  .steps .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;background:var(--gray-mid);}
+  .steps button.done .dot{background:var(--green);}
+  .steps button.cur .dot{background:var(--maroon);box-shadow:0 0 0 3px rgba(139,38,53,0.15);}
+  .steps .num{color:var(--gray-text);font-size:12px;width:18px;flex-shrink:0;font-variant-numeric:tabular-nums;}
+
+  .bottomnav{display:flex;gap:10px;padding:16px 24px;border-top:1px solid var(--gray-light);background:var(--cream);}
+  .bottomnav button{flex:1;height:44px;border-radius:4px;font-size:14px;font-weight:600;cursor:pointer;}
+  .bottomnav .prev{background:var(--white);border:1.5px solid var(--gray-mid);color:var(--slate);}
+  .bottomnav .next{background:var(--maroon);border:none;color:var(--white);}
+  .bottomnav .next:hover{background:var(--maroon-light);}
+
+  /* ── Frames ─────────────────────────────────────────────────────────── */
+  .browser{background:var(--white);border-radius:8px;box-shadow:0 24px 60px rgba(0,0,0,0.45);border:1px solid rgba(255,255,255,0.08);}
+  .browser .chrome{background:#E9E6E0;border-radius:8px 8px 0 0;height:40px;display:flex;align-items:center;gap:8px;padding:0 14px;border-bottom:1px solid #D6D2CA;}
+  .browser .chrome .d{width:11px;height:11px;border-radius:50%;background:#C9C4BB;}
+  .browser .chrome .url{flex:1;margin-left:10px;background:var(--white);border-radius:4px;height:26px;display:flex;align-items:center;padding:0 12px;font-size:12px;color:var(--gray-text);gap:8px;}
+  .browser .chrome .url .lock{color:var(--green);font-size:11px;}
+  .browser .page{min-height:420px;border-radius:0 0 8px 8px;background:var(--off-white);}
+  .browser .page > *:last-child{border-bottom-left-radius:8px;border-bottom-right-radius:8px;}
+
+  .mail{background:var(--white);border-radius:8px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.45);border:1px solid rgba(255,255,255,0.08);}
+  .mail .mhead{padding:18px 26px;border-bottom:1px solid var(--gray-light);background:#FBFAF7;}
+  .mail .subj{font-size:17px;font-weight:600;color:var(--text-dark);margin-bottom:10px;}
+  .mail .meta{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:13px;color:var(--gray-text);}
+  .mail .meta b{color:var(--text-dark);font-weight:600;}
+  .mail .meta .k{text-align:right;}
+  .mail .mbody{padding:0;}
+  .ebrand{background:var(--slate);padding:16px 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--maroon);}
+  .ebrand img{height:36px;}
+  .ebrand span{color:var(--tan);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
+  .econtent{padding:26px 28px 28px;font-size:15px;line-height:1.65;color:var(--text-dark);}
+  .econtent p{margin-bottom:12px;}
+  .econtent h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--slate);margin-bottom:12px;}
+  .efoot{padding:14px 28px;background:var(--off-white);font-size:12px;color:var(--gray-text);border-top:1px solid var(--gray-light);}
+  .codebox{display:inline-block;background:var(--tan-pale);border:2px dashed var(--tan);border-radius:6px;padding:14px 28px;font-size:26px;font-weight:700;letter-spacing:4px;color:var(--slate);margin:6px 0 14px;}
+  .ebtn{display:inline-block;background:var(--maroon);color:var(--white);padding:13px 26px;border-radius:3px;font-weight:700;text-decoration:none;font-size:14px;}
+  .ebtn.green{background:var(--green);}
+  .ebtn.gray{background:var(--white);color:var(--slate);border:1.5px solid var(--gray-mid);}
+  .ebtn.bank{background:var(--bank);}
+  .attach{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 4px;}
+  .att{display:inline-flex;align-items:center;gap:8px;background:var(--off-white);border:1px solid var(--gray-mid);border-radius:4px;padding:7px 12px;font-size:13px;color:var(--slate);}
+  .att i{width:18px;height:22px;border-radius:2px;background:var(--maroon);display:inline-block;position:relative;flex-shrink:0;}
+  .att i::after{content:"PDF";position:absolute;inset:0;color:#fff;font-size:7px;font-weight:700;font-style:normal;display:flex;align-items:center;justify-content:center;}
+  .dealtbl{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:14px;}
+  .dealtbl td{padding:9px 12px;border-bottom:1px solid var(--gray-light);}
+  .dealtbl td:first-child{color:var(--gray-text);width:46%;}
+  .dealtbl td:last-child{font-weight:600;color:var(--text-dark);}
+  .dealtbl tr.hi td:last-child{color:var(--maroon);}
+
+  /* ── Application mock (mirrors live form) ─────────────────────────── */
+  .phf{background:var(--slate);padding:26px 36px 22px;}
+  .phf .ey{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--tan);margin-bottom:8px;}
+  .phf h1{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--white);line-height:1.2;}
+  .atb{background:var(--maroon);padding:10px 36px;display:flex;align-items:center;gap:28px;overflow:hidden;}
+  .ati{color:rgba(255,255,255,0.92);font-size:12px;font-weight:600;white-space:nowrap;}
+  .fwrap{padding:24px 36px 32px;background:var(--off-white);}
+  .fprog{display:flex;align-items:flex-start;margin-bottom:22px;}
+  .fps{display:flex;align-items:center;flex:1;}.fps:last-child{flex:0;}
+  .fpi{display:flex;flex-direction:column;align-items:center;}
+  .fsc{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;}
+  .fsc.active{background:var(--maroon);color:var(--white);}
+  .fsc.done{background:var(--green);color:var(--white);}
+  .fsc.pending{background:var(--gray-light);color:var(--gray-text);}
+  .fsl{font-size:10.5px;font-weight:600;margin-top:5px;white-space:nowrap;}
+  .fsl.active{color:var(--maroon);}.fsl.done{color:var(--green);}.fsl.pending{color:var(--gray-text);}
+  .fco{flex:1;height:2px;background:var(--gray-light);margin:0 8px 16px;}.fco.done{background:var(--green);}
+  .fsec{background:var(--white);border:1px solid var(--gray-mid);border-radius:8px;}
+  .fsh{background:var(--slate);border-radius:7px 7px 0 0;padding:14px 24px;display:flex;align-items:center;gap:14px;}
+  .fsn{width:30px;height:30px;background:var(--maroon);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--white);flex-shrink:0;}
+  .fst{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--white);}
+  .fss{font-size:12.5px;color:rgba(255,255,255,0.55);margin-top:1px;}
+  .fbody{padding:24px;}
+  .fg{display:grid;gap:16px;}.fg.c2{grid-template-columns:1fr 1fr;}.fg.c3{grid-template-columns:1fr 1fr 1fr;}
+  .fgp{display:flex;flex-direction:column;gap:5px;position:relative;}
+  .fgp label{font-size:12.5px;font-weight:600;color:var(--slate);}
+  .fgp label .req{color:var(--maroon);margin-left:2px;}
+  .fin{width:100%;padding:10px 13px;border:1.5px solid var(--gray-mid);border-radius:4px;font-size:14.5px;color:var(--text-dark);background:var(--white);min-height:41px;display:flex;align-items:center;justify-content:space-between;gap:8px;}
+  .fin.ph{color:#9B968E;}
+  .fin .car{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--gray-text);}
+  .fhint{font-size:12px;color:var(--gray-text);line-height:1.5;}
+  .fdiv{height:1px;background:var(--gray-light);margin:20px 0;}
+  .rg{display:flex;gap:16px;flex-wrap:wrap;margin-top:4px;}
+  .ro{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text-dark);}
+  .ro i{width:17px;height:17px;border-radius:50%;border:2px solid var(--gray-mid);display:inline-block;flex-shrink:0;position:relative;}
+  .ro.on i{border-color:var(--maroon);}
+  .ro.on i::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--maroon);}
+  .cnd{margin-top:14px;padding:14px;background:var(--tan-pale);border-left:3px solid var(--maroon);border-radius:0 4px 4px 0;font-size:13px;color:var(--slate);line-height:1.55;}
+  .cnd.green{border-left-color:var(--green);background:rgba(45,106,79,0.07);}
+  .cnd.amber{border-left-color:var(--amber);background:rgba(183,121,31,0.08);}
+  .di{padding:16px 18px;border:1px solid var(--gray-mid);border-radius:6px;margin-bottom:12px;background:var(--white);}
+  .dq{font-size:14px;color:var(--text-dark);line-height:1.55;margin-bottom:10px;}
+  .urow{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--tan-pale);border:1px solid var(--gray-mid);border-radius:6px;margin-bottom:10px;position:relative;}
+  .urow.rdy{background:rgba(45,106,79,0.06);border-color:var(--green);}
+  .ucont{flex:1;}
+  .ulbl{font-size:13px;font-weight:600;color:var(--slate);}
+  .uhint{font-size:12px;color:var(--gray-text);}
+  .ust{font-size:12px;margin-top:3px;color:var(--green);font-weight:600;}
+  .ubtn{background:var(--maroon);color:var(--white);font-size:12.5px;font-weight:600;padding:8px 14px;border-radius:3px;white-space:nowrap;}
+  .ubtn.done{background:var(--green);}
+  .fnav{display:flex;justify-content:space-between;gap:12px;margin-top:22px;padding-top:18px;border-top:1px solid var(--gray-light);}
+  .fbk{background:transparent;color:var(--slate);border:1.5px solid var(--gray-mid);padding:11px 22px;font-size:14px;font-weight:600;border-radius:3px;}
+  .fnx{background:var(--maroon);color:var(--white);border:none;padding:11px 26px;font-size:14px;font-weight:600;border-radius:3px;}
+  .fsub{background:var(--green);color:var(--white);border:none;padding:12px 36px;font-size:15px;font-weight:700;border-radius:3px;}
+  .succ{text-align:center;padding:52px 32px;background:var(--white);border:1px solid var(--gray-mid);border-radius:8px;}
+  .succ-ic{width:66px;height:66px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:30px;color:var(--white);}
+  .succ h2{font-family:'Playfair Display',serif;font-size:28px;color:var(--slate);margin-bottom:12px;}
+  .succ p{font-size:15px;color:var(--gray-text);line-height:1.65;max-width:480px;margin:0 auto 10px;}
+
+  /* Gate */
+  .gate{background:var(--slate);min-height:460px;display:flex;align-items:center;justify-content:center;padding:40px 20px;}
+  .gate-card{background:var(--white);border-radius:10px;padding:40px 44px;max-width:440px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.25);text-align:center;}
+  .gate-card img{height:40px;margin-bottom:20px;}
+  .gate-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--slate);margin-bottom:8px;}
+  .gate-sub{font-size:14px;color:var(--gray-text);line-height:1.6;margin-bottom:24px;}
+  .gate-input{width:100%;padding:13px 18px;font-size:17px;font-weight:600;letter-spacing:3px;text-transform:uppercase;border:2px solid var(--maroon);border-radius:5px;text-align:center;color:var(--slate);margin-bottom:14px;box-shadow:0 0 0 3px rgba(139,38,53,0.08);}
+  .gate-btn{width:100%;background:var(--maroon);color:var(--white);border:none;padding:14px;font-size:14px;font-weight:700;border-radius:4px;}
+
+  /* Contact form mock */
+  .contactwrap{display:grid;grid-template-columns:1fr 1.1fr;gap:36px;padding:36px;background:var(--white);}
+  .contact-left .ey{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--maroon);margin-bottom:10px;}
+  .contact-left h2{font-family:'Playfair Display',serif;font-size:28px;color:var(--slate);margin-bottom:12px;line-height:1.2;}
+  .contact-left p{font-size:14.5px;color:var(--gray-text);line-height:1.7;}
+  .contact-left .ci{display:flex;gap:12px;margin-top:16px;font-size:14px;}
+  .contact-left .ci b{display:block;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--gray-text);}
+  .ccard{background:var(--slate);border-radius:8px;padding:26px;}
+  .ccard h3{font-family:'Playfair Display',serif;color:var(--white);font-size:20px;margin-bottom:16px;}
+  .ccard .fgp label{color:rgba(255,255,255,0.75);}
+  .ccard .fin{border-color:rgba(255,255,255,0.15);background:rgba(255,255,255,0.06);color:var(--white);}
+  .ccard .fin.ph{color:rgba(255,255,255,0.4);}
+  .ccard .fgp{margin-bottom:12px;}
+  .ccard .sendbtn{width:100%;background:var(--maroon);color:var(--white);border:none;padding:13px;border-radius:3px;font-weight:600;font-size:14px;margin-top:4px;}
+
+  /* Portal / dashboard */
+  .portal-top{background:var(--slate);padding:18px 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--bank);}
+  .portal-top img{height:34px;}
+  .portal-top .who{color:rgba(255,255,255,0.75);font-size:13px;text-align:right;}
+  .portal-top .who b{display:block;color:var(--white);font-weight:600;}
+  .portal-body{padding:26px 28px 30px;background:var(--off-white);display:grid;grid-template-columns:1.15fr 1fr;gap:22px;}
+  .card{background:var(--white);border:1px solid var(--gray-mid);border-radius:8px;}
+  .card .ch{padding:12px 18px;border-bottom:1px solid var(--gray-light);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray-text);display:flex;justify-content:space-between;align-items:center;}
+  .card .cb{padding:16px 18px;}
+  .ratebox{display:flex;align-items:center;gap:12px;margin:8px 0 14px;}
+  .ratebox .fin{font-size:30px;font-weight:700;color:var(--bank);font-family:'Playfair Display',serif;justify-content:center;border-color:var(--bank);box-shadow:0 0 0 3px rgba(31,95,139,0.10);flex:1;min-height:64px;}
+  .ratebox .pct{font-size:22px;color:var(--gray-text);}
+  .calcline{display:flex;justify-content:space-between;font-size:13.5px;padding:7px 0;border-bottom:1px dashed var(--gray-light);}
+  .calcline b{color:var(--slate);}
+  .pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:2px;}
+  .pill.green{background:rgba(45,106,79,0.12);color:var(--green);}
+  .pill.maroon{background:rgba(139,38,53,0.12);color:var(--maroon);}
+  .pill.bank{background:rgba(31,95,139,0.12);color:var(--bank);}
+  .pill.amber{background:rgba(183,121,31,0.14);color:var(--amber);}
+  .pill.gray{background:var(--gray-light);color:var(--gray-text);}
+
+  .bids{width:100%;border-collapse:collapse;font-size:14px;}
+  .bids th{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-text);text-align:left;padding:8px 10px;border-bottom:1px solid var(--gray-light);font-weight:700;}
+  .bids td{padding:11px 10px;border-bottom:1px solid var(--gray-light);}
+  .bids tr{animation:rowIn .5s ease both;}
+  .bids tr.win td{background:rgba(45,106,79,0.07);}
+  .bids tr.win td:first-child{border-left:4px solid var(--green);}
+  .bids .r{font-weight:700;font-variant-numeric:tabular-nums;color:var(--slate);}
+  .bids .blind{color:var(--gray-text);font-style:italic;}
+  @keyframes rowIn{from{opacity:0;transform:translateX(-8px);}to{opacity:1;transform:none;}}
+
+  .timeline{display:flex;gap:0;margin-top:6px;}
+  .tl{flex:1;text-align:center;position:relative;padding-top:18px;font-size:12px;color:var(--gray-text);}
+  .tl::before{content:"";position:absolute;top:5px;left:50%;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:var(--gray-mid);}
+  .tl::after{content:"";position:absolute;top:9px;left:50%;right:-50%;height:2px;background:var(--gray-light);z-index:-1;}
+  .tl:last-child::after{display:none;}
+  .tl.done::before{background:var(--green);}
+  .tl.now::before{background:var(--maroon);box-shadow:0 0 0 4px rgba(139,38,53,0.18);}
+  .tl b{display:block;color:var(--slate);font-size:12.5px;}
+
+  /* Notification fan-out */
+  .fanout{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .notif{background:var(--white);border-radius:8px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,0.4);animation:fadeUp .5s ease both;}
+  .notif .nh{padding:10px 14px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--white);display:flex;justify-content:space-between;}
+  .notif .nh.muni{background:var(--maroon);}.notif .nh.bank{background:var(--bank);}.notif .nh.amko{background:var(--slate);}.notif .nh.gray{background:#7A746B;}
+  .notif .nb{padding:14px 16px;font-size:13.5px;line-height:1.55;}
+  .notif .nb .to{font-size:12px;color:var(--gray-text);margin-bottom:6px;}
+  .notif .nb .sj{font-weight:600;color:var(--text-dark);margin-bottom:6px;}
+  .notif .nb p{color:var(--gray-text);}
+  .wide2{grid-column:span 2;}
+
+  /* Internal analysis */
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px;}
+  .kpi{background:var(--white);border:1px solid var(--gray-mid);border-radius:6px;padding:14px 16px;}
+  .kpi .l{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-text);}
+  .kpi .v{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--slate);margin-top:4px;}
+  .kpi .v.g{color:var(--green);}
+  .kpi .s{font-size:12px;color:var(--gray-text);margin-top:2px;}
+  .checks{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px;font-size:13.5px;}
+  .checks div{display:flex;gap:8px;align-items:flex-start;}
+  .checks .ok{color:var(--green);font-weight:700;flex-shrink:0;}
+
+  /* Callouts */
+  .hl{position:relative;z-index:2;outline:3px solid var(--maroon);outline-offset:6px;border-radius:6px;animation:pulse 1.6s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(139,38,53,0.35);}50%{box-shadow:0 0 0 14px rgba(139,38,53,0);}}
+  .tag{position:absolute;z-index:3;background:var(--maroon);color:var(--white);font-size:12.5px;font-weight:600;line-height:1.35;padding:8px 12px;border-radius:4px;max-width:260px;box-shadow:0 8px 24px rgba(0,0,0,0.25);}
+  .tag::before{content:"";position:absolute;width:0;height:0;border:7px solid transparent;}
+  .tag.below{top:calc(100% + 16px);left:0;}
+  .tag.below::before{bottom:100%;left:18px;border-bottom-color:var(--maroon);}
+  .tag.right{left:calc(100% + 18px);top:50%;transform:translateY(-50%);}
+  .tag.right::before{right:100%;top:50%;margin-top:-7px;border-right-color:var(--maroon);}
+  .tag.left{right:calc(100% + 18px);top:50%;transform:translateY(-50%);width:200px;}
+  .tag.left::before{left:100%;top:50%;margin-top:-7px;border-left-color:var(--maroon);}
+  .tag.above{bottom:calc(100% + 16px);left:0;}
+  .tag.above::before{top:100%;left:18px;border-top-color:var(--maroon);}
+  .tag b{display:block;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;opacity:.85;margin-bottom:2px;}
+
+  /* Title + end cards */
+  .titlecard{background:linear-gradient(135deg,var(--slate) 0%,var(--slate-dark) 100%);border-radius:10px;padding:64px 60px;color:var(--white);box-shadow:0 24px 60px rgba(0,0,0,0.45);position:relative;overflow:hidden;}
+  .titlecard::after{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 60px,rgba(139,38,53,0.08) 60px,rgba(139,38,53,0.08) 61px),repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(139,38,53,0.08) 60px,rgba(139,38,53,0.08) 61px);pointer-events:none;}
+  .titlecard > *{position:relative;z-index:1;}
+  .titlecard .eyebrow{display:inline-block;background:var(--maroon);color:var(--white);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:7px 14px;border-radius:2px;margin-bottom:24px;}
+  .titlecard h1{font-family:'Playfair Display',serif;font-size:44px;line-height:1.15;margin-bottom:18px;}
+  .titlecard h1 span{color:var(--tan);}
+  .titlecard p{font-size:17px;color:rgba(255,255,255,0.72);max-width:560px;line-height:1.7;margin-bottom:28px;}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:32px;}
+  .legend div{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.85);background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);padding:8px 14px;border-radius:3px;}
+  .legend i{width:10px;height:10px;border-radius:50%;display:inline-block;}
+  .sample{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(255,255,255,0.12);border-radius:6px;overflow:hidden;}
+  .sample div{background:rgba(44,62,80,0.9);padding:14px 16px;}
+  .sample .l{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);}
+  .sample .v{font-family:'Playfair Display',serif;font-size:18px;color:var(--white);margin-top:3px;}
+  .sample .v.tan{color:var(--tan);}
+  .recap{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(255,255,255,0.12);border-radius:6px;overflow:hidden;margin-bottom:28px;}
+  .recap div{background:rgba(44,62,80,0.9);padding:18px 18px;}
+  .recap .n{font-family:'Playfair Display',serif;font-size:34px;color:rgba(200,168,130,0.6);line-height:1;}
+  .recap .t{font-size:14px;font-weight:600;color:var(--white);margin:8px 0 4px;}
+  .recap .b{font-size:12.5px;color:rgba(255,255,255,0.6);line-height:1.5;}
+  .soon{border:1px dashed rgba(200,168,130,0.5);border-radius:6px;padding:18px 22px;display:flex;gap:16px;align-items:center;background:rgba(200,168,130,0.06);}
+  .soon .pill{flex-shrink:0;}
+  .soon p{margin:0;font-size:14.5px;color:rgba(255,255,255,0.8);}
+
+  .demo-note{font-size:11px;color:rgba(255,255,255,0.45);letter-spacing:.3px;text-align:center;padding:22px 0 4px;}
+
+  @media(max-width:1060px){
+    .layout{grid-template-columns:1fr;}
+    .side{border-left:none;border-top:1px solid rgba(0,0,0,0.08);}
+    .steps{max-height:260px;}
+    .stagewrap{padding:20px 16px;}
+    .topbar{padding:0 16px;}
+    .topbar .brand .tt{display:none;}
+    .topbar a.site{display:none;}
+  }
+  @media(max-width:720px){
+    .fg.c2,.fg.c3,.contactwrap,.portal-body,.kpis,.checks,.sample,.recap{grid-template-columns:1fr 1fr;}
+    .fanout{grid-template-columns:1fr;}
+    .wide2{grid-column:auto;}
+    .tag.right,.tag.left{left:0;right:auto;top:calc(100% + 16px);transform:none;}
+    .tag.right::before,.tag.left::before{right:auto;left:18px;bottom:100%;top:auto;margin:0;border-color:transparent;border-bottom-color:var(--maroon);}
+    .titlecard{padding:36px 24px;}
+    .titlecard h1{font-size:30px;}
+    .phf,.fwrap,.atb{padding-left:18px;padding-right:18px;}
+    .fbody{padding:18px;}
+    .econtent{padding:20px 18px;}
+  }
+  @media(max-width:520px){
+    .fg.c2,.fg.c3,.contactwrap,.portal-body,.kpis,.checks,.sample,.recap{grid-template-columns:1fr;}
+    .counter{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <img src="site/img/amko-logo.png" alt="AMKO Capital">
+    <div class="tt"><small>Guided walkthrough</small>AMKO Lease Advantage &mdash; From Application to Award</div>
+  </div>
+  <div class="controls">
+    <button class="ctl" id="btnPrev" title="Previous (←)"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6V6z"/></svg></button>
+    <button class="ctl play" id="btnPlay" title="Play / pause (space)"><svg id="icoPlay" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg id="icoPause" viewBox="0 0 24 24" style="display:none"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg><span id="playLbl">Play</span></button>
+    <button class="ctl" id="btnNext" title="Next (→)"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6V6z"/></svg></button>
+    <span class="counter" id="counter">1 / 19</span>
+    <a class="site" href="index.html">&larr; amkocap.com</a>
+  </div>
+</div>
+<div class="progress"><div class="bar" id="bar"></div><div id="ticks"></div></div>
+
+<div class="layout">
+  <div class="stagewrap"><div class="stage" id="stage"></div><div class="demo-note">Demonstration only. Entity, banks, people, amounts and rates are fictitious sample data.</div></div>
+  <aside class="side">
+    <div class="narr" id="narr"></div>
+    <div class="steps" id="steps"></div>
+    <div class="bottomnav">
+      <button class="prev" id="btnPrev2">&larr; Back</button>
+      <button class="next" id="btnNext2">Next &rarr;</button>
+    </div>
+  </aside>
+</div>
+
+<script>
+// ───────────────────────── Sample deal (fictitious) ─────────────────────────
+const D = {
+  entity:'City of Prairie Ridge', state:'North Dakota', st:'ND', county:'Cass County',
+  addr:'400 Main Avenue', zip:'58001', taxId:'45-0000000',
+  taxable:48250000,
+  contact:'Dana Whitfield', title:'City Auditor', phone:'(701) 555-0142', email:'dwhitfield@prairieridgend.gov',
+  equip:'Heavy Equipment / Public Works (loaders, graders, dump trucks)',
+  desc:'Three (3) new wheel loaders with snow-plow attachments for the Public Works Department, replacing units from 2008 and 2011.',
+  vendor:'Northern Plains Equipment Co.',
+  amount:1050000, term:7, freq:'Annual',
+  code:'AMKO-PRRD-4821',
+  appNo:'ALA-2026-0147',
+  banks:[
+    {name:'Red River State Bank', rate:3.89, officer:'M. Okafor', when:'Nov 12, 10:41 AM'},
+    {name:'Dakota Community Bank', rate:3.97, officer:'J. Lindqvist', when:'Nov 13, 2:16 PM'},
+    {name:'First Prairie Bank', rate:4.12, officer:'S. Patel', when:'Nov 11, 4:02 PM'},
+    {name:'Sheyenne Valley Bank', rate:4.25, officer:'R. Dubois', when:'Nov 14, 9:20 AM'},
+    {name:'Missouri Slope Bank & Trust', rate:null, officer:'—', when:'Declined Nov 13'}
+  ],
+  dates:{ request:'Thu, Nov 5, 2026', code:'Thu, Nov 5, 2026 · 2:47 PM', submit:'Mon, Nov 10, 2026 · 9:32 AM', bank:'Mon, Nov 10, 2026 · 9:41 AM',
+          remind:'Sat, Nov 15, 2026 · 8:00 AM', close:'Mon, Nov 17, 2026 · 5:00 PM CT', award:'Mon, Nov 17, 2026 · 5:04 PM', accept:'Tue, Nov 18, 2026 · 8:12 AM' }
+};
+const fmt$ = n => '$'+Math.round(n).toLocaleString('en-US');
+const pmt = (P,r,n)=>P*r/(1-Math.pow(1+r,-n));
+const winner = D.banks.filter(b=>b.rate!=null).sort((a,b)=>a.rate-b.rate)[0];
+const winPay = pmt(D.amount, winner.rate/100, D.term);
+const LOGO = 'site/img/amko-logo.png';
+
+// ───────────────────────── Building blocks ─────────────────────────
+const browser = (url, inner) => `<div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><div class="url"><span class="lock">&#128274;</span>${url}</div></div><div class="page">${inner}</div></div>`;
+const mail = (o) => `<div class="mail"><div class="mhead"><div class="subj">${o.subject}</div><div class="meta"><span class="k">From</span><span><b>${o.from}</b></span><span class="k">To</span><span>${o.to}</span>${o.cc?`<span class="k">Cc</span><span>${o.cc}</span>`:''}<span class="k">Date</span><span>${o.date}</span></div></div><div class="mbody"><div class="ebrand"><img src="${LOGO}" alt="AMKO Capital"><span>${o.band||'AMKO Lease Advantage'}</span></div><div class="econtent">${o.body}</div><div class="efoot">${o.foot||'AMKO Capital, LLC &middot; Fargo, North Dakota &middot; info@amkocap.com &middot; (701) 540-6821. This message was generated automatically by the AMKO Lease Advantage platform.'}</div></div></div>`;
+const tag = (pos, title, text) => `<div class="tag ${pos}"><b>${title}</b>${text}</div>`;
+const prog = (cur) => { const labels=['Entity','Contact','Lease','Disclosures','Financials']; let h='<div class="fprog">'; for(let i=1;i<=5;i++){ const st=i<cur?'done':i===cur?'active':'pending'; h+=`<div class="fps"><div class="fpi"><div class="fsc ${st}">${i<cur?'&#10003;':i}</div><div class="fsl ${st}">${labels[i-1]}</div></div>${i<5?`<div class="fco ${i<cur?'done':''}"></div>`:''}</div>`; } return h+'</div>'; };
+const appShell = (step, title, sub, body, navHtml) => browser('amkocap.com/#apply', `<div class="phf"><div class="ey">AMKO Lease Advantage</div><h1>Apply for the AMKO Lease Advantage</h1></div><div class="atb"><span class="ati">&#10003; No Application Fee</span><span class="ati">&#10003; Bank Responses in 7 Days</span><span class="ati">&#10003; No Obligation to Accept</span><span class="ati">&#10003; Secure &amp; Confidential</span></div><div class="fwrap">${prog(step)}<div class="fsec"><div class="fsh"><div class="fsn">${step}</div><div><div class="fst">${title}</div><div class="fss">${sub}</div></div></div><div class="fbody">${body}<div class="fnav">${navHtml}</div></div></div></div>`);
+const fld = (label, val, opts={}) => `<div class="fgp${opts.hl?' hl':''}" ${opts.id?`id="${opts.id}"`:''}><label>${label}${opts.req===false?'':' <span class="req">*</span>'}</label><div class="fin${val?'':' ph'}">${val||opts.ph||''}${opts.sel?'<span class="car"></span>':''}</div>${opts.hint?`<div class="fhint">${opts.hint}</div>`:''}${opts.tag||''}</div>`;
+const radio = (items) => `<div class="rg">${items.map(i=>`<span class="ro${i.on?' on':''}"><i></i>${i.t}</span>`).join('')}</div>`;
+const notif = (cls, who, to, subj, text) => `<div class="notif"><div class="nh ${cls}"><span>${who}</span><span>Email</span></div><div class="nb"><div class="to">To: ${to}</div><div class="sj">${subj}</div><p>${text}</p></div></div>`;
+
+// ───────────────────────── Scenes ─────────────────────────
+const SCENES = [
+// 0 ─ Title
+{ grp:'Overview', role:'all', roleLbl:'Everyone', step:'Welcome', dur:9000,
+  title:'How the AMKO Lease Advantage works, start to finish',
+  narr:`<p>This walkthrough follows one sample lease from the first contact to the city receiving its award. It shows what the municipality does, what AMKO Capital's platform does automatically, and what participating banks see.</p><div class="keyfacts"><div class="kf"><span class="n">1</span>What a public entity needs ready before it applies</div><div class="kf"><span class="n">2</span>How banks receive the opportunity and bid</div><div class="kf"><span class="n">3</span>Every notification sent along the way, through the award</div></div>`,
+  html:()=>`<div class="titlecard"><span class="eyebrow">AMKO Lease Advantage</span><h1>From Application to Award, <span>Step by Step</span></h1><p>A guided tour of the tax-exempt lease process for public entities. Press Play to watch it run like a video, or use the arrows to step through at your own pace.</p><div class="legend"><div><i style="background:var(--maroon)"></i>Municipality</div><div><i style="background:#9fb3c8"></i>AMKO Capital platform</div><div><i style="background:#4e9ad6"></i>Participating banks</div></div><div class="sample"><div><div class="l">Sample entity</div><div class="v">${D.entity}, ${D.st}</div></div><div><div class="l">Equipment</div><div class="v">3 wheel loaders</div></div><div><div class="l">Amount &amp; term</div><div class="v tan">${fmt$(D.amount)} &middot; ${D.term} yrs</div></div><div><div class="l">Structure</div><div class="v">Bank Qualified</div></div></div></div>` },
+
+// 1 ─ Request access
+{ grp:'Part 1 · The municipality applies', role:'muni', roleLbl:'Municipality', step:'Request an access code', dur:9000,
+  title:'It starts with a request for an access code',
+  narr:`<p>The application is gated. A finance officer visits <strong>amkocap.com</strong>, chooses <strong>Municipality / Government Entity</strong> in the contact form, and selects <strong>Requesting an access code</strong>. AMKO Capital reviews the request and issues a code, so every applicant is a known public entity.</p>`,
+  html:()=>browser('amkocap.com/#contact', `<div class="contactwrap"><div class="contact-left"><div class="ey">Get in Touch</div><h2>Contact AMKO Capital</h2><p>Whether you're a municipality exploring financing options or a bank interested in participating in our network, we'd love to hear from you.</p><div class="ci"><span>&#128231;</span><div><b>Email</b>info@amkocap.com</div></div><div class="ci"><span>&#128222;</span><div><b>Phone</b>(701) 540-6821</div></div><div class="ci"><span>&#9201;</span><div><b>Response time</b>Within one business day</div></div></div><div class="ccard"><h3>Send Us a Message</h3>${fld('Your Name',D.contact)}${fld('Email Address',D.email)}${fld('Phone Number',D.phone)}${fld('I am a','Municipality / Government Entity',{sel:true,hl:true,tag:tag('left','Step 1','Identify your entity type')})}${fld('What can we help with?','Requesting an access code',{sel:true,hl:true,tag:tag('left','Step 2','Ask for your application access code')})}${fld('Message','We are looking to finance three wheel loaders for Public Works in early 2027.',{req:false})}<button class="sendbtn">Send Message</button></div></div>`) },
+
+// 2 ─ Access code email
+{ grp:'Part 1 · The municipality applies', role:'amko', roleLbl:'AMKO Capital → Municipality', step:'Access code email', dur:9000,
+  title:'AMKO Capital emails the access code and a checklist',
+  narr:`<p>Within one business day the applicant receives a personal access code. The same email lists exactly what to gather before starting, so the five-minute application really takes five minutes.</p><div class="keyfacts"><div class="kf"><span class="n">1</span>Three most recent audited financial statements (PDF)</div><div class="kf"><span class="n">2</span>The entity's latest taxable value</div><div class="kf"><span class="n">3</span>Vendor quote, if available</div></div>`,
+  html:()=>mail({subject:`Your AMKO Lease Advantage access code — ${D.entity}`, from:'AMKO Capital &lt;info@amkocap.com&gt;', to:`${D.contact} &lt;${D.email}&gt;`, date:D.dates.code,
+    body:`<h3>Welcome, ${D.contact.split(' ')[0]}.</h3><p>Thank you for your interest in the AMKO Lease Advantage. Your access code for <strong>${D.entity}</strong> is:</p><div class="codebox">${D.code}</div><p>Before you begin, please have the following ready:</p><div class="hl" style="padding:14px 18px;background:var(--tan-pale);border-radius:6px;margin:4px 0 20px;"><div style="font-weight:700;color:var(--slate);margin-bottom:8px;">&#128203; Application checklist</div><div style="display:grid;gap:6px;font-size:14.5px;"><div>&#10003; <strong>Three most recent audited financial statements</strong> (or annual financial reports), as PDFs</div><div>&#10003; <strong>Latest taxable value of the entity</strong> &mdash; available from your County Auditor</div><div>&#10003; Federal Tax ID, equipment description and amount, payment frequency</div><div>&#10003; Vendor quote or invoice, if you have one (you can send it later)</div><div>&#10003; Whether you expect to issue more than $10,000,000 in tax-exempt obligations this calendar year (Bank Qualified status)</div></div>${tag('below','Have these ready','The three statements and the taxable value are the two items applicants most often need to go find.')}</div><p style="margin-top:34px;"><a class="ebtn">Start Your Application &rarr;</a></p><p style="font-size:13px;color:var(--gray-text);">There is no application fee and no obligation to accept any offer. Your code is tied to your entity and can be used once.</p>`}) },
+
+// 3 ─ Gate
+{ grp:'Part 1 · The municipality applies', role:'muni', roleLbl:'Municipality', step:'Enter the access code', dur:6000,
+  title:'Enter the code to open the application',
+  narr:`<p>Clicking <strong>Apply Now</strong> on the website opens the access screen. The code is validated live against AMKO Capital's records before the form appears.</p>`,
+  html:()=>browser('amkocap.com/#apply', `<div class="gate"><div class="gate-card"><img src="${LOGO}" alt="AMKO Capital"><div class="gate-title">AMKO Lease Advantage</div><p class="gate-sub">Enter your access code to begin your application. If you don't have an access code, contact AMKO Capital to get started.</p><div class="gate-input hl">${D.code}</div><button class="gate-btn">Continue to Application &rarr;</button><p style="font-size:12px;color:var(--gray-text);margin-top:18px;padding-top:16px;border-top:1px solid var(--gray-light);">Don't have an access code? <span style="color:var(--maroon);font-weight:600;">Contact us to request access</span></p></div></div>`) },
+
+// 4 ─ Step 1 Entity + taxable value
+{ grp:'Part 1 · The municipality applies', role:'muni', roleLbl:'Municipality', step:'Step 1 · Entity & taxable value', dur:12000,
+  title:'Step 1: entity information, including the latest taxable value',
+  narr:`<p>Basic legal and location details, plus one number many applicants have to look up: the entity's <strong>latest taxable value</strong>. It anchors the bank's credit view, because it shows the tax base that stands behind annual appropriations.</p><p style="margin-top:10px;">If the finance officer is unsure of the figure, the form points them to the County Auditor.</p>`,
+  html:()=>appShell(1,'Entity Information','Tell us about the governmental entity applying for financing',
+    `<div class="fg c2">${fld('Legal Name of Entity / Obligor',D.entity)}${fld('Street Address',D.addr)}${fld('City','Prairie Ridge')}${fld('State',D.state,{sel:true})}${fld('Zip Code',D.zip)}${fld('County',D.county)}${fld('Federal Tax ID #',D.taxId)}${fld('Taxable Value of Entity',fmt$(D.taxable),{hl:true,hint:'&#9432; If you are unsure of this value, please contact the County Auditor in which your entity resides.',tag:tag('below','Required · latest taxable value','Enter the most recent certified taxable value for the entity. Your County Auditor has it if you do not.')})}</div><div style="margin-top:72px;"><div style="font-size:12.5px;font-weight:600;color:var(--slate);margin-bottom:6px;">Type of Entity <span style="color:var(--maroon)">*</span></div>${radio([{t:'City / Municipality',on:true},{t:'County'},{t:'School District'},{t:'Special District'},{t:'Township'},{t:'Other'}])}</div>`,
+    `<span></span><button class="fnx">Continue to Contact Information &rarr;</button>`) },
+
+// 5 ─ Step 2 Contact
+{ grp:'Part 1 · The municipality applies', role:'muni', roleLbl:'Municipality', step:'Step 2 · Contact', dur:6000,
+  title:'Step 2: who AMKO Capital and the banks should talk to',
+  narr:`<p>The primary contact receives every notification in this walkthrough: the confirmation, status updates, and the award. Usually this is the auditor, finance director or clerk.</p>`,
+  html:()=>appShell(2,'Contact Information','Who should we contact about this application?',
+    `<div class="fg c2">${fld('Contact Name',D.contact)}${fld('Title',D.title)}${fld('Phone Number',D.phone)}${fld('Email Address',D.email,{hl:true,tag:tag('below','Notifications go here','Confirmation, status updates and the award email are all sent to this address.')})}</div><div style="height:56px"></div>`,
+    `<button class="fbk">&larr; Back</button><button class="fnx">Continue to Lease Request &rarr;</button>`) },
+
+// 6 ─ Step 3 Lease request
+{ grp:'Part 1 · The municipality applies', role:'muni', roleLbl:'Municipality', step:'Step 3 · Lease request', dur:13000,
+  title:'Step 3: the equipment, the amount and the term',
+  narr:`<p>Choosing the asset type suggests a lease term aligned with its useful life (heavy equipment: 5 to 7 years). The applicant enters the amount to finance, payment frequency, a short description and the vendor, and attaches the quote if one exists.</p><p style="margin-top:10px;">The step also asks whether the entity has a <strong>preferred bond counsel</strong>. That answer is captured now; the bond counsel workflow after award is the next phase of the platform.</p>`,
+  html:()=>appShell(3,'Lease Request','Tell us about the equipment or project you need to finance',
+    `<div class="fg c2">${fld('Equipment / Asset Type',D.equip,{sel:true})}${fld('Requested Lease Term',`${D.term} years`,{sel:true,hint:'<strong>Suggested term for Heavy Equipment: 5&ndash;7 years</strong> &mdash; typically aligned with the asset&rsquo;s useful life.'})}${fld('Total Amount to Finance',fmt$(D.amount),{hl:true})}${fld('Payment Frequency',D.freq,{sel:true})}</div><div class="fg" style="margin-top:16px;">${fld('Equipment / Project Description',D.desc)}${fld('Vendor / Supplier Name',D.vendor)}</div><div class="fdiv"></div><div style="font-size:12.5px;font-weight:600;color:var(--slate);margin-bottom:6px;">Vendor Quote or Invoice <span style="color:var(--maroon)">*</span></div>${radio([{t:'Yes — I have a quote or invoice to attach',on:true},{t:'No — I will provide one separately'}])}<div class="attach" style="margin-top:10px;"><span class="att"><i></i>NorthernPlains_Quote_Q-88213.pdf</span></div><div class="fdiv"></div><div style="font-size:12.5px;font-weight:600;color:var(--slate);margin-bottom:6px;">Bond Counsel <span style="color:var(--maroon)">*</span></div><div style="font-size:13px;color:var(--gray-text);margin-bottom:8px;">Does your entity have a preferred bond counsel it works with?</div>${radio([{t:'Yes — we have a preferred bond counsel',on:true},{t:'No — we do not have a preferred bond counsel'}])}<div class="cnd amber"><strong>Captured for the next phase.</strong> Bond counsel contact details are collected here so AMKO Capital can coordinate closing documents after the award. That workflow is in development and is not part of this walkthrough.</div>`,
+    `<button class="fbk">&larr; Back</button><button class="fnx">Continue to Disclosures &rarr;</button>`) },
+
+// 7 ─ Step 4 Disclosures
+{ grp:'Part 1 · The municipality applies', role:'muni', roleLbl:'Municipality', step:'Step 4 · Disclosures', dur:10000,
+  title:'Step 4: three disclosures banks always ask about',
+  narr:`<p>The entity confirms its <strong>Bank Qualified</strong> status (it reasonably expects to issue no more than $10,000,000 of tax-exempt obligations this calendar year), discloses any prior default or non-appropriation, and states whether it self-insures. Bank Qualified status is what lets banks offer the most favorable rates.</p>`,
+  html:()=>appShell(4,'Financial Disclosures','Three required questions — answers take less than one minute',
+    `<div class="di hl"><div class="dq"><strong>Bank Qualification Status</strong><br>Under IRC &sect;265(b)(3), a governmental entity may designate its tax-exempt obligations as <em>qualified tax-exempt obligations</em> (commonly called <em>Bank Qualified</em>) when the entity reasonably expects to issue no more than $10,000,000 in tax-exempt obligations during the current calendar year.</div>${radio([{t:'Bank Qualified — not more than $10,000,000 this calendar year',on:true},{t:'Nonbank Qualified — more than $10,000,000 this calendar year'}])}${tag('below','Drives the rate','Bank Qualified deals let banks deduct part of their carrying cost, so they bid lower.')}</div><div style="height:52px"></div><div class="di"><div class="dq"><strong>Prior Default or Non-Appropriation</strong><br>Has your entity ever defaulted or non-appropriated on a prior lease, bond, or legal financial obligation?</div>${radio([{t:'Yes'},{t:'No',on:true}])}</div><div class="di"><div class="dq"><strong>Self-Insurance</strong><br>Does your entity self-insure for property and liability insurance?</div>${radio([{t:'Yes'},{t:'No',on:true}])}</div>`,
+    `<button class="fbk">&larr; Back</button><button class="fnx">Continue to Financial Statements &rarr;</button>`) },
+
+// 8 ─ Step 5 Financial statements
+{ grp:'Part 1 · The municipality applies', role:'muni', roleLbl:'Municipality', step:'Step 5 · Three financial statements', dur:13000,
+  title:'Step 5: upload the three most recent financial statements',
+  narr:`<p>This is the heart of the package. The entity uploads its <strong>three most recently completed audited financial statements</strong> as PDFs, oldest first and most recent last. Banks underwrite from these, and AMKO Capital's platform reads them to build the ratio analysis in the next step.</p><div class="keyfacts"><div class="kf"><span class="n">1</span>Earliest of the three (here, fiscal year 2023)</div><div class="kf"><span class="n">2</span>Middle year (fiscal year 2024)</div><div class="kf"><span class="n">3</span>Most recent (fiscal year 2025)</div></div><p style="margin-top:10px;">An authorized official then signs electronically and submits.</p>`,
+  html:()=>appShell(5,'Financial Statements','Upload three years of audited financial statements in chronological order',
+    `<div class="cnd" style="margin:0 0 16px;">Please upload your three most recently completed audited financial statements in chronological order &mdash; <strong>oldest first, most recent last</strong>. Accepted format: PDF. Maximum file size: 25MB per file.</div><div class="hl" style="padding:4px;border-radius:8px;">${[['Earliest Financial Statement','Upload your oldest of the three financial statements first','PrairieRidge_FY2023_Audited_Financial_Statements.pdf'],['Middle Year Financial Statement','Upload your middle year financial statement','PrairieRidge_FY2024_Audited_Financial_Statements.pdf'],['Most Recent Financial Statement','Upload your most recent financial statement last','PrairieRidge_FY2025_Audited_Financial_Statements.pdf']].map((u,i)=>`<div class="urow rdy" style="margin-bottom:${i<2?'10px':'0'}"><div class="fsn" style="background:var(--green)">${i+1}</div><div class="ucont"><div class="ulbl">${u[0]} <span style="color:var(--maroon)">*</span></div><div class="uhint">${u[1]}</div><div class="ust">&#10003; ${u[2]} (4.${i+2} MB)</div></div><span class="ubtn done">&#10003; Uploaded</span></div>`).join('')}${tag('below','The three statements','Audited statements or annual financial reports for the three most recently completed fiscal years.')}</div><div class="fdiv" style="margin-top:84px;"></div><div style="font-size:12.5px;font-weight:600;color:var(--slate);margin-bottom:10px;">Authorized Signature</div><div class="fg c2">${fld('Full Name',D.contact)}${fld('Title',D.title)}</div><div style="margin-top:10px;font-size:12px;color:var(--gray-text);">By typing your name you certify the information provided is true and complete. Date: <strong>November 10, 2026</strong></div>`,
+    `<button class="fbk">&larr; Back</button><button class="fsub">Submit Application &#10003;</button>`) },
+
+// 9 ─ Submitted + confirmation
+{ grp:'Part 1 · The municipality applies', role:'amko', roleLbl:'AMKO Capital → Municipality', step:'Confirmation', dur:9000,
+  title:'Submitted. The confirmation email arrives within a minute.',
+  narr:`<p>The applicant sees an on-screen confirmation, and the platform immediately emails a receipt with the application number, a summary of what was submitted, and what happens next. From here the municipality does not need to do anything until the award arrives.</p>`,
+  html:()=>`<div style="display:grid;grid-template-columns:1fr 1.25fr;gap:20px;align-items:start;">${browser('amkocap.com/#apply',`<div class="fwrap" style="padding:28px;"><div class="succ"><div class="succ-ic">&#10003;</div><h2>Application Submitted</h2><p>Thank you. Your application has been received by AMKO Capital and is being processed.</p><p style="font-size:14px;">You will receive a confirmation email shortly. Expect rate offers within 7 days.</p></div></div>`)}${mail({subject:`Application received — ${D.entity} (${D.appNo})`, from:'AMKO Capital &lt;info@amkocap.com&gt;', to:`${D.contact} &lt;${D.email}&gt;`, date:D.dates.submit,
+    body:`<h3>We have your application.</h3><p>Application <strong>${D.appNo}</strong> for <strong>${D.entity}</strong> was received on November 10, 2026.</p><table class="dealtbl"><tr><td>Amount to finance</td><td>${fmt$(D.amount)}</td></tr><tr><td>Equipment</td><td>Three wheel loaders, Public Works</td></tr><tr><td>Requested term</td><td>${D.term} years, ${D.freq.toLowerCase()} payments</td></tr><tr><td>Structure</td><td>Bank Qualified tax-exempt lease</td></tr><tr><td>Documents received</td><td>3 financial statements, 1 vendor quote</td></tr></table><p><strong>What happens next</strong></p><p>1. Our platform analyzes your financials and packages the opportunity for our bank network today.<br>2. Banks have <strong>7 days</strong> to submit a rate. The response window closes <strong>${D.dates.close}</strong>.<br>3. You will receive the winning rate by email with a one-click Accept or Decline.</p>`})}</div>` },
+
+// 10 ─ AMKO analysis
+{ grp:'Part 2 · AMKO Capital packages the deal', role:'amko', roleLbl:'AMKO Capital platform', step:'Automated analysis', dur:12000,
+  title:'Minutes later: the platform builds the credit package',
+  narr:`<p>The three financial statements and the taxable value feed an automated ratio analysis. The result is a one-page opportunity summary every bank receives, so each lender starts from the same clean facts instead of requesting documents one at a time.</p><p style="margin-top:10px;">AMKO Capital's team is notified at the same time and can review before release.</p>`,
+  html:()=>browser('platform.amkocap.com/applications/'+D.appNo, `<div class="portal-top"><img src="${LOGO}" alt="AMKO Capital"><div class="who"><b>Internal · Opportunity ${D.appNo}</b>Received ${D.dates.submit}</div></div><div style="padding:24px 28px 28px;background:var(--off-white);"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;"><div><div style="font-family:'Playfair Display',serif;font-size:22px;color:var(--slate);">${D.entity}, ${D.st}</div><div style="font-size:13px;color:var(--gray-text);">${fmt$(D.amount)} &middot; ${D.term}-year Bank Qualified lease &middot; Heavy equipment</div></div><span class="pill green">Analysis complete · 9:38 AM</span></div><div class="kpis"><div class="kpi"><div class="l">Taxable value</div><div class="v">$48.25M</div><div class="s">Certified, Cass County</div></div><div class="kpi"><div class="l">Lease ÷ taxable value</div><div class="v g">${(D.amount/D.taxable*100).toFixed(2)}%</div><div class="s">Well inside guideline</div></div><div class="kpi"><div class="l">General fund balance</div><div class="v">41%</div><div class="s">of annual expenditures, FY2025</div></div><div class="kpi"><div class="l">Existing lease &amp; debt service</div><div class="v">3.1%</div><div class="s">of annual revenue</div></div></div><div style="display:grid;grid-template-columns:1.2fr 1fr;gap:16px;"><div class="card"><div class="ch">Three-year trend <span class="pill gray">from the uploaded statements</span></div><div class="cb"><table class="bids" style="font-size:13.5px;"><tr><th></th><th>FY2023</th><th>FY2024</th><th>FY2025</th></tr><tr><td>General fund revenue</td><td>$6.84M</td><td>$7.12M</td><td>$7.41M</td></tr><tr><td>General fund balance</td><td>$2.51M</td><td>$2.78M</td><td>$3.04M</td></tr><tr><td>Property tax collections</td><td>97.8%</td><td>98.3%</td><td>98.6%</td></tr><tr><td>Audit opinion</td><td>Unmodified</td><td>Unmodified</td><td>Unmodified</td></tr></table></div></div><div class="card"><div class="ch">Package checks</div><div class="cb"><div class="checks" style="grid-template-columns:1fr;"><div><span class="ok">&#10003;</span>Three consecutive audited statements received</div><div><span class="ok">&#10003;</span>Taxable value entered and consistent with audit</div><div><span class="ok">&#10003;</span>Bank Qualified designation confirmed</div><div><span class="ok">&#10003;</span>No prior default or non-appropriation</div><div><span class="ok">&#10003;</span>Vendor quote matches amount to finance</div><div><span class="ok">&#10003;</span>Term within useful-life guideline</div></div><div style="margin-top:14px;"><a class="ebtn" style="width:100%;text-align:center;display:block;">Release to Bank Network &rarr;</a></div></div></div></div></div>`) },
+
+// 11 ─ Bank opportunity email
+{ grp:'Part 3 · Banks bid', role:'bank', roleLbl:'AMKO Capital → Banks', step:'Bank opportunity email', dur:14000,
+  title:'Every participating bank receives the same opportunity email',
+  narr:`<p>At 9:41 AM, nine minutes after submission, each bank in the network gets a complete package: the deal terms, the key ratios, the three financial statements and the quote as attachments, and a secure link to submit a rate. The response deadline is stated up front.</p><p style="margin-top:10px;">Banks never see each other's bids. They simply submit their best rate.</p>`,
+  html:()=>mail({subject:`New Bank Qualified lease opportunity — ${D.entity}, ${D.st} — ${fmt$(D.amount)} · ${D.term} yrs — respond by Nov 17`, from:'AMKO Lease Advantage &lt;opportunities@amkocap.com&gt;', to:'Municipal Lending Desk &lt;munilending@redriverstatebank.example&gt;', date:D.dates.bank, band:'New opportunity · '+D.appNo,
+    body:`<h3>${D.entity}, ${D.state}</h3><p style="margin-top:-6px;color:var(--gray-text);">Tax-exempt lease-purchase &middot; <span class="pill green">Bank Qualified</span> &middot; <span class="pill maroon">Response window closes ${D.dates.close}</span></p><table class="dealtbl"><tr><td>Amount to finance</td><td>${fmt$(D.amount)}</td></tr><tr><td>Term &amp; payments</td><td>${D.term} years, ${D.freq.toLowerCase()} payments in arrears</td></tr><tr><td>Equipment</td><td>Three new wheel loaders with plow attachments (Public Works)</td></tr><tr><td>Vendor</td><td>${D.vendor}</td></tr><tr class="hi"><td>Taxable value of entity</td><td>${fmt$(D.taxable)}</td></tr><tr><td>Lease ÷ taxable value</td><td>${(D.amount/D.taxable*100).toFixed(2)}%</td></tr><tr><td>General fund balance, FY2025</td><td>$3.04M (41% of expenditures)</td></tr><tr><td>Prior default / non-appropriation</td><td>None</td></tr><tr><td>Self-insured</td><td>No</td></tr></table><p><strong>Attachments</strong></p><div class="attach hl" style="padding:10px;border-radius:6px;"><span class="att"><i></i>FY2023 Audited Financial Statements</span><span class="att"><i></i>FY2024 Audited Financial Statements</span><span class="att"><i></i>FY2025 Audited Financial Statements</span><span class="att"><i></i>Vendor Quote Q-88213</span><span class="att"><i></i>AMKO Opportunity Summary</span>${tag('below','Full package, first email','The same three statements the city uploaded, plus the quote and AMKO\'s one-page summary.')}</div><p style="margin-top:44px;"><a class="ebtn bank">Submit Your Rate &rarr;</a> &nbsp; <a class="ebtn gray">Decline This Opportunity</a></p><p style="font-size:13px;color:var(--gray-text);">Rates are submitted blind and ranked lowest to highest. The lowest qualifying rate is awarded when the window closes. You will be notified of the outcome either way.</p>`,
+    foot:'Sent to participating banks in the AMKO Lease Advantage network. Opportunity details are confidential to recipients.'}) },
+
+// 12 ─ Bank portal
+{ grp:'Part 3 · Banks bid', role:'bank', roleLbl:'Bank', step:'Bank submits a rate', dur:11000,
+  title:'The bank reviews and submits its rate in the secure portal',
+  narr:`<p>The link opens a one-page response form. The lender sees the deal, the payment its rate would produce, and the deadline. It enters an annual tax-exempt rate and confirms. No phone calls and no back-and-forth are required.</p>`,
+  html:()=>browser('portal.amkocap.com/respond/'+D.appNo, `<div class="portal-top"><img src="${LOGO}" alt="AMKO Capital"><div class="who"><b>Red River State Bank</b>Municipal Lending Desk · M. Okafor</div></div><div class="portal-body"><div class="card"><div class="ch">Opportunity <span class="pill green">Bank Qualified</span></div><div class="cb"><div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--slate);margin-bottom:4px;">${D.entity}, ${D.st}</div><div style="font-size:13px;color:var(--gray-text);margin-bottom:12px;">${D.appNo} &middot; Three wheel loaders, Public Works</div><div class="calcline"><span>Amount to finance</span><b>${fmt$(D.amount)}</b></div><div class="calcline"><span>Term</span><b>${D.term} years, ${D.freq.toLowerCase()}</b></div><div class="calcline"><span>Taxable value of entity</span><b>${fmt$(D.taxable)}</b></div><div class="calcline"><span>Financial statements</span><b>FY2023 · FY2024 · FY2025</b></div><div class="calcline"><span>Response window closes</span><b style="color:var(--maroon)">${D.dates.close}</b></div><div class="attach" style="margin-top:14px;"><span class="att"><i></i>FY2023</span><span class="att"><i></i>FY2024</span><span class="att"><i></i>FY2025</span><span class="att"><i></i>Quote</span><span class="att"><i></i>Summary</span></div></div></div><div class="card"><div class="ch">Your response</div><div class="cb"><div style="font-size:13px;font-weight:600;color:var(--slate);">Annual tax-exempt rate offered</div><div class="ratebox hl"><div class="fin">${winner.rate.toFixed(2)}</div><span class="pct">%</span>${tag('below','Blind bid','Only AMKO Capital sees this until the window closes. Lowest qualifying rate wins.')}</div><div style="height:68px"></div><div class="calcline"><span>Resulting annual payment</span><b>${fmt$(winPay)}</b></div><div class="calcline"><span>Total interest over term</span><b>${fmt$(winPay*D.term-D.amount)}</b></div><div class="calcline"><span>Rate held through</span><b>Closing (est. 2 to 4 weeks)</b></div><div class="ro on" style="margin:16px 0 10px;font-size:13px;"><i></i>I am authorized to submit this rate on behalf of Red River State Bank.</div><a class="ebtn bank" style="display:block;text-align:center;">Submit Rate &#10003;</a><div style="font-size:12px;color:var(--gray-text);margin-top:10px;text-align:center;">You may revise your rate any time before the window closes.</div></div></div></div>`) },
+
+// 13 ─ Notifications after a bid
+{ grp:'Part 3 · Banks bid', role:'amko', roleLbl:'AMKO Capital → Bank & Municipality', step:'Bid confirmations', dur:10000,
+  title:'Each bid triggers two notifications',
+  narr:`<p>The bank gets a receipt showing exactly what it submitted and when it can revise. The municipality gets a status update that its opportunity is live and how many banks have responded so far, with no rates disclosed. AMKO Capital's team sees the bid land on the live ranking.</p>`,
+  html:()=>`<div class="fanout">${notif('bank','To the bank','munilending@redriverstatebank.example',`Rate received — ${D.entity} (${D.appNo})`,`Thank you. We recorded your rate of <strong>${winner.rate.toFixed(2)}%</strong> on Nov 12 at 10:41 AM. You may revise it until ${D.dates.close}. We will notify you of the outcome when the window closes.`)}${notif('muni','To the municipality',D.email,`Status update — your opportunity is live with 5 banks`,`Your application ${D.appNo} was released to the bank network on Nov 10. <strong>1 of 5</strong> banks has responded so far. Rates are sealed until the window closes on <strong>Nov 17 at 5:00 PM CT</strong>. No action is needed from you.`)}${notif('amko','To AMKO Capital','deals@amkocap.com',`Bid #1 received — ${D.entity}`,`Red River State Bank submitted ${winner.rate.toFixed(2)}%. Live ranking updated. 4 banks outstanding.`)}<div class="notif wide2" style="grid-column:1 / -1;"><div class="nh amko"><span>Platform timeline · ${D.appNo}</span><span>Automatic</span></div><div class="nb"><div class="timeline"><div class="tl done"><b>Nov 10 · 9:32</b>Application submitted</div><div class="tl done"><b>Nov 10 · 9:38</b>Analysis complete</div><div class="tl done"><b>Nov 10 · 9:41</b>Sent to 5 banks</div><div class="tl now"><b>Nov 12 · 10:41</b>First bid received</div><div class="tl"><b>Nov 15 · 8:00</b>48-hour reminder</div><div class="tl"><b>Nov 17 · 5:00 PM</b>Window closes</div><div class="tl"><b>Nov 17 · 5:04 PM</b>Award emailed</div></div></div></div></div>` },
+
+// 14 ─ Reminder + live ranking
+{ grp:'Part 3 · Banks bid', role:'amko', roleLbl:'AMKO Capital platform', step:'Reminder & live ranking', dur:12000,
+  title:'Reminders go out, and bids rank themselves as they arrive',
+  narr:`<p>Forty-eight hours before the deadline, banks that have not yet responded receive a reminder. Meanwhile AMKO Capital's dashboard ranks every bid lowest to highest as it arrives. Banks see none of this. The municipality sees only the count.</p>`,
+  html:()=>`<div style="display:grid;grid-template-columns:1fr 1.35fr;gap:20px;align-items:start;">${mail({subject:`Reminder: 48 hours left to respond — ${D.entity} (${fmt$(D.amount)})`, from:'AMKO Lease Advantage &lt;opportunities@amkocap.com&gt;', to:'Municipal Lending &lt;lending@sheyennevalleybank.example&gt;', date:D.dates.remind, band:'Reminder · '+D.appNo,
+    body:`<p>The response window for <strong>${D.entity}, ${D.st}</strong> closes <strong>${D.dates.close}</strong>.</p><table class="dealtbl"><tr><td>Amount</td><td>${fmt$(D.amount)}</td></tr><tr><td>Term</td><td>${D.term} years, annual</td></tr><tr><td>Structure</td><td>Bank Qualified</td></tr></table><p><a class="ebtn bank">Submit Your Rate &rarr;</a></p><p style="font-size:13px;color:var(--gray-text);">If this opportunity is not a fit, click Decline so we can note it for your institution.</p>`, foot:'You are receiving this because your institution has not yet responded to this opportunity.'})}${browser('platform.amkocap.com/applications/'+D.appNo+'/bids',`<div class="portal-top"><img src="${LOGO}" alt="AMKO Capital"><div class="who"><b>Internal · Live ranking</b>Window closes ${D.dates.close}</div></div><div style="padding:22px 24px 26px;background:var(--off-white);"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;"><div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--slate);">${D.entity} &middot; ${fmt$(D.amount)}</div><span class="pill amber">4 of 5 responded · 1 declined</span></div><div class="card"><div class="cb" style="padding:6px 10px 10px;"><table class="bids"><tr><th>Rank</th><th>Bank</th><th>Rate</th><th>Annual payment</th><th>Received</th></tr>${D.banks.filter(b=>b.rate!=null).sort((a,b)=>a.rate-b.rate).map((b,i)=>`<tr style="animation-delay:${0.4+i*0.7}s"><td class="r">${i+1}</td><td>${b.name}</td><td class="r">${b.rate.toFixed(2)}%</td><td>${fmt$(pmt(D.amount,b.rate/100,D.term))}</td><td style="color:var(--gray-text);font-size:13px;">${b.when}</td></tr>`).join('')}<tr style="animation-delay:3.3s"><td class="r">—</td><td>Missouri Slope Bank &amp; Trust</td><td class="blind">Declined</td><td class="blind">—</td><td style="color:var(--gray-text);font-size:13px;">Nov 13</td></tr></table></div></div><div style="font-size:12.5px;color:var(--gray-text);margin-top:12px;">Visible to AMKO Capital only. Banks and the municipality do not see individual bids until award.</div></div>`)}</div>` },
+
+// 15 ─ Window closes
+{ grp:'Part 4 · The award', role:'amko', roleLbl:'AMKO Capital platform', step:'Window closes · ranking final', dur:10000,
+  title:'5:00 PM on day seven: the window closes and the lowest rate wins',
+  narr:`<p>At the deadline the platform locks the bids and ranks them. The lowest qualifying rate is the award. In this sample, Red River State Bank's <strong>${winner.rate.toFixed(2)}%</strong> wins, producing an annual payment of about <strong>${fmt$(winPay)}</strong> on ${fmt$(D.amount)} over ${D.term} years.</p><p style="margin-top:10px;">The award email to the municipality goes out automatically four minutes later.</p>`,
+  html:()=>browser('platform.amkocap.com/applications/'+D.appNo+'/award',`<div class="portal-top"><img src="${LOGO}" alt="AMKO Capital"><div class="who"><b>Internal · Final ranking</b>Closed ${D.dates.close}</div></div><div style="padding:24px 28px 28px;background:var(--off-white);"><div style="display:grid;grid-template-columns:1.4fr 1fr;gap:18px;"><div class="card"><div class="ch">Final ranking <span class="pill green">Window closed · locked</span></div><div class="cb" style="padding:6px 10px 10px;"><table class="bids"><tr><th>Rank</th><th>Bank</th><th>Rate</th><th>Annual payment</th><th>Result</th></tr>${D.banks.filter(b=>b.rate!=null).sort((a,b)=>a.rate-b.rate).map((b,i)=>`<tr class="${i===0?'win':''}" style="animation-delay:${0.3+i*0.35}s"><td class="r">${i+1}</td><td>${b.name}</td><td class="r">${b.rate.toFixed(2)}%</td><td>${fmt$(pmt(D.amount,b.rate/100,D.term))}</td><td>${i===0?'<span class="pill green">Awarded</span>':'<span class="pill gray">Not selected</span>'}</td></tr>`).join('')}</table></div></div><div><div class="kpi hl" style="margin-bottom:12px;"><div class="l">Winning rate</div><div class="v g" style="font-size:36px;">${winner.rate.toFixed(2)}%</div><div class="s">${winner.name}</div>${tag('below','Lowest qualifying rate','Ranked automatically. No negotiation, no favorites.')}</div><div style="height:46px"></div><div class="kpi" style="margin-bottom:12px;"><div class="l">Annual payment</div><div class="v">${fmt$(winPay)}</div><div class="s">${D.term} annual payments in arrears</div></div><div class="kpi"><div class="l">Spread, best to 4th</div><div class="v">${(D.banks[3].rate-winner.rate).toFixed(2)} pts</div><div class="s">${fmt$((pmt(D.amount,D.banks[3].rate/100,D.term)-winPay)*D.term)} saved over the term vs. the highest bid</div></div></div></div></div>`) },
+
+// 16 ─ Award email to city
+{ grp:'Part 4 · The award', role:'muni', roleLbl:'AMKO Capital → Municipality', step:'Award email · Accept / Decline', dur:14000,
+  title:'The city receives the award with one-click Accept or Decline',
+  narr:`<p>Seven days after applying, the finance officer has the winning rate, the payment schedule it produces, the name of the bank, and two buttons. Accepting is not a closing. It tells AMKO Capital and the bank to proceed to documentation. Declining carries no cost and no obligation.</p>`,
+  html:()=>mail({subject:`Your AMKO Lease Advantage award — ${winner.rate.toFixed(2)}% from ${winner.name} — ${D.entity}`, from:'AMKO Capital &lt;info@amkocap.com&gt;', to:`${D.contact} &lt;${D.email}&gt;`, cc:'Brian Osowski, AMKO Capital', date:D.dates.award, band:'Award · '+D.appNo,
+    body:`<h3>Congratulations, ${D.contact.split(' ')[0]}. Your opportunity has an award.</h3><p>The response window for application <strong>${D.appNo}</strong> closed today at 5:00 PM. Four banks submitted rates. The lowest qualifying rate is:</p><div class="hl" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:var(--gray-mid);border-radius:6px;overflow:hidden;margin:6px 0 22px;"><div style="background:var(--white);padding:16px 18px;"><div style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-text);">Winning rate</div><div style="font-family:'Playfair Display',serif;font-size:32px;color:var(--green);font-weight:700;">${winner.rate.toFixed(2)}%</div><div style="font-size:12.5px;color:var(--gray-text);">${winner.name}</div></div><div style="background:var(--white);padding:16px 18px;"><div style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-text);">Annual payment</div><div style="font-family:'Playfair Display',serif;font-size:32px;color:var(--slate);font-weight:700;">${fmt$(winPay)}</div><div style="font-size:12.5px;color:var(--gray-text);">${D.term} payments, first due one year after funding</div></div><div style="background:var(--white);padding:16px 18px;"><div style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-text);">Total of payments</div><div style="font-family:'Playfair Display',serif;font-size:32px;color:var(--slate);font-weight:700;">${fmt$(winPay*D.term)}</div><div style="font-size:12.5px;color:var(--gray-text);">${fmt$(winPay*D.term-D.amount)} total interest</div></div></div><table class="dealtbl"><tr><td>Amount financed</td><td>${fmt$(D.amount)}</td></tr><tr><td>Term</td><td>${D.term} years, annual payments in arrears</td></tr><tr><td>Structure</td><td>Bank Qualified tax-exempt lease-purchase</td></tr><tr><td>Rate held through</td><td>Closing, estimated 2 to 4 weeks after acceptance</td></tr><tr><td>Attached</td><td>Proposed payment schedule (PDF)</td></tr></table><p style="margin:22px 0 10px;" class="hl"><a class="ebtn green">&#10003; Accept This Award</a> &nbsp; <a class="ebtn gray">Decline</a></p><p style="font-size:13px;color:var(--gray-text);margin-top:26px;">Accepting authorizes AMKO Capital and ${winner.name} to begin closing documentation. It is not a binding lease. There is no fee to your entity at any point; AMKO Capital is compensated by the bank at closing.</p>`}) },
+
+// 17 ─ Accept + fan-out
+{ grp:'Part 4 · The award', role:'all', roleLbl:'Municipality → Everyone', step:'City accepts · notifications', dur:13000,
+  title:'The city clicks Accept. Everyone is notified at once.',
+  narr:`<p>One click records the acceptance and sends four messages: a confirmation to the city, a "your rate was selected" notice to the winning bank, a courtesy "not selected" notice to the other banks, and an internal hand-off to AMKO Capital to begin closing. The municipality has gone from application to accepted award in <strong>eight days</strong>.</p>`,
+  html:()=>`<div style="display:grid;gap:18px;">${browser('amkocap.com/award/'+D.appNo,`<div style="padding:34px 28px;background:var(--off-white);"><div class="succ" style="padding:36px 28px;"><div class="succ-ic">&#10003;</div><h2>Award Accepted</h2><p>${D.entity} accepted the ${winner.rate.toFixed(2)}% rate from ${winner.name} on ${D.dates.accept}.</p><p style="font-size:14px;">AMKO Capital will contact you within one business day to begin closing documentation.</p></div></div>`)}<div class="fanout">${notif('muni','To the municipality',D.email,'Acceptance recorded — next steps','Thank you. We recorded your acceptance of <strong>'+winner.rate.toFixed(2)+'%</strong> from '+winner.name+'. Our team will reach out within one business day to coordinate bond counsel and closing documents.')}${notif('bank','To the winning bank','munilending@redriverstatebank.example',`Your rate was selected — ${D.entity}`,'Your '+winner.rate.toFixed(2)+'% rate was the lowest qualifying bid and the municipality has accepted. AMKO Capital will coordinate documentation and a target closing date with your team.')}${notif('gray','To the other banks','3 institutions',`Outcome — ${D.entity}`,'Thank you for responding. Another institution\'s rate was selected for this opportunity. We appreciate your participation and will keep you on the list for upcoming opportunities.')}${notif('amko','To AMKO Capital','deals@amkocap.com',`Award accepted — begin closing · ${D.appNo}`,'City accepted '+winner.rate.toFixed(2)+'% from '+winner.name+'. Preferred bond counsel on file: Yes. Open the closing checklist.')}</div></div>` },
+
+// 18 ─ Recap / next
+{ grp:'Overview', role:'all', roleLbl:'Recap', step:'Recap & what comes next', dur:12000,
+  title:'Eight days, one application, four competing bids',
+  narr:`<p>The municipality filled out one form, uploaded three financial statements and one taxable value, and clicked Accept. Everything in between, from analysis to bank outreach to ranking to notifications, ran automatically.</p><p style="margin-top:10px;">The next phase, coordinating bond counsel and closing documents after acceptance, is in development and will pick up exactly where this walkthrough ends.</p>`,
+  html:()=>`<div class="titlecard"><span class="eyebrow">Recap</span><h1>What the municipality did, and <span>what ran automatically</span></h1><div class="recap"><div><div class="n">01</div><div class="t">Apply</div><div class="b">Access code, one five-step form, three financial statements, latest taxable value.</div></div><div><div class="n">02</div><div class="t">Analysis &amp; outreach</div><div class="b">Ratios computed and the package sent to the bank network within minutes.</div></div><div><div class="n">03</div><div class="t">Banks bid blind</div><div class="b">Seven-day window, reminders, receipts, and a live ranking visible only to AMKO.</div></div><div><div class="n">04</div><div class="t">Award</div><div class="b">Lowest rate wins. One-click Accept, and every party is notified at once.</div></div></div><div class="sample" style="margin-bottom:28px;"><div><div class="l">Day 0</div><div class="v">Application submitted</div></div><div><div class="l">Day 0, +9 min</div><div class="v">Sent to 5 banks</div></div><div><div class="l">Day 7</div><div class="v tan">${winner.rate.toFixed(2)}% awarded</div></div><div><div class="l">Day 8</div><div class="v">City accepts</div></div></div><div class="soon"><span class="pill amber">Next phase</span><p><strong>Bond counsel &amp; closing documentation.</strong> After acceptance, AMKO Capital coordinates the entity's preferred bond counsel (captured in Step 3), the bank, and the vendor through to funding. This workflow is in development.</p></div></div>` }
+];
+
+// ───────────────────────── Player ─────────────────────────
+let cur = 0, playing = false, timer = null, panTimer = null, startedAt = 0, remaining = 0;
+const $ = id => document.getElementById(id);
+const stage=$('stage'), narr=$('narr'), steps=$('steps'), bar=$('bar'), counter=$('counter');
+
+function buildSteps(){
+  let grp=''; let h='';
+  SCENES.forEach((s,i)=>{ if(s.grp!==grp){grp=s.grp;h+=`<div class="grp">${grp}</div>`;} h+=`<button data-i="${i}"><span class="dot"></span><span class="num">${i+1}</span><span>${s.step}</span></button>`; });
+  steps.innerHTML=h;
+  steps.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>go(+b.dataset.i,true)));
+  const ticks=$('ticks'); SCENES.forEach((s,i)=>{ if(i===0)return; const t=document.createElement('div'); t.className='tick'; t.style.left=(i/SCENES.length*100)+'%'; ticks.appendChild(t); });
+}
+function render(){
+  const s=SCENES[cur];
+  stage.innerHTML=`<div class="scene">${s.html()}</div>`;
+  narr.innerHTML=`<span class="role ${s.role}">${s.roleLbl}</span><h2>${s.title}</h2>${s.narr}`;
+  steps.querySelectorAll('button').forEach((b,i)=>{ b.classList.toggle('cur',i===cur); b.classList.toggle('done',i<cur); if(i===cur) b.scrollIntoView({block:'nearest'}); });
+  counter.textContent=`${cur+1} / ${SCENES.length}`;
+  bar.style.width=((cur+1)/SCENES.length*100)+'%';
+  $('btnPrev').disabled=$('btnPrev2').disabled=cur===0;
+  $('btnNext2').textContent = cur===SCENES.length-1 ? 'Start over' : 'Next →';
+  const sw=document.querySelector('.stagewrap'); sw.scrollTop=0; clearTimeout(panTimer);
+  if(playing){ panTimer=setTimeout(()=>{ if(sw.scrollHeight>sw.clientHeight+40) sw.scrollTo({top:sw.scrollHeight,behavior:'smooth'}); }, Math.min(3200, SCENES[cur].dur*0.35)); }
+  const u=new URL(location); u.searchParams.set('scene',cur+1); history.replaceState(null,'',u);
+}
+function go(i,manual){
+  if(i<0) i=0;
+  if(i>=SCENES.length){ if(playing){ stop(); i=SCENES.length-1; } else { i=0; } }
+  cur=i; render();
+  if(playing) schedule();
+}
+function schedule(){
+  clearTimeout(timer);
+  remaining=SCENES[cur].dur; startedAt=Date.now();
+  timer=setTimeout(()=>go(cur+1),remaining);
+}
+function play(){ playing=true; $('icoPlay').style.display='none'; $('icoPause').style.display=''; $('playLbl').textContent='Pause'; schedule(); }
+function stop(){ playing=false; clearTimeout(timer); $('icoPlay').style.display=''; $('icoPause').style.display='none'; $('playLbl').textContent='Play'; }
+function toggle(){ playing?stop():play(); }
+
+$('btnPlay').addEventListener('click',toggle);
+$('btnPrev').addEventListener('click',()=>go(cur-1,true));
+$('btnNext').addEventListener('click',()=>go(cur+1,true));
+$('btnPrev2').addEventListener('click',()=>go(cur-1,true));
+$('btnNext2').addEventListener('click',()=>go(cur===SCENES.length-1?0:cur+1,true));
+document.addEventListener('keydown',e=>{ if(e.target.tagName==='INPUT')return; if(e.key==='ArrowRight'||e.key==='PageDown'){go(cur+1,true);} else if(e.key==='ArrowLeft'||e.key==='PageUp'){go(cur-1,true);} else if(e.key===' '){e.preventDefault();toggle();} else if(e.key==='Home'){go(0,true);} else if(e.key==='End'){go(SCENES.length-1,true);} });
+
+buildSteps();
+(function init(){
+  const p=new URL(location).searchParams; const sc=parseInt(p.get('scene')||'1',10);
+  cur=isNaN(sc)?0:Math.min(Math.max(sc-1,0),SCENES.length-1);
+  render();
+  if(p.get('autoplay')==='1') play();
+})();
+</script>
+</body>
+</html>
